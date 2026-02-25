@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  background-color: #f9fafb;  /* Light gray bg for overall polish */
+}
+
+a {
+  transition: color 0.3s ease, transform 0.3s ease;  /* Smooth hovers */
+}
+
+img {
+  transition: transform 0.3s ease;  /* Image zoom on hover */
+}
+
+.container {
+  transition: all 0.3s ease;  /* Subtle section fade on load */
+}

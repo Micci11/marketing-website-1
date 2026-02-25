@@ -1,0 +1,39 @@
+---
+import Logo from './Logo.astro';
+---
+
+<header class="sticky top-0 z-50 border-b bg-white/90 backdrop-blur-md shadow-sm">
+  <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-6 py-5 flex items-center justify-between">
+<!-- Left: Emblem + CraveSmart – moved further left (only this element) -->
+<a href="/" class="flex items-center gap-3 shrink-0 -ml-6 sm:-ml-8 lg:-ml-12">
+  <Logo class="w-10 h-10 md:w-11 md:h-11 flex-shrink-0" />
+  <span class="font-heading text-2xl md:text-3xl font-bold text-gray-900 whitespace-nowrap">
+    CraveSmart  
+  </span>
+</a>
+  
+
+    <!-- Center: Navigation -->
+    <nav class="hidden md:flex items-center gap-8 lg:gap-10 text-base font-medium text-gray-700">
+      <a class="hover:text-tiffany transition-colors" href="/">Home</a>
+      <a class="hover:text-tiffany transition-colors" href="/breakfast">Breakfast</a>
+      <a class="hover:text-tiffany transition-colors" href="/dinner">Dinner</a>
+      <a class="hover:text-tiffany transition-colors" href="/snacks">Snacks</a>
+      <a class="hover:text-tiffany transition-colors" href="/desserts">Desserts</a>
+      <a class="hover:text-tiffany transition-colors" href="/supplements">Supplements</a>
+      <a class="hover:text-tiffany transition-colors" href="/contact">Contact</a>
+      <a class="hover:text-tiffany transition-colors" href="/about">About</a>
+    </nav>
+
+    <!-- Right: Instagram -->
+    <a
+      href="https://instagram.com/yourusername"  
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center gap-3 text-gray-700 hover:text-tiffany transition-colors shrink-0"
+    >
+      <Logo class="w-8 h-8 md:w-9 md:h-9 flex-shrink-0" />
+      <span class="font-medium hidden lg:block">@yourusername</span>
+    </a>
+  </div>
+</header>

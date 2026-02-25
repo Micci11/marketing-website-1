@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';  // Adjust path if layouts folder is different
+import { getCollection, getEntry } from 'astro:content';
+import { ViewTransitions } from 'astro:transitions';
+
+import "../../styles/global.css";  // ← Correct way: import bundles Tailwind (no 404)
+
+export async function getStaticPaths() {
+  const recipes = await getCollection('recipes');
+  return recipes.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+// Safety check (prevents undefined crashes if collection empty or bad link)
+if (!entry) {
+  return Astro.redirect('/404');  // Or render a fallback message
+}
+
+const { Content } = await entry.render();
+const { title, description, verdict } = entry.data;
+---
+
+<BaseLayout 
+  title={`${title} | CraveSmart`} 
+  description={description || "A macro-aware recipe that satisfies cravings smartly."}
+>
+  <main class="prose prose-lg max-w-4xl mx-auto py-12 px-4 md:px-0">
+    <h1 class="text-4xl md:text-5xl font-heading font-bold text-tiffany mb-6">
+      {title}
+    </h1>
+
+    {description && (
+      <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+        {description}
+      </p>
+    )}
+
+    <span class="inline-block px-4 py-2 rounded-full text-base font-semibold mb-10
+      {verdict === 'Works' ? 'bg-green-100 text-green-800' : 
+       verdict === 'Meh' ? 'bg-yellow-100 text-yellow-800' : 
+       'bg-red-100 text-red-800'}">
+      Verdict: {verdict}
+    </span>
+
+    <div class="prose-headings:text-tiffany prose-a:text-tiffany hover:prose-a:underline">
+      <Content />
+    </div>
+
+    <!-- Optional: Back link or related recipes -->
+    <div class="mt-12 text-center">
+      <a href="/" class="text-tiffany hover:text-tiffany-dark font-medium">
+        ← Back to All Recipes
+      </a>
+    </div>
+  </main>
+</BaseLayout>

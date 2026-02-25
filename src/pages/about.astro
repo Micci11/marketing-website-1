@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="About – CraveSmart" 
+  description="Learn more about CraveSmart and our mission."
+>
+  <section class="bg-white text-gray-900 py-16 md:py-24">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <h1 class="text-5xl md:text-6xl font-heading font-bold mb-8 text-center">
+        About CraveSmart
+      </h1>
+
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <img 
+          src="/public/placeholders/image.png" 
+          alt="Micci, creator of CraveSmart" 
+          class="w-full max-w-sm rounded-full shadow-xl object-cover"
+        />
+        <div class="flex-1 space-y-6 text-lg text-gray-700">
+          <p>
+            Hi, I'm Isabella, the creator of CraveSmart. I started this site because I love food, but I also care about how it fits into my life and goals.
+          </p>
+          <p>
+            CraveSmart is all about proven viral recipes that taste incredible and support smart macros; indulgence that behaves, no guilt, no nonsense.
+          </p>
+          <p>
+            Whether it's breakfast that fuels your day, dinner that satisfies the family, or desserts that don't derail you, everything here has been curated for real results and real enjoyment.
+          </p>
+          <p class="font-medium text-tiffany">
+            Follow along, cook with me, and let's make cravings work for us.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

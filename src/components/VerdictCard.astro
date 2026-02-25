@@ -1,0 +1,55 @@
+---
+import type { CollectionEntry } from "astro:content";
+const { entry } = Astro.props as { entry: CollectionEntry<"recipes"> };
+
+const verdictLabel =
+  entry.data.verdict === "works"
+    ? "✅ Works"
+    : entry.data.verdict === "meh"
+    ? "🤷 Meh"
+    : "🚫 Don’t bother";
+
+const badgeClass =
+  entry.data.verdict === "works"
+    ? "bg-emerald-50 text-emerald-700 ring-emerald-200"
+    : entry.data.verdict === "meh"
+    ? "bg-amber-50 text-amber-700 ring-amber-200"
+    : "bg-rose-50 text-rose-700 ring-rose-200";
+---
+
+<section class="rounded-2xl border bg-white p-5 shadow-sm">
+  <div class="flex flex-wrap items-center justify-between gap-3">
+    <span class={`rounded-full px-3 py-1 text-xs font-medium ring-1 ${badgeClass}`}>
+      {verdictLabel}
+    </span>
+
+    <div class="text-sm text-slate-600 flex flex-wrap items-center gap-2">
+      {entry.data.timeCostMinutes ? <span>{entry.data.timeCostMinutes} min</span> : null}
+      <span>•</span>
+      <span class="capitalize">{entry.data.difficulty}</span>
+      <span>•</span>
+      <span>{entry.data.wouldMakeAgain ? "Would make again" : "Would not make again"}</span>
+    </div>
+  </div>
+
+  {entry.data.healthTags?.length ? (
+    <div class="mt-4 flex flex-wrap gap-2">
+      {entry.data.healthTags.slice(0, 5).map((t) => (
+        <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs text-slate-700">
+          {t}
+        </span>
+      ))}
+    </div>
+  ) : null}
+
+  {entry.data.viralSourceUrls?.length ? (
+    <div class="mt-4 text-sm text-slate-600">
+      <span class="font-medium text-slate-900">Viral source:</span>
+      <ul class="mt-2 list-disc pl-5">
+        {entry.data.viralSourceUrls.map((u) => (
+          <li><a class="underline decoration-slate-300 hover:decoration-slate-500" href={u} target="_blank" rel="noreferrer">Link</a></li>
+        ))}
+      </ul>
+    </div>
+  ) : null}
+</section>
