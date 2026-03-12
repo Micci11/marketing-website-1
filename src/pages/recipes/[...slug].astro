@@ -1,29 +1,27 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';  // Adjust path if layouts folder is different
-import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
 import { ViewTransitions } from 'astro:transitions';
 
-import "../../styles/global.css";  // ← Correct way: import bundles Tailwind (no 404)
+import "../../styles/global.css";
 
 export async function getStaticPaths() {
   const recipes = await getCollection('recipes');
   return recipes.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id.replace(/\.mdx?$/, '') },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
 
-// Safety check (prevents undefined crashes if collection empty or bad link)
 if (!entry) {
-  return Astro.redirect('/404');  // Or render a fallback message
+  return Astro.redirect('/404');
 }
 
-const { Content } = await entry.render();
-const { title, description, verdict } = entry.data;
+const { Content } = await render(entry);
+const { title, description, verdict, coverImage, macros, category, pubDate } = entry.data;
 ---
-
 <BaseLayout 
   title={`${title} | CraveSmart`} 
   description={description || "A macro-aware recipe that satisfies cravings smartly."}
@@ -45,6 +43,19 @@ const { title, description, verdict } = entry.data;
        'bg-red-100 text-red-800'}">
       Verdict: {verdict}
     </span>
+
+
+    <!-- Rendering image -->
+
+     {coverImage && (
+  <div class="mb-10 rounded-2xl overflow-hidden shadow-lg not-prose max-w-2xl mx-auto">
+    <img
+      src={coverImage}
+      alt={title}
+      class="w-full h-auto object-cover"
+    />
+  </div>
+)}
 
     <div class="prose-headings:text-tiffany prose-a:text-tiffany hover:prose-a:underline">
       <Content />

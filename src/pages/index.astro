@@ -5,6 +5,10 @@ import { ViewTransitions } from 'astro:transitions';
 
 const allRecipes = await getCollection('recipes');
 const goodRecipes = allRecipes
+  .map((recipe) => ({
+    ...recipe,
+    urlSlug: recipe.id.replace(/\.mdx?$/, ''),
+  }))
   .filter(recipe => recipe.data.verdict === 'Works')
   .sort((a, b) => new Date(b.data.pubDate || 0) - new Date(a.data.pubDate || 0));
 
@@ -48,7 +52,7 @@ const mostLoved = goodRecipes.slice(7, 17);
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
       {featuredRecipes.map((recipe) => (
         <a 
-          href={`/recipes/${recipe.slug}`} 
+          href={`/recipes/${recipe.urlSlug}`}
           class="block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-transform hover:scale-105 duration-300"
         >
           {recipe.data.coverImage && (
@@ -174,7 +178,7 @@ const mostLoved = goodRecipes.slice(7, 17);
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     {moreRecipes.map((recipe) => (
       <a 
-        href={`/recipes/${recipe.slug}`} 
+        href={`/recipes/${recipe.urlSlug}`}
         class="block relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition"
       >
         {recipe.data.coverImage && (
@@ -205,7 +209,7 @@ const mostLoved = goodRecipes.slice(7, 17);
       <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
         {mostLoved.map((recipe) => (
           <a 
-           href={`/recipes/${recipe.slug}`} 
+           href={`/recipes/${recipe.urlSlug}`}
           class="block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-transform hover:scale-105 duration-300 group"
         >
           {recipe.data.coverImage && (
@@ -253,4 +257,5 @@ const mostLoved = goodRecipes.slice(7, 17);
       </a>
     </div>
   </section>
+  <script async src="https://www.instagram.com/embed.js"></script>
 </BaseLayout>

@@ -1,11 +1,10 @@
-// src/content.config.ts  ← must be this exact filename
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 const recipes = defineCollection({
   loader: glob({
-    pattern: '**/*.{md,mdx}',          // Matches .md and .mdx files
-    base: './src/content/recipes'       // Use forward slashes!
+    pattern: '**/*.{md,mdx}',
+    base: './src/content/recipes'
   }),
   schema: z.object({
     title: z.string(),
@@ -15,12 +14,16 @@ const recipes = defineCollection({
       .transform((val) => val.charAt(0).toUpperCase() + val.slice(1).toLowerCase()),
     pubDate: z.date().optional(),
     category: z.enum([
+      'Breakfast',
+      'Dinner',
+      'Snack',
+      'Desserts',
       'High-Protein Comfort',
       'Macro-Friendly Desserts',
       'Weeknight Wins',
       'Volume Eats',
       'Sweet, Not Stupid'
-    ]).optional(),  // ← Made optional to avoid "required" errors during testing
+    ]).optional(),
     affiliateLink: z.string().optional(),
     macros: z.object({
       protein: z.number().optional(),
@@ -32,5 +35,5 @@ const recipes = defineCollection({
 });
 
 export const collections = {
-  recipes,  // ← key must match folder name "recipes"
+  recipes,
 };

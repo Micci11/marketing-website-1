@@ -4,7 +4,11 @@ import { getCollection } from 'astro:content';
 
 const allRecipes = await getCollection('recipes');
 const dessertsRecipes = allRecipes
-  .filter(recipe => recipe.data.category === 'Macro-Friendly Desserts' && recipe.data.verdict === 'Works')
+
+  .filter(recipe =>
+    recipe.data.verdict === 'Works' &&
+    recipe.data.category?.toLowerCase().includes('dessert')
+  )
   .sort((a, b) => new Date(b.data.pubDate || 0) - new Date(a.data.pubDate || 0));
 ---
 
