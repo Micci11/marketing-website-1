@@ -1,8 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
-import { ViewTransitions } from 'astro:transitions';
-
 import "../../styles/global.css";
 
 export async function getStaticPaths() {
@@ -20,51 +18,204 @@ if (!entry) {
 }
 
 const { Content } = await render(entry);
-const { title, description, verdict, coverImage, macros, category, pubDate } = entry.data;
+
+const {
+  title,
+  description,
+  coverImage,
+  macros,
+  category,
+  pubDate,
+  prepTime,
+  cookTime,
+  totalTime,
+  servings,
+  ingredientsDry,
+  ingredientsWet,
+  optionalIngredients,
+  instructions,
+  tips
+} = entry.data;
 ---
-<BaseLayout 
-  title={`${title} | CraveSmart`} 
+<BaseLayout
+  title={`${title} | CraveSmart`}
   description={description || "A macro-aware recipe that satisfies cravings smartly."}
 >
-  <main class="prose prose-lg max-w-4xl mx-auto py-12 px-4 md:px-0">
-    <h1 class="text-4xl md:text-5xl font-heading font-bold text-tiffany mb-6">
+  <main class="max-w-5xl mx-auto py-10 px-4 md:px-6">
+    {category && (
+      <p class="text-sm uppercase tracking-wider text-tiffany font-semibold mb-3">
+        {category}
+      </p>
+    )}
+
+    <h1 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4">
       {title}
     </h1>
 
     {description && (
-      <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+      <p class="text-lg md:text-xl text-gray-700 mb-6 max-w-3xl leading-relaxed">
         {description}
       </p>
     )}
 
-    <span class="inline-block px-4 py-2 rounded-full text-base font-semibold mb-10
-      {verdict === 'Works' ? 'bg-green-100 text-green-800' : 
-       verdict === 'Meh' ? 'bg-yellow-100 text-yellow-800' : 
-       'bg-red-100 text-red-800'}">
-      Verdict: {verdict}
+    <div class="flex flex-wrap gap-4 items-center mb-8">
+  <a
+    href="#recipe-card"
+    class="inline-flex items-center rounded-full bg-gray-900 text-white px-6 py-3 font-semibold hover:bg-gray-800 transition"
+  >
+    Jump to Recipe
+  </a>
+
+  <button
+    type="button"
+    onclick="window.print()"
+    class="inline-flex items-center rounded-full border border-gray-300 bg-white text-gray-900 px-6 py-3 font-semibold hover:bg-gray-50 transition"
+  >
+    Print Recipe
+  </button>
+
+  {pubDate && (
+    <span class="text-sm text-gray-500">
+      {new Date(pubDate).toLocaleDateString()}
     </span>
+  )}
+</div>
 
+    {coverImage && (
+      <div class="mb-12 max-w-3xl mx-auto not-prose">
+        <img
+          src={coverImage}
+          alt={title}
+          class="w-full rounded-2xl shadow-lg"
+        />
+      </div>
+    )}
 
-    <!-- Rendering image -->
-
-     {coverImage && (
-  <div class="mb-10 rounded-2xl overflow-hidden shadow-lg not-prose max-w-2xl mx-auto">
-    <img
-      src={coverImage}
-      alt={title}
-      class="w-full h-auto object-cover"
-    />
-  </div>
-)}
-
-    <div class="prose-headings:text-tiffany prose-a:text-tiffany hover:prose-a:underline">
+    <section class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-a:text-tiffany hover:prose-a:underline mb-14">
       <Content />
-    </div>
+    </section>
 
-    <!-- Optional: Back link or related recipes -->
+    <section id="recipe-card" class="bg-white border border-gray-200 rounded-2xl shadow-lg p-6 md:p-8 scroll-mt-24">
+
+  <div class="flex items-start justify-between gap-4 mb-6">
+    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+      {title}
+    </h2>
+
+    <button
+      type="button"
+      onclick="window.print()"
+      class="shrink-0 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm font-semibold hover:bg-gray-50 transition"
+    >
+      Print
+    </button>
+  </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        {prepTime && (
+          <div class="bg-hero-bg/20 rounded-xl p-4 text-center">
+            <p class="text-sm text-gray-500">Prep Time</p>
+            <p class="text-xl font-bold text-gray-900">{prepTime}</p>
+          </div>
+        )}
+        {cookTime && (
+          <div class="bg-hero-bg/20 rounded-xl p-4 text-center">
+            <p class="text-sm text-gray-500">Cook Time</p>
+            <p class="text-xl font-bold text-gray-900">{cookTime}</p>
+          </div>
+        )}
+        {totalTime && (
+          <div class="bg-hero-bg/20 rounded-xl p-4 text-center">
+            <p class="text-sm text-gray-500">Total Time</p>
+            <p class="text-xl font-bold text-gray-900">{totalTime}</p>
+          </div>
+        )}
+        {servings && (
+          <div class="bg-hero-bg/20 rounded-xl p-4 text-center">
+            <p class="text-sm text-gray-500">Servings</p>
+            <p class="text-xl font-bold text-gray-900">{servings}</p>
+          </div>
+        )}
+      </div>
+
+      {macros && (
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+          <div class="bg-gray-50 rounded-xl p-4 text-center">
+            <p class="text-sm text-gray-500">Calories</p>
+            <p class="text-2xl font-bold text-gray-900">{macros.calories ?? '-'}</p>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-4 text-center">
+            <p class="text-sm text-gray-500">Protein</p>
+            <p class="text-2xl font-bold text-gray-900">{macros.protein ?? '-'}g</p>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-4 text-center">
+            <p class="text-sm text-gray-500">Carbs</p>
+            <p class="text-2xl font-bold text-gray-900">{macros.carbs ?? '-'}g</p>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-4 text-center">
+            <p class="text-sm text-gray-500">Fat</p>
+            <p class="text-2xl font-bold text-gray-900">{macros.fat ?? '-'}g</p>
+          </div>
+        </div>
+      )}
+
+      <div class="grid md:grid-cols-2 gap-10">
+        <div>
+          <h3 class="text-2xl font-heading font-bold text-gray-900 mb-4">Ingredients</h3>
+
+          {ingredientsDry && ingredientsDry.length > 0 && (
+            <>
+              <h4 class="font-semibold text-gray-800 mb-2">Dry Ingredients</h4>
+              <ul class="list-disc pl-5 space-y-2 text-gray-700 mb-5">
+                {ingredientsDry.map((item) => <li>{item}</li>)}
+              </ul>
+            </>
+          )}
+
+          {ingredientsWet && ingredientsWet.length > 0 && (
+            <>
+              <h4 class="font-semibold text-gray-800 mb-2">Wet Ingredients</h4>
+              <ul class="list-disc pl-5 space-y-2 text-gray-700 mb-5">
+                {ingredientsWet.map((item) => <li>{item}</li>)}
+              </ul>
+            </>
+          )}
+
+          {optionalIngredients && optionalIngredients.length > 0 && (
+            <>
+              <h4 class="font-semibold text-gray-800 mb-2">Optional</h4>
+              <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                {optionalIngredients.map((item) => <li>{item}</li>)}
+              </ul>
+            </>
+          )}
+        </div>
+
+        <div>
+          <h3 class="text-2xl font-heading font-bold text-gray-900 mb-4">Instructions</h3>
+          {instructions && instructions.length > 0 ? (
+            <ol class="list-decimal pl-5 space-y-4 text-gray-700">
+              {instructions.map((step) => <li>{step}</li>)}
+            </ol>
+          ) : (
+            <p class="text-gray-500">Recipe steps coming soon.</p>
+          )}
+        </div>
+      </div>
+
+      {tips && tips.length > 0 && (
+        <div class="mt-10 pt-8 border-t border-gray-200">
+          <h3 class="text-2xl font-heading font-bold text-gray-900 mb-4">Tips</h3>
+          <ul class="list-disc pl-5 space-y-2 text-gray-700">
+            {tips.map((tip) => <li>{tip}</li>)}
+          </ul>
+        </div>
+      )}
+    </section>
+
     <div class="mt-12 text-center">
-      <a href="/" class="text-tiffany hover:text-tiffany-dark font-medium">
-        ← Back to All Recipes
+      <a href="/desserts" class="text-tiffany hover:underline font-medium">
+        ← Back to Desserts
       </a>
     </div>
   </main>

@@ -4,6 +4,10 @@ import { getCollection } from 'astro:content';
 
 const allRecipes = await getCollection('recipes');
 const dinnerRecipes = allRecipes
+  .map((recipe) => ({
+    ...recipe,
+    urlSlug: recipe.id.replace(/\.mdx?$/, ''),
+  }))
   .filter(recipe => recipe.data.category === 'High-Protein Comfort' && recipe.data.verdict === 'Works')
   .sort((a, b) => new Date(b.data.pubDate || 0) - new Date(a.data.pubDate || 0));
 ---
@@ -25,7 +29,7 @@ const dinnerRecipes = allRecipes
         <div class="space-y-16 md:space-y-24">
           {dinnerRecipes.map((recipe) => (
             <article 
-              key={recipe.slug}
+              key={recipe.urlSlug}
               class="flex flex-col md:flex-row gap-6 md:gap-12 items-start pb-16 border-b border-gray-200 last:border-0 last:pb-0"
             >
               {recipe.data.coverImage && (
@@ -39,7 +43,7 @@ const dinnerRecipes = allRecipes
               )}
               <div class="flex-1">
                 <h3 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
-                  <a href={`/recipes/${recipe.slug}`} class="hover:text-tiffany transition">
+                  <a href={`/recipes/${recipe.urlSlug}`} class="hover:text-tiffany transition">
                     {recipe.data.title}
                   </a>
                 </h3>
@@ -47,7 +51,7 @@ const dinnerRecipes = allRecipes
                   {recipe.data.description}
                 </p>
                 <a 
-                  href={`/recipes/${recipe.slug}`} 
+                  href={`/recipes/${recipe.urlSlug}`} 
                   class="text-tiffany font-medium text-lg hover:underline inline-flex items-center gap-2"
                 >
                   Read Full Recipe →
