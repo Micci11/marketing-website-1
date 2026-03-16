@@ -8,7 +8,7 @@ const snacksRecipes = allRecipes
     ...recipe,
     urlSlug: recipe.id.replace(/\.mdx?$/, ''),
   }))
-  .filter(recipe => recipe.data.category === 'Volume Eats' && recipe.data.verdict === 'Works')
+  .filter(recipe => recipe.data.mealType?.includes('Snack') && recipe.data.verdict === 'Works')
   .sort((a, b) => new Date(b.data.pubDate || 0) - new Date(a.data.pubDate || 0));
 ---
 

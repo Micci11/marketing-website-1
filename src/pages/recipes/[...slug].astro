@@ -24,7 +24,8 @@ const {
   description,
   coverImage,
   macros,
-  category,
+  mealType,
+  tags,
   pubDate,
   prepTime,
   cookTime,
@@ -36,15 +37,31 @@ const {
   instructions,
   tips
 } = entry.data;
+
+const primaryMealType = mealType?.[0];
+
+const backHref =
+  primaryMealType === 'Desserts' ? '/desserts' :
+  primaryMealType === 'Dinner' ? '/dinner' :
+  primaryMealType === 'Snack' ? '/snack' :
+  primaryMealType === 'Lunch' ? '/lunch' :
+  '/breakfast';
+
+const backLabel =
+  primaryMealType === 'Desserts' ? 'Desserts' :
+  primaryMealType === 'Dinner' ? 'Dinner' :
+  primaryMealType === 'Snack' ? 'Snacks' :
+  primaryMealType === 'Lunch' ? 'Lunch' :
+  'Breakfast';
 ---
 <BaseLayout
   title={`${title} | CraveSmart`}
   description={description || "A macro-aware recipe that satisfies cravings smartly."}
 >
   <main class="max-w-5xl mx-auto py-10 px-4 md:px-6">
-    {category && (
+    {mealType && mealType.length > 0 && (
       <p class="text-sm uppercase tracking-wider text-tiffany font-semibold mb-3">
-        {category}
+        {mealType.join(' • ')}
       </p>
     )}
 
@@ -59,27 +76,27 @@ const {
     )}
 
     <div class="flex flex-wrap gap-4 items-center mb-8">
-  <a
-    href="#recipe-card"
-    class="inline-flex items-center rounded-full bg-gray-900 text-white px-6 py-3 font-semibold hover:bg-gray-800 transition"
-  >
-    Jump to Recipe
-  </a>
+      <a
+        href="#recipe-card"
+        class="inline-flex items-center rounded-full bg-gray-900 text-white px-6 py-3 font-semibold hover:bg-gray-800 transition"
+      >
+        Jump to Recipe
+      </a>
 
-  <button
-    type="button"
-    onclick="window.print()"
-    class="inline-flex items-center rounded-full border border-gray-300 bg-white text-gray-900 px-6 py-3 font-semibold hover:bg-gray-50 transition"
-  >
-    Print Recipe
-  </button>
+      <button
+        type="button"
+        onclick="window.print()"
+        class="inline-flex items-center rounded-full border border-gray-300 bg-white text-gray-900 px-6 py-3 font-semibold hover:bg-gray-50 transition"
+      >
+        Print Recipe
+      </button>
 
-  {pubDate && (
-    <span class="text-sm text-gray-500">
-      {new Date(pubDate).toLocaleDateString()}
-    </span>
-  )}
-</div>
+      {pubDate && (
+        <span class="text-sm text-gray-500">
+          {new Date(pubDate).toLocaleDateString()}
+        </span>
+      )}
+    </div>
 
     {coverImage && (
       <div class="mb-12 max-w-3xl mx-auto not-prose">
@@ -96,20 +113,19 @@ const {
     </section>
 
     <section id="recipe-card" class="bg-white border border-gray-200 rounded-2xl shadow-lg p-6 md:p-8 scroll-mt-24">
+      <div class="flex items-start justify-between gap-4 mb-6">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+          {title}
+        </h2>
 
-  <div class="flex items-start justify-between gap-4 mb-6">
-    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
-      {title}
-    </h2>
-
-    <button
-      type="button"
-      onclick="window.print()"
-      class="shrink-0 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm font-semibold hover:bg-gray-50 transition"
-    >
-      Print
-    </button>
-  </div>
+        <button
+          type="button"
+          onclick="window.print()"
+          class="shrink-0 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm font-semibold hover:bg-gray-50 transition"
+        >
+          Print
+        </button>
+      </div>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         {prepTime && (
@@ -213,9 +229,12 @@ const {
       )}
     </section>
 
-    <div class="mt-12 text-center">
-      <a href="/desserts" class="text-tiffany hover:underline font-medium">
-        ← Back to Desserts
+    <div class="mt-16 text-center">
+      <a
+        href={backHref}
+        class="text-tiffany hover:underline font-medium text-lg"
+      >
+        ← Back to {backLabel}
       </a>
     </div>
   </main>

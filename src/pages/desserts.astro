@@ -7,7 +7,7 @@ const dessertsRecipes = allRecipes
 
   .filter(recipe =>
     recipe.data.verdict === 'Works' &&
-    recipe.data.category?.toLowerCase().includes('dessert')
+    recipe.data.mealType?.includes('Desserts')
   )
   .sort((a, b) => new Date(b.data.pubDate || 0) - new Date(a.data.pubDate || 0));
 ---
@@ -41,22 +41,26 @@ const dessertsRecipes = allRecipes
                   />
                 </div>
               )}
-  <div class="flex-1">
-  <h3 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
-    <a href={`/recipes/${recipe.id.replace(/\.mdx?$/, '')}`} class="hover:text-tiffany transition">
-      {recipe.data.title}
-    </a>
-  </h3>
-  <p class="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
-    {recipe.data.description}
-  </p>
-  <a 
-    href={`/recipes/${recipe.id.replace(/\.mdx?$/, '')}`} 
-    class="text-tiffany font-medium text-lg hover:underline inline-flex items-center gap-2"
-  >
+
+              <div class="flex-1">
+                <h3 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
+                  <a href={`/recipes/${recipe.id.replace(/\.mdx?$/, '')}`} class="hover:text-tiffany transition">
+                    {recipe.data.title}
+                  </a>
+                </h3>
+
+                <p class="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
+                  {recipe.data.description}
+                </p>
+
+                <a 
+                  href={`/recipes/${recipe.id.replace(/\.mdx?$/, '')}`} 
+                  class="text-tiffany font-medium text-lg hover:underline inline-flex items-center gap-2"
+                >
                   Read Full Recipe →
                 </a>
               </div>
+
             </article>
           ))}
         </div>

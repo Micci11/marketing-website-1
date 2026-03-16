@@ -8,7 +8,7 @@ const breakfastRecipes = allRecipes
     ...recipe,
     urlSlug: recipe.id.replace(/\.mdx?$/, ''),
   }))
-  .filter(recipe => recipe.data.category === 'High-Protein Comfort' && recipe.data.verdict === 'Works')
+  .filter(recipe => recipe.data.mealType?.includes('Breakfast') && recipe.data.verdict === 'Works')
   .sort((a, b) => new Date(b.data.pubDate || 0) - new Date(a.data.pubDate || 0));
 ---
 

@@ -18,17 +18,29 @@ const recipes = defineCollection({
 
     pubDate: z.date().optional(),
 
-    category: z.enum([
-      'Breakfast',
-      'Dinner',
-      'Snack',
-      'Desserts',
-      'High-Protein Comfort',
-      'Macro-Friendly Desserts',
-      'Weeknight Wins',
-      'Volume Eats',
-      'Sweet, Not Stupid'
-    ]).optional(),
+    mealType: z.array(
+      z.enum([
+        'Breakfast',
+        'Lunch',
+        'Dinner',
+        'Snack',
+        'Desserts'
+      ])
+    ).optional(),
+
+    tags: z.array(
+      z.enum([
+        'High-Protein',
+        'Low-Calorie',
+        'Quick',
+        'Easy',
+        'Meal-Prep',
+        'Comfort-Food',
+        'Volume-Eating',
+        'Sweet',
+        'Savory'
+      ])
+    ).optional(),
 
     affiliateLink: z.string().optional(),
 
