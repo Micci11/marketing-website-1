@@ -3,13 +3,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const allRecipes = await getCollection('recipes');
-const dessertsRecipes = allRecipes
 
-  .filter(recipe =>
-    recipe.data.verdict === 'Works' &&
-    recipe.data.mealType?.includes('Desserts')
+const dessertsRecipes = allRecipes
+  .map((recipe) => ({
+    ...recipe,
+    urlSlug: recipe.id.replace(/\.mdx?$/, ''),
+  }))
+  .filter(
+    (recipe) =>
+      recipe.data.verdict === 'Works' &&
+      recipe.data.mealType?.includes('Desserts')
   )
-  .sort((a, b) => new Date(b.data.pubDate || 0) - new Date(a.data.pubDate || 0));
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate || 0).getTime() -
+      new Date(a.data.pubDate || 0).getTime()
+  );
 ---
 
 <BaseLayout 
@@ -29,22 +38,22 @@ const dessertsRecipes = allRecipes
         <div class="space-y-16 md:space-y-24">
           {dessertsRecipes.map((recipe) => (
             <article 
-              key={recipe.slug}
               class="flex flex-col md:flex-row gap-6 md:gap-12 items-start pb-16 border-b border-gray-200 last:border-0 last:pb-0"
             >
               {recipe.data.coverImage && (
                 <div class="md:w-5/12 lg:w-2/5 flex-shrink-0 rounded-xl overflow-hidden shadow-md">
-                  <img 
-                    src={recipe.data.coverImage} 
-                    alt={recipe.data.title} 
-                    class="w-full h-auto object-cover"
-                  />
+                  <div class="recipe-image">
+                    <img 
+                      src={recipe.data.coverImage} 
+                      alt={recipe.data.title} 
+                    />
+                  </div>
                 </div>
               )}
 
               <div class="flex-1">
                 <h3 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
-                  <a href={`/recipes/${recipe.id.replace(/\.mdx?$/, '')}`} class="hover:text-tiffany transition">
+                  <a href={`/recipes/${recipe.urlSlug}`} class="hover:text-tiffany transition">
                     {recipe.data.title}
                   </a>
                 </h3>
@@ -54,13 +63,12 @@ const dessertsRecipes = allRecipes
                 </p>
 
                 <a 
-                  href={`/recipes/${recipe.id.replace(/\.mdx?$/, '')}`} 
+                  href={`/recipes/${recipe.urlSlug}`} 
                   class="text-tiffany font-medium text-lg hover:underline inline-flex items-center gap-2"
                 >
                   Read Full Recipe →
                 </a>
               </div>
-
             </article>
           ))}
         </div>

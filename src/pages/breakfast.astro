@@ -9,7 +9,7 @@ const breakfastRecipes = allRecipes
     urlSlug: recipe.id.replace(/\.mdx?$/, ''),
   }))
   .filter(recipe => recipe.data.mealType?.includes('Breakfast') && recipe.data.verdict === 'Works')
-  .sort((a, b) => new Date(b.data.pubDate || 0) - new Date(a.data.pubDate || 0));
+  .sort((a, b) => new Date(b.data.pubDate || 0).getTime() - new Date(a.data.pubDate || 0).getTime());
 ---
 
 <BaseLayout 
@@ -29,16 +29,16 @@ const breakfastRecipes = allRecipes
         <div class="space-y-16 md:space-y-24">
           {breakfastRecipes.map((recipe) => (
             <article 
-              key={recipe.urlSlug}
               class="flex flex-col md:flex-row gap-6 md:gap-12 items-start pb-16 border-b border-gray-200 last:border-0 last:pb-0"
             >
               {recipe.data.coverImage && (
                 <div class="md:w-5/12 lg:w-2/5 flex-shrink-0 rounded-xl overflow-hidden shadow-md">
-                  <img 
-                    src={recipe.data.coverImage} 
-                    alt={recipe.data.title} 
-                    class="w-full h-auto object-cover"
-                  />
+                  <div class="recipe-image">
+                    <img 
+                      src={recipe.data.coverImage} 
+                      alt={recipe.data.title} 
+                    />
+                  </div>
                 </div>
               )}
               <div class="flex-1">

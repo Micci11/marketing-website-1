@@ -1,18 +1,50 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 body {
-  background-color: #f9fafb;  /* Light gray bg for overall polish */
+  background-color: #f9fafb; /* Light gray bg for overall polish */
 }
 
 a {
-  transition: color 0.3s ease, transform 0.3s ease;  /* Smooth hovers */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hovers */
 }
 
 img {
-  transition: transform 0.3s ease;  /* Image zoom on hover */
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease; /* Image zoom on hover */
 }
 
 .container {
-  transition: all 0.3s ease;  /* Subtle section fade on load */
+  transition: all 0.3s ease; /* Subtle section fade on load */
+}
+
+/* === UNIVERSAL IMAGE CONTROL === */
+
+/* Standard recipe image frame */
+.recipe-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+/* Images inside standard frames */
+.recipe-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Smaller card version for tighter grids */
+.recipe-image-sm {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+/* Images inside smaller frames */
+.recipe-image-sm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

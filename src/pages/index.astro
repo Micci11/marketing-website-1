@@ -1,32 +1,37 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { ViewTransitions } from 'astro:transitions';
 
 const allRecipes = await getCollection('recipes');
+
 const goodRecipes = allRecipes
   .map((recipe) => ({
     ...recipe,
     urlSlug: recipe.id.replace(/\.mdx?$/, ''),
   }))
-  .filter(recipe => recipe.data.verdict === 'Works')
-  .sort((a, b) => new Date(b.data.pubDate || 0) - new Date(a.data.pubDate || 0));
+  .filter((recipe) => recipe.data.verdict === 'Works')
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate || 0).getTime() -
+      new Date(a.data.pubDate || 0).getTime()
+  );
 
-// Featured: first 4 for row
+// Featured: first 4
 const featuredRecipes = goodRecipes.slice(0, 4);
 
-// 3 more in row
+// Next 3
 const moreRecipes = goodRecipes.slice(4, 7);
 
-// Most Loved: 5x2 (10 recipes)
+// Most Loved: next 10
 const mostLoved = goodRecipes.slice(7, 17);
 ---
 
-<BaseLayout 
-  title="CraveSmart – Viral Recipes for Every Meal" 
+<BaseLayout
+  title="CraveSmart – Viral Recipes for Every Meal"
   description="Easy, proven viral recipes that deliver great taste and smart macros."
 >
-  <!-- Hero: Full-width faded teal stripe – edge-to-edge -->
+
+  <!-- HERO -->
   <section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 text-gray-900 py-10 md:py-14 text-center overflow-hidden">
     <div class="relative mx-auto max-w-5xl px-4 z-10">
       <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-10 tracking-tight">
@@ -35,8 +40,8 @@ const mostLoved = goodRecipes.slice(7, 17);
       <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
         Easy, proven viral recipes for every meal. Great taste, smart macros.
       </p>
-      <a 
-        href="#recipes" 
+      <a
+        href="#recipes"
         class="bg-gray-900 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition inline-block shadow-lg hover:shadow-xl"
       >
         See Recipes
@@ -44,24 +49,26 @@ const mostLoved = goodRecipes.slice(7, 17);
     </div>
   </section>
 
-  <!-- Featured Recipes: 4 in row with polish -->
+  <!-- FEATURED -->
   <section id="recipes" class="container mx-auto px-4 py-16 max-w-7xl">
     <h2 class="text-4xl md:text-5xl font-heading font-bold text-center mb-12 text-gray-900">
       Featured Recipes
     </h2>
+
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
       {featuredRecipes.map((recipe) => (
-        <a 
+        <a
           href={`/recipes/${recipe.urlSlug}`}
           class="block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-transform hover:scale-105 duration-300"
         >
           {recipe.data.coverImage && (
-            <img 
-              src={recipe.data.coverImage} 
-              alt={recipe.data.title} 
+            <img
+              src={recipe.data.coverImage}
+              alt={recipe.data.title}
               class="w-full h-64 md:h-72 object-cover transition-transform hover:scale-110 duration-300"
             />
           )}
+
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent py-4 text-center">
             <h3 class="text-xl font-bold text-white hover:text-tiffany transition">
               {recipe.data.title}
@@ -72,7 +79,7 @@ const mostLoved = goodRecipes.slice(7, 17);
     </div>
   </section>
 
-  <!-- Never Miss a Recipe: Full-width faded teal stripe -->
+  <!-- EMAIL -->
   <section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 py-10 md:py-14 text-center overflow-hidden">
     <div class="relative mx-auto max-w-xl px-4 z-10">
       <h2 class="text-3xl font-heading font-bold mb-4 text-gray-900">
@@ -81,14 +88,15 @@ const mostLoved = goodRecipes.slice(7, 17);
       <p class="text-lg text-gray-900 mb-8 opacity-90">
         Get new viral recipes delivered straight to your inbox.
       </p>
+
       <form class="flex flex-col md:flex-row gap-4 justify-center">
-        <input 
-          type="email" 
-          placeholder="Your email address" 
-          class="flex-1 px-4 py-4 rounded-full border border-gray-300 focus:border-tiffany focus:outline-none shadow-sm hover:shadow-md transition text-gray-900 placeholder-gray-500" 
+        <input
+          type="email"
+          placeholder="Your email address"
+          class="flex-1 px-4 py-4 rounded-full border border-gray-300 focus:border-tiffany focus:outline-none shadow-sm hover:shadow-md transition text-gray-900 placeholder-gray-500"
         />
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           class="bg-gray-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 transition shadow-md hover:shadow-xl"
         >
           Subscribe
@@ -97,165 +105,162 @@ const mostLoved = goodRecipes.slice(7, 17);
     </div>
   </section>
 
-  <!-- Browse the Categories: 4 in a row (Breakfast, Dinner, Snack, Desserts) -->
+  <!-- CATEGORIES -->
   <section class="container mx-auto px-4 py-16 max-w-5xl">
     <h2 class="text-4xl md:text-5xl font-heading font-bold text-center mb-12 text-gray-900">
       Browse the Categories
     </h2>
+
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
       <a href="/breakfast" class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
         <img src="/placeholders/rachel-park-hrlvr2ZlUNk-unsplash.jpg" alt="Breakfast" class="w-full h-48 object-cover" />
         <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-3 text-center">
-          <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">
-            Breakfast
-          </h3>
+          <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">Breakfast</h3>
         </div>
       </a>
+
       <a href="/dinner" class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
         <img src="/placeholders/madie-hamilton-Q9yr-cvJr30-unsplash.jpg" alt="Dinner" class="w-full h-48 object-cover" />
         <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-3 text-center">
-          <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">
-            Dinner
-          </h3>
+          <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">Dinner</h3>
         </div>
       </a>
+
       <a href="/snacks" class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
         <img src="/placeholders/brooke-lark-C1fMH2Vej8A-unsplash.jpg" alt="Snacks" class="w-full h-48 object-cover" />
         <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-3 text-center">
-          <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">
-            Snacks
-          </h3>
+          <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">Snacks</h3>
         </div>
       </a>
+
       <a href="/desserts" class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
         <img src="/placeholders/kelvin-han-a-niLBbZF4o-unsplash.jpg" alt="Desserts" class="w-full h-48 object-cover" />
         <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-3 text-center">
-          <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">
-            Desserts
-          </h3>
+          <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">Desserts</h3>
         </div>
       </a>
     </div>
   </section>
 
-<!-- Cookbook Section: Full-width faded teal stripe – edge-to-edge -->
-<section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 py-10 md:py-8 text-center overflow-hidden">
-  <div class="relative mx-auto max-w-5xl px-4 z-10">
-    <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-      <!-- Left: Tablet/phone mockup image (unchanged) -->
-      <div class="w-full md:w-1/2 flex justify-center">
-        <img 
-          src="/placeholders/digital cook book 1.JPG" 
-          alt="CraveSmart Cookbook on tablet" 
-          class="w-1/2 max-w-md md:max-w-lg rounded-2xl shadow-2xl object-cover transform md:rotate-3 transition-transform hover:rotate-0"
-        />
-      </div>
+  <!-- COOKBOOK -->
+  <section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 py-10 md:py-8 text-center overflow-hidden">
+    <div class="relative mx-auto max-w-5xl px-4 z-10">
+      <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        <div class="w-full md:w-1/2 flex justify-center">
+          <img
+            src="/placeholders/digital cook book 1.JPG"
+            alt="CraveSmart Cookbook on tablet"
+            class="w-1/2 max-w-md md:max-w-lg rounded-2xl shadow-2xl object-cover transform md:rotate-3 transition-transform hover:rotate-0"
+          />
+        </div>
 
-      <!-- Right: Text and Download button – dark text and black button to match site -->
-      <div class="w-full md:w-1/2 text-center md:text-left">
-        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6 text-gray-900">
-          Healthy Cookbook
-        </h2>
-        <p class="text-lg md:text-xl mb-8 opacity-90 max-w-xl mx-auto md:mx-0 text-gray-900">
-          Viral Food Recipes. Download now and start cooking smarter.
-        </p>
-        <a 
-          href="/cookbook-download.pdf"  
-          class="inline-block bg-gray-900 text-white px-10 py-5 rounded-full font-semibold text-xl hover:bg-gray-800 transition shadow-lg hover:shadow-xl"
-        >
-          DOWNLOAD
-        </a>
+        <div class="w-full md:w-1/2 text-center md:text-left">
+          <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6 text-gray-900">
+            Healthy Cookbook
+          </h2>
+          <p class="text-lg md:text-xl mb-8 opacity-90 max-w-xl mx-auto md:mx-0 text-gray-900">
+            Viral Food Recipes. Download now and start cooking smarter.
+          </p>
+          <a
+            href="/cookbook-download.pdf"
+            class="inline-block bg-gray-900 text-white px-10 py-5 rounded-full font-semibold text-xl hover:bg-gray-800 transition shadow-lg hover:shadow-xl"
+          >
+            DOWNLOAD
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
- <!-- 4 More Recipes in a Row (grid with title only) -->
-<section class="container mx-auto px-4 py-16 max-w-5xl">
-  <h2 class="text-4xl md:text-5xl font-heading font-bold text-center mb-12 text-gray-900">
-    More Recipes
-  </h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    {moreRecipes.map((recipe) => (
-      <a 
-        href={`/recipes/${recipe.urlSlug}`}
-        class="block relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition"
-      >
-        {recipe.data.coverImage && (
-          <img 
-            src={recipe.data.coverImage} 
-            alt={recipe.data.title} 
-            class="w-full h-64 object-cover"
-          />
-        )}
-        <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-4 text-center">
-          <h3 class="text-xl font-bold text-gray-900 hover:text-tiffany transition">
-            {recipe.data.title}
-          </h3>
-        </div>
-      </a>
-    ))}
-  </div>
-</section>
+  <!-- MORE RECIPES -->
+  <section class="container mx-auto px-4 py-16 max-w-5xl">
+    <h2 class="text-4xl md:text-5xl font-heading font-bold text-center mb-12 text-gray-900">
+      More Recipes
+    </h2>
 
- 
-
- <!-- Most Loved: Full-width faded teal stripe -->
-  <section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 py-10 md:py-14 text-center overflow-hidden">
-    <div class="relative mx-auto max-w-5xl px-4 z-10">
-      <h2 class="text-4xl md:text-5xl font-heading font-bold mb-10 text-gray-900">
-        Most Loved
-      </h2>
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
-        {mostLoved.map((recipe) => (
-          <a 
-           href={`/recipes/${recipe.urlSlug}`}
-          class="block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-transform hover:scale-105 duration-300 group"
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {moreRecipes.map((recipe) => (
+        <a
+          href={`/recipes/${recipe.urlSlug}`}
+          class="block relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition"
         >
           {recipe.data.coverImage && (
-            <img 
-              src={recipe.data.coverImage} 
-              alt={recipe.data.title} 
-              class="w-full h-40 md:h-48 object-cover transition-transform group-hover:scale-110 duration-300"
+            <img
+              src={recipe.data.coverImage}
+              alt={recipe.data.title}
+              class="w-full h-64 object-cover"
             />
           )}
-          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent py-3 text-center">
-            <h3 class="text-base md:text-lg font-bold text-white group-hover:text-tiffany transition">
+          <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-4 text-center">
+            <h3 class="text-xl font-bold text-gray-900 hover:text-tiffany transition">
               {recipe.data.title}
             </h3>
           </div>
         </a>
       ))}
     </div>
-    <div class="text-center py-12">
-      <p class="text-xl text-gray-600">
-        No most loved recipes yet – vote for your favorites!
-      </p>
+  </section>
+
+  <!-- MOST LOVED -->
+  <section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 py-10 md:py-14 text-center overflow-hidden">
+    <div class="relative mx-auto max-w-5xl px-4 z-10">
+      <h2 class="text-4xl md:text-5xl font-heading font-bold mb-10 text-gray-900">
+        Most Loved
+      </h2>
+
+      {mostLoved.length > 0 ? (
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
+          {mostLoved.map((recipe) => (
+            <a
+              href={`/recipes/${recipe.urlSlug}`}
+              class="block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-transform hover:scale-105 duration-300 group"
+            >
+              {recipe.data.coverImage && (
+                <img
+                  src={recipe.data.coverImage}
+                  alt={recipe.data.title}
+                  class="w-full h-40 md:h-48 object-cover transition-transform group-hover:scale-110 duration-300"
+                />
+              )}
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent py-3 text-center">
+                <h3 class="text-base md:text-lg font-bold text-white group-hover:text-tiffany transition">
+                  {recipe.data.title}
+                </h3>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12">
+          <p class="text-xl text-gray-600">
+            No most loved recipes yet – vote for your favorites!
+          </p>
+        </div>
+      )}
     </div>
-  
-</section>
-  
-  <!-- About Me Section -->
+  </section>
+
+  <!-- ABOUT ME -->
   <section class="bg-white py-16 text-center border-t border-gray-100">
     <div class="container mx-auto px-4 max-w-5xl">
       <h2 class="text-4xl md:text-5xl font-heading font-bold mb-8 text-gray-900">
         About Me
       </h2>
-      <img 
-        src="/placeholders/girl for websoite.jpg" 
-        alt="About Me" 
+      <img
+        src="/placeholders/girl for websoite.jpg"
+        alt="About Me"
         class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-8 object-cover shadow-md"
       />
       <p class="text-lg md:text-xl text-gray-700 mb-6 max-w-3xl mx-auto leading-relaxed">
         Hi, I'm Isabella, the creator of CraveSmart. I curate proven viral recipes that are easy to make, taste amazing, and fit smart macros. From breakfast to desserts, everything here is designed for real life indulgence without the guilt.
       </p>
-      <a 
-        href="/about" 
+      <a
+        href="/about"
         class="text-tiffany font-medium text-lg hover:underline"
       >
         Learn More About Me →
       </a>
     </div>
   </section>
-  <script async src="https://www.instagram.com/embed.js"></script>
+
 </BaseLayout>
