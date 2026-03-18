@@ -6,7 +6,7 @@ import "../../styles/global.css";
 export async function getStaticPaths() {
   const recipes = await getCollection('recipes');
   return recipes.map((entry) => ({
-    params: { slug: entry.id.replace(/\.mdx?$/, '') },
+    params: { slug: entry.data.slug || entry.id.replace(/\.mdx?$/, '') },
     props: { entry },
   }));
 }
@@ -23,6 +23,7 @@ const {
   title,
   description,
   coverImage,
+  coverAlt,
   macros,
   mealType,
   tags,
@@ -35,7 +36,11 @@ const {
   ingredientsWet,
   optionalIngredients,
   instructions,
-  tips
+  tips,
+  variations,
+  storage,
+  faq,
+  sourceNote
 } = entry.data;
 
 const primaryMealType = mealType?.[0];
@@ -58,7 +63,7 @@ const backLabel =
   title={`${title} | CraveSmart`}
   description={description || "A macro-aware recipe that satisfies cravings smartly."}
 >
-  <main class="max-w-5xl mx-auto py-10 px-4 md:px-6">
+  <section class="max-w-5xl mx-auto py-10 px-4 md:px-6">
     {mealType && mealType.length > 0 && (
       <p class="text-sm uppercase tracking-wider text-tiffany font-semibold mb-3">
         {mealType.join(' • ')}
@@ -93,7 +98,7 @@ const backLabel =
 
       {pubDate && (
         <span class="text-sm text-gray-500">
-          {new Date(pubDate).toLocaleDateString()}
+          {pubDate.toLocaleDateString()}
         </span>
       )}
     </div>
@@ -103,7 +108,7 @@ const backLabel =
         <div class="recipe-image shadow-lg">
           <img
             src={coverImage}
-            alt={title}
+            alt={coverAlt || title}
           />
         </div>
       </div>
@@ -228,6 +233,45 @@ const backLabel =
           </ul>
         </div>
       )}
+
+      {variations && variations.length > 0 && (
+        <div class="mt-10 pt-8 border-t border-gray-200">
+          <h3 class="text-2xl font-heading font-bold text-gray-900 mb-4">Variations</h3>
+          <ul class="list-disc pl-5 space-y-2 text-gray-700">
+            {variations.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      )}
+
+      {storage && storage.length > 0 && (
+        <div class="mt-10 pt-8 border-t border-gray-200">
+          <h3 class="text-2xl font-heading font-bold text-gray-900 mb-4">Storage</h3>
+          <ul class="list-disc pl-5 space-y-2 text-gray-700">
+            {storage.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      )}
+
+      {faq && faq.length > 0 && (
+        <div class="mt-10 pt-8 border-t border-gray-200">
+          <h3 class="text-2xl font-heading font-bold text-gray-900 mb-4">FAQ</h3>
+          <div class="space-y-6">
+            {faq.map((item) => (
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-2">{item.question}</h4>
+                <p class="text-gray-700">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {sourceNote && (
+        <div class="mt-10 pt-8 border-t border-gray-200">
+          <h3 class="text-2xl font-heading font-bold text-gray-900 mb-4">Source Note</h3>
+          <p class="text-gray-700">{sourceNote}</p>
+        </div>
+      )}
     </section>
 
     <div class="mt-16 text-center">
@@ -238,5 +282,5 @@ const backLabel =
         ← Back to {backLabel}
       </a>
     </div>
-  </main>
+  </section>
 </BaseLayout>

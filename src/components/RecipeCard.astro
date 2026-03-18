@@ -1,67 +1,55 @@
 ---
 import type { CollectionEntry } from "astro:content";
+
 const { entry } = Astro.props as { entry: CollectionEntry<"recipes"> };
 
-const verdictLabel =
-  entry.data.verdict === "works"
-    ? "✅ Works"
-    : entry.data.verdict === "meh"
-    ? "🤷 Meh"
-    : "🚫 Don’t bother";
-
-const badgeClass =
-  entry.data.verdict === "works"
-    ? "bg-emerald-50 text-emerald-700 ring-emerald-200"
-    : entry.data.verdict === "meh"
-    ? "bg-amber-50 text-amber-700 ring-amber-200"
-    : "bg-rose-50 text-rose-700 ring-rose-200";
-
 const img = entry.data.coverImage ?? null;
+const recipeHref = `/recipes/${entry.data.slug || entry.id.replace(/\.mdx?$/, "")}/`;
+const recipeDate = entry.data.pubDate?.toLocaleDateString();
+const totalTime = entry.data.totalTime ?? null;
+const mealType = entry.data.mealType?.[0] ?? null;
+const tags = entry.data.tags?.slice(0, 3) ?? [];
 ---
 
 <a
-  href={`/recipes/${entry.slug}/`}
-  class="group block overflow-hidden rounded-2xl border bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+  href={recipeHref}
+  class="card-hover group block overflow-hidden rounded-2xl border bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
 >
-  <div class="relative aspect-[16/9] w-full bg-slate-100">
+  <div class="relative aspect-[16/9] w-full bg-slate-100 overflow-hidden">
     {img ? (
       <img
         src={img}
-        alt={entry.data.title}
-        class="h-full w-full object-cover transition group-hover:scale-[1.02]"
+        alt={entry.data.coverAlt || entry.data.title}
+        class="card-image h-full w-full object-cover"
         loading="lazy"
       />
     ) : (
       <div class="h-full w-full bg-gradient-to-br from-emerald-100 via-white to-slate-100" />
     )}
 
-    <div class="absolute left-4 top-4">
-      <span class={`rounded-full px-3 py-1 text-xs font-medium ring-1 ${badgeClass}`}>
-        {verdictLabel}
-      </span>
-    </div>
+    <div class="card-overlay"></div>
   </div>
 
   <div class="p-5">
-    <h3 class="text-base font-semibold leading-snug tracking-tight">
+    <h3 class="text-base font-semibold leading-snug tracking-tight text-slate-900">
       {entry.data.title}
     </h3>
 
     <div class="mt-2 text-sm text-slate-600 flex flex-wrap gap-2">
-      <span>{entry.data.publishDate.toLocaleDateString()}</span>
-      {entry.data.timeCostMinutes ? <span>• {entry.data.timeCostMinutes} min</span> : null}
-      <span>• {entry.data.difficulty}</span>
+      {mealType && <span>{mealType}</span>}
+      {totalTime && <span>• {totalTime}</span>}
+      {recipeDate && <span>• {recipeDate}</span>}
     </div>
 
     <p class="mt-3 text-sm text-slate-700 line-clamp-2">
-      {entry.data.description ?? "We tested it. Here’s what actually happened (and how to make it work)."}
+      {entry.data.description || "A CraveSmart recipe worth making again and again."}
     </p>
 
-    {entry.data.healthTags?.length ? (
+    {tags.length ? (
       <div class="mt-4 flex flex-wrap gap-2">
-        {entry.data.healthTags.slice(0, 3).map((t) => (
+        {tags.map((tag) => (
           <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs text-slate-700">
-            {t}
+            {tag}
           </span>
         ))}
       </div>

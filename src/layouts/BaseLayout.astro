@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import Logo from "../components/Logo.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -18,22 +17,21 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
 
-    <!-- Google Fonts: Inter for body text, Playfair Display for headings -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="bg-gray-50 font-sans antialiased flex flex-col min-h-screen">
-    <!-- Imported Header component (logo, nav, CTA button) -->
     <Header />
 
-    <!-- Main content – grows to fill space and pushes footer down -->
-    <main class="flex-grow mx-auto max-w-6xl px-4 py-12 md:py-16">
+    <main class="flex-grow">
       <slot />
     </main>
 
-    <!-- Imported Footer component (copyright, disclaimer, tagline) -->
     <Footer />
   </body>
 </html>

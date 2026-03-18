@@ -6,34 +6,36 @@ import Logo from './Logo.astro';
   <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-6 py-5 flex items-center justify-between">
 
     <!-- Left: Logo -->
-    <a href="/" class="flex items-center gap-3 shrink-0 -ml-6 sm:-ml-8 lg:-ml-12">
-      <Logo class="w-10 h-10 md:w-11 md:h-11 flex-shrink-0" />
-      <span class="font-heading text-2xl md:text-3xl font-bold text-gray-900 whitespace-nowrap">
+    <a href="/" class="flex items-center gap-3 shrink-0 -ml-6 sm:-ml-8 lg:-ml-12 group">
+      <Logo class="w-10 h-10 md:w-11 md:h-11 flex-shrink-0 transition-transform duration-300 group-hover:scale-105" />
+      <span class="font-heading text-2xl md:text-3xl font-bold text-gray-900 whitespace-nowrap group-hover:text-tiffany transition-colors">
         CraveSmart
       </span>
     </a>
 
     <!-- Center: Navigation -->
     <nav class="hidden md:flex items-center gap-8 lg:gap-10 text-base font-medium text-gray-700">
-      <a class="hover:text-tiffany transition-colors" href="/">Home</a>
-      <a class="hover:text-tiffany transition-colors" href="/breakfast">Breakfast</a>
-      <a class="hover:text-tiffany transition-colors" href="/dinner">Dinner</a>
-      <a class="hover:text-tiffany transition-colors" href="/snacks">Snacks</a>
-      <a class="hover:text-tiffany transition-colors" href="/desserts">Desserts</a>
-      <a class="hover:text-tiffany transition-colors" href="/supplements">Supplements</a>
-      <a class="hover:text-tiffany transition-colors" href="/contact">Contact</a>
-      <a class="hover:text-tiffany transition-colors" href="/about">About</a>
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/breakfast">Breakfast</a>
+      <a class="nav-link" href="/dinner">Dinner</a>
+      <a class="nav-link" href="/snacks">Snacks</a>
+      <a class="nav-link" href="/desserts">Desserts</a>
+      <a class="nav-link" href="/supplements">Supplements</a>
+      <a class="nav-link" href="/contact">Contact</a>
+      <a class="nav-link" href="/about">About</a>
     </nav>
 
-    <!-- Right: Instagram -->
+    <!-- Right: Instagram CTA -->
     <a
       href="https://instagram.com/yourusername"
       target="_blank"
       rel="noopener noreferrer"
-      class="flex items-center gap-3 text-gray-700 hover:text-tiffany transition-colors shrink-0"
+      class="flex items-center gap-3 text-gray-700 shrink-0 group"
     >
-      <Logo class="w-8 h-8 md:w-9 md:h-9 flex-shrink-0" />
-      <span class="font-medium hidden lg:block">@yourusername</span>
+      <Logo class="w-8 h-8 md:w-9 md:h-9 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
+      <span class="font-medium hidden lg:block group-hover:text-tiffany transition-colors">
+        @yourusername
+      </span>
     </a>
 
   </div>

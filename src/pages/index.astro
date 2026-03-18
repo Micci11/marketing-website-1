@@ -4,34 +4,91 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const allRecipes = await getCollection('recipes');
 
-const goodRecipes = allRecipes
+const liveRecipes = allRecipes
   .map((recipe) => ({
     ...recipe,
-    urlSlug: recipe.id.replace(/\.mdx?$/, ''),
+    urlSlug: recipe.data.slug || recipe.id.replace(/\.mdx?$/, ''),
   }))
   .filter((recipe) => recipe.data.verdict === 'Works')
   .sort(
     (a, b) =>
-      new Date(b.data.pubDate || 0).getTime() -
-      new Date(a.data.pubDate || 0).getTime()
+      (b.data.pubDate?.getTime() || 0) -
+      (a.data.pubDate?.getTime() || 0)
   );
 
-// Featured: first 4
-const featuredRecipes = goodRecipes.slice(0, 4);
+const featuredRecipes = liveRecipes
+  .filter((recipe) => recipe.data.featured === true)
+  .sort((a, b) => (b.data.homepagePriority || 0) - (a.data.homepagePriority || 0))
+  .slice(0, 4);
 
-// Next 3
-const moreRecipes = goodRecipes.slice(4, 7);
+const fallbackFeaturedRecipes =
+  featuredRecipes.length < 4
+    ? liveRecipes
+        .filter((recipe) => !featuredRecipes.some((featured) => featured.id === recipe.id))
+        .slice(0, 4 - featuredRecipes.length)
+    : [];
 
-// Most Loved: next 10
-const mostLoved = goodRecipes.slice(7, 17);
+const finalFeaturedRecipes = [...featuredRecipes, ...fallbackFeaturedRecipes];
+
+const spotlightRecipes = liveRecipes
+  .filter(
+    (recipe) =>
+      recipe.data.homepageSpotlight === true &&
+      !finalFeaturedRecipes.some((featured) => featured.id === recipe.id)
+  )
+  .sort((a, b) => (b.data.homepagePriority || 0) - (a.data.homepagePriority || 0))
+  .slice(0, 3);
+
+const fallbackSpotlightRecipes =
+  spotlightRecipes.length < 3
+    ? liveRecipes
+        .filter(
+          (recipe) =>
+            !finalFeaturedRecipes.some((featured) => featured.id === recipe.id) &&
+            !spotlightRecipes.some((spotlight) => spotlight.id === recipe.id)
+        )
+        .slice(0, 3 - spotlightRecipes.length)
+    : [];
+
+const moreRecipes = [...spotlightRecipes, ...fallbackSpotlightRecipes];
+
+const craveSmartPicks = liveRecipes
+  .filter(
+    (recipe) =>
+      !finalFeaturedRecipes.some((featured) => featured.id === recipe.id) &&
+      !moreRecipes.some((more) => more.id === recipe.id)
+  )
+  .sort((a, b) => (b.data.homepagePriority || 0) - (a.data.homepagePriority || 0))
+  .slice(0, 10);
+
+const categories = [
+  {
+    label: 'Breakfast',
+    href: '/breakfast',
+    image: '/placeholders/rachel-park-hrlvr2ZlUNk-unsplash.jpg',
+  },
+  {
+    label: 'Dinner',
+    href: '/dinner',
+    image: '/placeholders/madie-hamilton-Q9yr-cvJr30-unsplash.jpg',
+  },
+  {
+    label: 'Snacks',
+    href: '/snacks',
+    image: '/placeholders/brooke-lark-C1fMH2Vej8A-unsplash.jpg',
+  },
+  {
+    label: 'Desserts',
+    href: '/desserts',
+    image: '/placeholders/kelvin-han-a-niLBbZF4o-unsplash.jpg',
+  },
+];
 ---
 
 <BaseLayout
   title="CraveSmart – Viral Recipes for Every Meal"
   description="Easy, proven viral recipes that deliver great taste and smart macros."
 >
-
-  <!-- HERO -->
   <section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 text-gray-900 py-10 md:py-14 text-center overflow-hidden">
     <div class="relative mx-auto max-w-5xl px-4 z-10">
       <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-10 tracking-tight">
@@ -49,14 +106,13 @@ const mostLoved = goodRecipes.slice(7, 17);
     </div>
   </section>
 
-  <!-- FEATURED -->
   <section id="recipes" class="container mx-auto px-4 py-16 max-w-7xl">
     <h2 class="text-4xl md:text-5xl font-heading font-bold text-center mb-12 text-gray-900">
       Featured Recipes
     </h2>
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
-      {featuredRecipes.map((recipe) => (
+      {finalFeaturedRecipes.map((recipe) => (
         <a
           href={`/recipes/${recipe.urlSlug}`}
           class="block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-transform hover:scale-105 duration-300"
@@ -64,7 +120,7 @@ const mostLoved = goodRecipes.slice(7, 17);
           {recipe.data.coverImage && (
             <img
               src={recipe.data.coverImage}
-              alt={recipe.data.title}
+              alt={recipe.data.coverAlt || recipe.data.title}
               class="w-full h-64 md:h-72 object-cover transition-transform hover:scale-110 duration-300"
             />
           )}
@@ -79,7 +135,6 @@ const mostLoved = goodRecipes.slice(7, 17);
     </div>
   </section>
 
-  <!-- EMAIL -->
   <section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 py-10 md:py-14 text-center overflow-hidden">
     <div class="relative mx-auto max-w-xl px-4 z-10">
       <h2 class="text-3xl font-heading font-bold mb-4 text-gray-900">
@@ -105,44 +160,25 @@ const mostLoved = goodRecipes.slice(7, 17);
     </div>
   </section>
 
-  <!-- CATEGORIES -->
   <section class="container mx-auto px-4 py-16 max-w-5xl">
     <h2 class="text-4xl md:text-5xl font-heading font-bold text-center mb-12 text-gray-900">
       Browse the Categories
     </h2>
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-      <a href="/breakfast" class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-        <img src="/placeholders/rachel-park-hrlvr2ZlUNk-unsplash.jpg" alt="Breakfast" class="w-full h-48 object-cover" />
-        <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-3 text-center">
-          <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">Breakfast</h3>
-        </div>
-      </a>
-
-      <a href="/dinner" class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-        <img src="/placeholders/madie-hamilton-Q9yr-cvJr30-unsplash.jpg" alt="Dinner" class="w-full h-48 object-cover" />
-        <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-3 text-center">
-          <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">Dinner</h3>
-        </div>
-      </a>
-
-      <a href="/snacks" class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-        <img src="/placeholders/brooke-lark-C1fMH2Vej8A-unsplash.jpg" alt="Snacks" class="w-full h-48 object-cover" />
-        <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-3 text-center">
-          <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">Snacks</h3>
-        </div>
-      </a>
-
-      <a href="/desserts" class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-        <img src="/placeholders/kelvin-han-a-niLBbZF4o-unsplash.jpg" alt="Desserts" class="w-full h-48 object-cover" />
-        <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-3 text-center">
-          <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">Desserts</h3>
-        </div>
-      </a>
+      {categories.map((category) => (
+        <a href={category.href} class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src={category.image} alt={category.label} class="w-full h-48 object-cover" />
+          <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-3 text-center">
+            <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">
+              {category.label}
+            </h3>
+          </div>
+        </a>
+      ))}
     </div>
   </section>
 
-  <!-- COOKBOOK -->
   <section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 py-10 md:py-8 text-center overflow-hidden">
     <div class="relative mx-auto max-w-5xl px-4 z-10">
       <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
@@ -172,7 +208,6 @@ const mostLoved = goodRecipes.slice(7, 17);
     </div>
   </section>
 
-  <!-- MORE RECIPES -->
   <section class="container mx-auto px-4 py-16 max-w-5xl">
     <h2 class="text-4xl md:text-5xl font-heading font-bold text-center mb-12 text-gray-900">
       More Recipes
@@ -187,7 +222,7 @@ const mostLoved = goodRecipes.slice(7, 17);
           {recipe.data.coverImage && (
             <img
               src={recipe.data.coverImage}
-              alt={recipe.data.title}
+              alt={recipe.data.coverAlt || recipe.data.title}
               class="w-full h-64 object-cover"
             />
           )}
@@ -201,16 +236,15 @@ const mostLoved = goodRecipes.slice(7, 17);
     </div>
   </section>
 
-  <!-- MOST LOVED -->
   <section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 py-10 md:py-14 text-center overflow-hidden">
     <div class="relative mx-auto max-w-5xl px-4 z-10">
       <h2 class="text-4xl md:text-5xl font-heading font-bold mb-10 text-gray-900">
-        Most Loved
+        CraveSmart Picks
       </h2>
 
-      {mostLoved.length > 0 ? (
+      {craveSmartPicks.length > 0 ? (
         <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
-          {mostLoved.map((recipe) => (
+          {craveSmartPicks.map((recipe) => (
             <a
               href={`/recipes/${recipe.urlSlug}`}
               class="block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-transform hover:scale-105 duration-300 group"
@@ -218,7 +252,7 @@ const mostLoved = goodRecipes.slice(7, 17);
               {recipe.data.coverImage && (
                 <img
                   src={recipe.data.coverImage}
-                  alt={recipe.data.title}
+                  alt={recipe.data.coverAlt || recipe.data.title}
                   class="w-full h-40 md:h-48 object-cover transition-transform group-hover:scale-110 duration-300"
                 />
               )}
@@ -233,14 +267,13 @@ const mostLoved = goodRecipes.slice(7, 17);
       ) : (
         <div class="text-center py-12">
           <p class="text-xl text-gray-600">
-            No most loved recipes yet – vote for your favorites!
+            More standout recipes are coming soon.
           </p>
         </div>
       )}
     </div>
   </section>
 
-  <!-- ABOUT ME -->
   <section class="bg-white py-16 text-center border-t border-gray-100">
     <div class="container mx-auto px-4 max-w-5xl">
       <h2 class="text-4xl md:text-5xl font-heading font-bold mb-8 text-gray-900">
@@ -262,5 +295,4 @@ const mostLoved = goodRecipes.slice(7, 17);
       </a>
     </div>
   </section>
-
 </BaseLayout>

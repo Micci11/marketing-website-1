@@ -8,15 +8,15 @@ const recipes = defineCollection({
   }),
   schema: z.object({
     title: z.string(),
+    slug: z.string().optional(),
     description: z.string(),
 
     coverImage: z.string().optional(),
     coverAlt: z.string().optional(),
 
-    verdict: z.enum(['Works', 'Meh', "Don't bother"])
-      .transform((val) => val.charAt(0).toUpperCase() + val.slice(1).toLowerCase()),
+    verdict: z.enum(['Works', 'Testing', 'Archived']).default('Works'),
 
-    pubDate: z.date().optional(),
+    pubDate: z.coerce.date().optional(),
 
     mealType: z.array(
       z.enum([
@@ -28,19 +28,11 @@ const recipes = defineCollection({
       ])
     ).optional(),
 
-    tags: z.array(
-      z.enum([
-        'High-Protein',
-        'Low-Calorie',
-        'Quick',
-        'Easy',
-        'Meal-Prep',
-        'Comfort-Food',
-        'Volume-Eating',
-        'Sweet',
-        'Savory'
-      ])
-    ).optional(),
+    tags: z.array(z.string()).optional(),
+
+    featured: z.boolean().optional(),
+    homepageSpotlight: z.boolean().optional(),
+    homepagePriority: z.number().optional(),
 
     affiliateLink: z.string().optional(),
 

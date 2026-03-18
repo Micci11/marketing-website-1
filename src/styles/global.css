@@ -1,40 +1,62 @@
+/* ============================= */
+/* BASE */
+/* ============================= */
+
 body {
-  background-color: #f9fafb; /* Light gray bg for overall polish */
+  background-color: #f9fafb;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
-  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hovers */
+  transition: color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+  text-decoration: none;
 }
 
 img {
   max-width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.3s ease; /* Image zoom on hover */
+  transition: transform 0.35s ease;
 }
 
 .container {
-  transition: all 0.3s ease; /* Subtle section fade on load */
+  transition: all 0.3s ease;
 }
 
-/* === UNIVERSAL IMAGE CONTROL === */
+/* ============================= */
+/* NAV INTERACTIONS */
+/* ============================= */
 
-/* Standard recipe image frame */
-.recipe-image {
+.nav-link {
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-link:hover {
+  color: #0ab3a3; /* tiffany */
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #0ab3a3;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border-radius: 1rem;
 }
 
-/* Images inside standard frames */
-.recipe-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+/* ============================= */
+/* IMAGE SYSTEM */
+/* ============================= */
 
-/* Smaller card version for tighter grids */
+.recipe-image,
 .recipe-image-sm {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -42,9 +64,129 @@ img {
   border-radius: 1rem;
 }
 
-/* Images inside smaller frames */
+.recipe-image img,
 .recipe-image-sm img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* ============================= */
+/* CARD SYSTEM (GLOBAL UI ENGINE) */
+/* ============================= */
+
+.card-hover {
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+  will-change: transform;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.card-image {
+  transition: transform 0.4s ease;
+}
+
+.card-hover:hover .card-image {
+  transform: scale(1.08);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+
+.card-hover:hover .card-overlay {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* ============================= */
+/* BUTTON SYSTEM */
+/* ============================= */
+
+.button-hover {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.button-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================= */
+/* IMAGE HOVER (GLOBAL) */
+/* ============================= */
+
+.img-hover {
+  overflow: hidden;
+}
+
+.img-hover img {
+  transition: transform 0.4s ease;
+}
+
+.img-hover:hover img {
+  transform: scale(1.06);
+}
+
+/* ============================= */
+/* TEXT / LINK MICRO-INTERACTIONS */
+/* ============================= */
+
+.link-hover {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.link-hover:hover {
+  opacity: 0.7;
+}
+
+/* ============================= */
+/* SECTION FADE-IN (OPTIONAL) */
+/* ============================= */
+
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* FOCUS STATES (ACCESSIBILITY) */
+/* ============================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #111827;
+  outline-offset: 2px;
+}
+
+/* ============================= */
+/* SCROLL SMOOTHING */
+/* ============================= */
+
+html {
+  scroll-behavior: smooth;
 }
