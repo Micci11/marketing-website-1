@@ -1,19 +1,38 @@
 ---
+export const prerender = true;
+
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import "../../styles/global.css";
 
+function toISOTime(time?: string): string | undefined {
+  if (!time) return undefined;
+
+  const hourMatch = time.match(/(\d+)\s*hr/i);
+  const minuteMatch = time.match(/(\d+)\s*mins?/i);
+
+  let totalMinutes = 0;
+
+  if (hourMatch) totalMinutes += parseInt(hourMatch[1], 10) * 60;
+  if (minuteMatch) totalMinutes += parseInt(minuteMatch[1], 10);
+
+  return totalMinutes > 0 ? `PT${totalMinutes}M` : undefined;
+}
+
 export async function getStaticPaths() {
   const recipes = await getCollection('recipes');
-  return recipes.map((entry) => ({
-    params: { slug: entry.data.slug || entry.id.replace(/\.mdx?$/, '') },
-    props: { entry },
-  }));
+
+  return recipes
+    .filter((entry) => entry.data.slug)
+    .map((entry) => ({
+      params: { slug: entry.data.slug },
+      props: { entry },
+    }));
 }
 
 const { entry } = Astro.props;
 
-if (!entry) {
+if (!entry || !entry.data.slug) {
   return Astro.redirect('/404');
 }
 
@@ -40,11 +59,47 @@ const {
   variations,
   storage,
   faq,
-  sourceNote
+  sourceNote,
+  affiliateLinks
 } = entry.data;
 
 const primaryMealType = mealType?.[0];
-const currentSlug = entry.data.slug || entry.id.replace(/\.mdx?$/, '');
+const currentSlug = entry.data.slug;
+
+const allIngredients = [
+  ...(ingredientsDry || []),
+  ...(ingredientsWet || []),
+  ...(optionalIngredients || []),
+];
+
+const recipeSchema = {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  name: title,
+  description,
+  image: coverImage ? [coverImage] : undefined,
+  datePublished: pubDate?.toISOString(),
+  recipeYield: servings ? `${servings} servings` : undefined,
+  prepTime: toISOTime(prepTime),
+  cookTime: toISOTime(cookTime),
+  totalTime: toISOTime(totalTime),
+  recipeIngredient: allIngredients.length > 0 ? allIngredients : undefined,
+  recipeInstructions: instructions?.length
+    ? instructions.map((step) => ({
+        "@type": "HowToStep",
+        text: step,
+      }))
+    : undefined,
+  nutrition: macros
+    ? {
+        "@type": "NutritionInformation",
+        calories: macros.calories != null ? `${macros.calories} calories` : undefined,
+        proteinContent: macros.protein != null ? `${macros.protein} g` : undefined,
+        carbohydrateContent: macros.carbs != null ? `${macros.carbs} g` : undefined,
+        fatContent: macros.fat != null ? `${macros.fat} g` : undefined,
+      }
+    : undefined,
+};
 
 const backHref =
   primaryMealType === 'Desserts' ? '/desserts' :
@@ -63,9 +118,10 @@ const backLabel =
 const allRecipes = await getCollection('recipes');
 
 const relatedRecipes = allRecipes
+  .filter((recipe) => recipe.data.slug)
   .map((recipe) => ({
     ...recipe,
-    urlSlug: recipe.data.slug || recipe.id.replace(/\.mdx?$/, ''),
+    urlSlug: recipe.data.slug,
   }))
   .filter((recipe) => recipe.data.verdict === 'Works')
   .filter((recipe) => recipe.urlSlug !== currentSlug)
@@ -82,10 +138,15 @@ const relatedRecipes = allRecipes
   })
   .slice(0, 3);
 ---
+
 <BaseLayout
   title={`${title} | CraveSmart`}
   description={description || "A macro-aware recipe that satisfies cravings smartly."}
->
+  image={coverImage}
+  canonical={`/recipes/${currentSlug}`}
+/>
+  <script type="application/ld+json" set:html={JSON.stringify(recipeSchema)} />
+
   <section class="max-w-5xl mx-auto py-10 px-4 md:px-6">
     {mealType && mealType.length > 0 && (
       <p class="text-sm uppercase tracking-wider text-tiffany font-semibold mb-3">
@@ -247,6 +308,27 @@ const relatedRecipes = allRecipes
           )}
         </div>
       </div>
+
+      {affiliateLinks && affiliateLinks.length > 0 && (
+        <div class="mt-10 pt-8 border-t border-gray-200">
+          <h3 class="text-2xl font-heading font-bold text-gray-900 mb-4">Shop This Recipe</h3>
+          <div class="flex flex-col gap-3">
+            {affiliateLinks.map((item) => (
+              <a
+                href={item.url}
+                target="_blank"
+                rel="nofollow sponsored noopener noreferrer"
+                class="inline-flex w-fit items-center rounded-full border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-50 transition"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+          <p class="text-sm text-gray-500 mt-4">
+            This post may contain affiliate links, which means CraveSmart may earn a small commission at no extra cost to you.
+          </p>
+        </div>
+      )}
 
       {tips && tips.length > 0 && (
         <div class="mt-10 pt-8 border-t border-gray-200">

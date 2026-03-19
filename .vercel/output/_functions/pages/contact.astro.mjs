@@ -1,0 +1,33 @@
+/* empty css                                 */
+import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_jCYk7d1r.mjs';
+import 'piccolore';
+import { $ as $$BaseLayout } from '../chunks/BaseLayout_CJgjBS0v.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Contact = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "Contact \u2013 CraveSmart", "description": "Get in touch with CraveSmart for questions, feedback, or collaborations." }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<section class="bg-white text-gray-900 py-16 md:py-24"> <div class="container mx-auto px-4 max-w-4xl"> <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-center">
+Contact Us
+</h1> <p class="text-xl md:text-2xl text-center mb-12 text-gray-700 max-w-3xl mx-auto">
+Have a question, feedback, or want to collaborate? We'd love to hear from you.
+</p> <div class="grid md:grid-cols-2 gap-12"> <div> <form action="/api/contact" method="POST" class="space-y-6"> <div> <label for="name" class="block text-sm font-medium text-gray-700">Name</label> <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-tiffany focus:ring-2 focus:ring-tiffany/30 focus:outline-none px-4 py-3 bg-white transition"> </div> <div> <label for="email" class="block text-sm font-medium text-gray-700">Email</label> <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-tiffany focus:ring-2 focus:ring-tiffany/30 focus:outline-none px-4 py-3 bg-white transition"> </div> <div> <label for="message" class="block text-sm font-medium text-gray-700">Message</label> <textarea id="message" name="message" rows="5" required class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-tiffany focus:ring-2 focus:ring-tiffany/30 focus:outline-none px-4 py-3 bg-white transition"></textarea> </div> <button type="submit" class="bg-tiffany text-white px-8 py-4 rounded-full font-semibold hover:bg-tiffany-dark transition w-full md:w-auto button-hover">
+Send Message
+</button> </form> </div> <div class="space-y-6"> <div> <h3 class="text-xl font-bold text-gray-900 mb-2">Email</h3> <p class="text-gray-700"> <a href="mailto:hello@cravesmart.com" class="text-inherit hover:text-tiffany transition-colors">
+hello@cravesmart.com
+</a> </p> </div> <div> <h3 class="text-xl font-bold text-gray-900 mb-2">Instagram</h3> <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-tiffany hover:underline">
+@yourusername
+</a> </div> <div> <h3 class="text-xl font-bold text-gray-900 mb-2">Other ways to connect</h3> <p class="text-gray-700">Follow us on Instagram for daily recipe inspiration and tips!</p> </div> </div> </div> </div> </section> ` })}`;
+}, "C:/Users/Micci/Desktop/marketing website 1/src/pages/contact.astro", void 0);
+
+const $$file = "C:/Users/Micci/Desktop/marketing website 1/src/pages/contact.astro";
+const $$url = "/contact";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Contact,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

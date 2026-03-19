@@ -1,0 +1,102 @@
+/* empty css                                 */
+import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead, b as addAttribute, F as Fragment } from '../chunks/astro/server_jCYk7d1r.mjs';
+import 'piccolore';
+import { g as getCollection } from '../chunks/_astro_content_BksQjm7J.mjs';
+import { $ as $$BaseLayout } from '../chunks/BaseLayout_CJgjBS0v.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Index = createComponent(async ($$result, $$props, $$slots) => {
+  const allRecipes = await getCollection("recipes");
+  const liveRecipes = allRecipes.map((recipe) => ({
+    ...recipe,
+    urlSlug: recipe.data.slug || recipe.id.replace(/\.mdx?$/, "")
+  })).filter((recipe) => recipe.data.verdict === "Works").sort(
+    (a, b) => (b.data.pubDate?.getTime() || 0) - (a.data.pubDate?.getTime() || 0)
+  );
+  const featuredRecipes = liveRecipes.filter((recipe) => recipe.data.featured === true).sort((a, b) => (b.data.homepagePriority || 0) - (a.data.homepagePriority || 0)).slice(0, 4);
+  const fallbackFeaturedRecipes = featuredRecipes.length < 4 ? liveRecipes.filter((recipe) => !featuredRecipes.some((featured) => featured.id === recipe.id)).slice(0, 4 - featuredRecipes.length) : [];
+  const finalFeaturedRecipes = [...featuredRecipes, ...fallbackFeaturedRecipes];
+  const spotlightRecipes = liveRecipes.filter(
+    (recipe) => recipe.data.homepageSpotlight === true && !finalFeaturedRecipes.some((featured) => featured.id === recipe.id)
+  ).sort((a, b) => (b.data.homepagePriority || 0) - (a.data.homepagePriority || 0)).slice(0, 3);
+  const fallbackSpotlightRecipes = spotlightRecipes.length < 3 ? liveRecipes.filter(
+    (recipe) => !finalFeaturedRecipes.some((featured) => featured.id === recipe.id) && !spotlightRecipes.some((spotlight) => spotlight.id === recipe.id)
+  ).slice(0, 3 - spotlightRecipes.length) : [];
+  const moreRecipes = [...spotlightRecipes, ...fallbackSpotlightRecipes];
+  const craveSmartPicks = liveRecipes.filter(
+    (recipe) => !finalFeaturedRecipes.some((featured) => featured.id === recipe.id) && !moreRecipes.some((more) => more.id === recipe.id)
+  ).sort((a, b) => (b.data.homepagePriority || 0) - (a.data.homepagePriority || 0)).slice(0, 10);
+  const categories = [
+    {
+      label: "Breakfast",
+      href: "/breakfast",
+      image: "/placeholders/rachel-park-hrlvr2ZlUNk-unsplash.jpg"
+    },
+    {
+      label: "Dinner",
+      href: "/dinner",
+      image: "/placeholders/madie-hamilton-Q9yr-cvJr30-unsplash.jpg"
+    },
+    {
+      label: "Snacks",
+      href: "/snacks",
+      image: "/placeholders/brooke-lark-C1fMH2Vej8A-unsplash.jpg"
+    },
+    {
+      label: "Desserts",
+      href: "/desserts",
+      image: "/placeholders/kelvin-han-a-niLBbZF4o-unsplash.jpg"
+    }
+  ];
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "CraveSmart \u2013 Viral Recipes for Every Meal", "description": "Easy, proven viral recipes that deliver great taste and smart macros." }, { "default": async ($$result2) => renderTemplate` ${maybeRenderHead()}<section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 text-gray-900 py-10 md:py-14 text-center overflow-hidden"> <div class="relative mx-auto max-w-5xl px-4 z-10"> <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-10 tracking-tight">
+Viral Recipes That Actually Deliver
+</h1> <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
+Easy, proven viral recipes for every meal. Great taste, smart macros.
+</p> <a href="#recipes" class="button-hover bg-gray-900 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition inline-block shadow-lg hover:shadow-xl">
+See Recipes
+</a> </div> </section> <section id="recipes" class="container mx-auto px-4 py-16 max-w-7xl"> <h2 class="text-4xl md:text-5xl font-heading font-bold text-center mb-12 text-gray-900">
+Featured Recipes
+</h2> <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8"> ${finalFeaturedRecipes.map((recipe) => renderTemplate`<a${addAttribute(`/recipes/${recipe.urlSlug}`, "href")} class="card-hover block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl"> ${recipe.data.coverImage && renderTemplate`<img${addAttribute(recipe.data.coverImage, "src")}${addAttribute(recipe.data.coverAlt || recipe.data.title, "alt")} class="card-image w-full h-64 md:h-72 object-cover">`} <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent py-4 text-center"> <h3 class="text-xl font-bold text-white hover:text-tiffany transition"> ${recipe.data.title} </h3> </div> </a>`)} </div> </section> <section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 py-10 md:py-14 text-center overflow-hidden"> <div class="relative mx-auto max-w-xl px-4 z-10"> <h2 class="text-3xl font-heading font-bold mb-4 text-gray-900">
+Never Miss a Recipe
+</h2> <p class="text-lg text-gray-900 mb-8 opacity-90">
+Get new viral recipes delivered straight to your inbox.
+</p> <form class="flex flex-col md:flex-row gap-4 justify-center"> <input type="email" placeholder="Your email address" class="flex-1 px-4 py-4 rounded-full border border-gray-300 focus:border-tiffany focus:outline-none shadow-sm hover:shadow-md transition text-gray-900 placeholder-gray-500"> <button type="submit" class="button-hover bg-gray-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 transition shadow-md hover:shadow-xl">
+Subscribe
+</button> </form> </div> </section> <section class="container mx-auto px-4 py-16 max-w-5xl"> <h2 class="text-4xl md:text-5xl font-heading font-bold text-center mb-12 text-gray-900">
+Browse the Categories
+</h2> <div class="grid grid-cols-1 md:grid-cols-4 gap-6"> ${categories.map((category) => renderTemplate`<a${addAttribute(category.href, "href")} class="card-hover group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl"> <img${addAttribute(category.image, "src")}${addAttribute(category.label, "alt")} class="card-image w-full h-48 object-cover"> <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-3 text-center"> <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition"> ${category.label} </h3> </div> </a>`)} </div> </section> <section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 py-10 md:py-8 text-center overflow-hidden"> <div class="relative mx-auto max-w-5xl px-4 z-10"> <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16"> <div class="w-full md:w-1/2 flex justify-center"> <img src="/placeholders/digital cook book 1.JPG" alt="CraveSmart Cookbook on tablet" class="w-1/2 max-w-md md:max-w-lg rounded-2xl shadow-2xl object-cover transform md:rotate-3 transition-transform hover:rotate-0"> </div> <div class="w-full md:w-1/2 text-center md:text-left"> <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6 text-gray-900">
+Healthy Cookbook
+</h2> <p class="text-lg md:text-xl mb-4 opacity-90 max-w-xl mx-auto md:mx-0 text-gray-900">
+The best of CraveSmart — viral recipes that actually work, all in one place.
+</p> <div class="flex flex-col items-center md:items-start gap-4"> <span class="inline-block bg-gray-200 text-gray-700 px-10 py-5 rounded-full font-semibold text-xl shadow-md">
+Coming Soon
+</span> <p class="text-sm text-gray-600 max-w-sm">
+The CraveSmart Cookbook is in the works — packed with our best high-protein, viral recipes.
+</p> </div> </div> </div> </div> </section> <section class="container mx-auto px-4 py-16 max-w-5xl"> <h2 class="text-4xl md:text-5xl font-heading font-bold text-center mb-12 text-gray-900">
+More Recipes
+</h2> <div class="grid grid-cols-1 md:grid-cols-3 gap-6"> ${moreRecipes.map((recipe) => renderTemplate`<a${addAttribute(`/recipes/${recipe.urlSlug}`, "href")} class="card-hover block relative rounded-xl overflow-hidden shadow-md hover:shadow-xl"> ${recipe.data.coverImage && renderTemplate`<img${addAttribute(recipe.data.coverImage, "src")}${addAttribute(recipe.data.coverAlt || recipe.data.title, "alt")} class="card-image w-full h-64 object-cover">`} <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-4 text-center"> <h3 class="text-xl font-bold text-gray-900 hover:text-tiffany transition"> ${recipe.data.title} </h3> </div> </a>`)} </div> </section> <section class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-hero-bg/40 py-10 md:py-14 text-center overflow-hidden"> <div class="relative mx-auto max-w-5xl px-4 z-10"> <h2 class="text-4xl md:text-5xl font-heading font-bold mb-10 text-gray-900">
+CraveSmart Picks
+</h2> ${craveSmartPicks.length > 0 ? renderTemplate`<div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6"> ${craveSmartPicks.map((recipe) => renderTemplate`<a${addAttribute(`/recipes/${recipe.urlSlug}`, "href")} class="card-hover block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl group"> ${recipe.data.coverImage && renderTemplate`${renderComponent($$result2, "Fragment", Fragment, {}, { "default": async ($$result3) => renderTemplate` <img${addAttribute(recipe.data.coverImage, "src")}${addAttribute(recipe.data.coverAlt || recipe.data.title, "alt")} class="card-image w-full h-40 md:h-48 object-cover"> <div class="card-overlay"></div> ` })}`} <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent py-3 text-center"> <h3 class="text-base md:text-lg font-bold text-white group-hover:text-tiffany transition"> ${recipe.data.title} </h3> </div> </a>`)} </div>` : renderTemplate`<div class="text-center py-12"> <p class="text-xl text-gray-600">
+More standout recipes are coming soon.
+</p> </div>`} </div> </section> <section class="bg-white py-16 text-center border-t border-gray-100"> <div class="container mx-auto px-4 max-w-5xl"> <h2 class="text-4xl md:text-5xl font-heading font-bold mb-8 text-gray-900">
+About Me
+</h2> <img src="/placeholders/girl for websoite.jpg" alt="About Me" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-8 object-cover shadow-md"> <p class="text-lg md:text-xl text-gray-700 mb-6 max-w-3xl mx-auto leading-relaxed">
+Hi, I'm Isabella, the creator of CraveSmart. I curate proven viral recipes that are easy to make, taste amazing, and fit smart macros. From breakfast to desserts, everything here is designed for real life indulgence without the guilt.
+</p> <a href="/about" class="text-tiffany font-medium text-lg hover:underline">
+Learn More About Me →
+</a> </div> </section> ` })}`;
+}, "C:/Users/Micci/Desktop/marketing website 1/src/pages/index.astro", void 0);
+
+const $$file = "C:/Users/Micci/Desktop/marketing website 1/src/pages/index.astro";
+const $$url = "";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Index,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

@@ -8,7 +8,7 @@ const recipes = defineCollection({
   }),
   schema: z.object({
     title: z.string(),
-    slug: z.string().optional(),
+    slug: z.string().min(1, 'Slug is required'),
     description: z.string(),
 
     coverImage: z.string().optional(),
@@ -34,7 +34,12 @@ const recipes = defineCollection({
     homepageSpotlight: z.boolean().optional(),
     homepagePriority: z.number().optional(),
 
-    affiliateLink: z.string().optional(),
+    affiliateLinks: z.array(
+      z.object({
+        label: z.string(),
+        url: z.string().url(),
+      })
+    ).optional(),
 
     prepTime: z.string().optional(),
     cookTime: z.string().optional(),
