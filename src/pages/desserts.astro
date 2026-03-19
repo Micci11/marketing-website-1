@@ -7,7 +7,7 @@ const allRecipes = await getCollection('recipes');
 const dessertsRecipes = allRecipes
   .map((recipe) => ({
     ...recipe,
-    urlSlug: recipe.id.replace(/\.mdx?$/, ''),
+    urlSlug: recipe.data.slug || recipe.id.replace(/\.mdx?$/, ''),
   }))
   .filter(
     (recipe) =>
@@ -16,8 +16,8 @@ const dessertsRecipes = allRecipes
   )
   .sort(
     (a, b) =>
-      new Date(b.data.pubDate || 0).getTime() -
-      new Date(a.data.pubDate || 0).getTime()
+      (b.data.pubDate?.getTime() || 0) -
+      (a.data.pubDate?.getTime() || 0)
   );
 ---
 
@@ -45,7 +45,7 @@ const dessertsRecipes = allRecipes
                   <div class="recipe-image">
                     <img 
                       src={recipe.data.coverImage} 
-                      alt={recipe.data.title} 
+                      alt={recipe.data.coverAlt || recipe.data.title} 
                     />
                   </div>
                 </div>

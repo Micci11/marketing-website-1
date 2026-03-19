@@ -99,7 +99,7 @@ const categories = [
       </p>
       <a
         href="#recipes"
-        class="bg-gray-900 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition inline-block shadow-lg hover:shadow-xl"
+        class="button-hover bg-gray-900 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition inline-block shadow-lg hover:shadow-xl"
       >
         See Recipes
       </a>
@@ -115,13 +115,13 @@ const categories = [
       {finalFeaturedRecipes.map((recipe) => (
         <a
           href={`/recipes/${recipe.urlSlug}`}
-          class="block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-transform hover:scale-105 duration-300"
+          class="card-hover block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl"
         >
           {recipe.data.coverImage && (
             <img
               src={recipe.data.coverImage}
               alt={recipe.data.coverAlt || recipe.data.title}
-              class="w-full h-64 md:h-72 object-cover transition-transform hover:scale-110 duration-300"
+              class="card-image w-full h-64 md:h-72 object-cover"
             />
           )}
 
@@ -152,7 +152,7 @@ const categories = [
         />
         <button
           type="submit"
-          class="bg-gray-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 transition shadow-md hover:shadow-xl"
+          class="button-hover bg-gray-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 transition shadow-md hover:shadow-xl"
         >
           Subscribe
         </button>
@@ -167,8 +167,8 @@ const categories = [
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
       {categories.map((category) => (
-        <a href={category.href} class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-          <img src={category.image} alt={category.label} class="w-full h-48 object-cover" />
+        <a href={category.href} class="card-hover group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl">
+          <img src={category.image} alt={category.label} class="card-image w-full h-48 object-cover" />
           <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-3 text-center">
             <h3 class="text-xl font-bold text-gray-900 group-hover:text-tiffany transition">
               {category.label}
@@ -194,15 +194,19 @@ const categories = [
           <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6 text-gray-900">
             Healthy Cookbook
           </h2>
-          <p class="text-lg md:text-xl mb-8 opacity-90 max-w-xl mx-auto md:mx-0 text-gray-900">
-            Viral Food Recipes. Download now and start cooking smarter.
+          <p class="text-lg md:text-xl mb-4 opacity-90 max-w-xl mx-auto md:mx-0 text-gray-900">
+            The best of CraveSmart — viral recipes that actually work, all in one place.
           </p>
-          <a
-            href="/cookbook-download.pdf"
-            class="inline-block bg-gray-900 text-white px-10 py-5 rounded-full font-semibold text-xl hover:bg-gray-800 transition shadow-lg hover:shadow-xl"
-          >
-            DOWNLOAD
-          </a>
+
+          <div class="flex flex-col items-center md:items-start gap-4">
+            <span class="inline-block bg-gray-200 text-gray-700 px-10 py-5 rounded-full font-semibold text-xl shadow-md">
+              Coming Soon
+            </span>
+
+            <p class="text-sm text-gray-600 max-w-sm">
+              The CraveSmart Cookbook is in the works — packed with our best high-protein, viral recipes.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -217,13 +221,13 @@ const categories = [
       {moreRecipes.map((recipe) => (
         <a
           href={`/recipes/${recipe.urlSlug}`}
-          class="block relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition"
+          class="card-hover block relative rounded-xl overflow-hidden shadow-md hover:shadow-xl"
         >
           {recipe.data.coverImage && (
             <img
               src={recipe.data.coverImage}
               alt={recipe.data.coverAlt || recipe.data.title}
-              class="w-full h-64 object-cover"
+              class="card-image w-full h-64 object-cover"
             />
           )}
           <div class="absolute bottom-0 left-0 right-0 bg-white/80 py-4 text-center">
@@ -247,14 +251,17 @@ const categories = [
           {craveSmartPicks.map((recipe) => (
             <a
               href={`/recipes/${recipe.urlSlug}`}
-              class="block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-transform hover:scale-105 duration-300 group"
+              class="card-hover block relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl group"
             >
               {recipe.data.coverImage && (
-                <img
-                  src={recipe.data.coverImage}
-                  alt={recipe.data.coverAlt || recipe.data.title}
-                  class="w-full h-40 md:h-48 object-cover transition-transform group-hover:scale-110 duration-300"
-                />
+                <>
+                  <img
+                    src={recipe.data.coverImage}
+                    alt={recipe.data.coverAlt || recipe.data.title}
+                    class="card-image w-full h-40 md:h-48 object-cover"
+                  />
+                  <div class="card-overlay"></div>
+                </>
               )}
               <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent py-3 text-center">
                 <h3 class="text-base md:text-lg font-bold text-white group-hover:text-tiffany transition">
