@@ -144,7 +144,7 @@ const relatedRecipes = allRecipes
   description={description || "A macro-aware recipe that satisfies cravings smartly."}
   image={coverImage}
   canonical={`/recipes/${currentSlug}`}
-/>
+>
   <script type="application/ld+json" set:html={JSON.stringify(recipeSchema)} />
 
   <section class="max-w-5xl mx-auto py-10 px-4 md:px-6">
@@ -198,7 +198,7 @@ const relatedRecipes = allRecipes
       </div>
     )}
 
-    <section class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-a:text-tiffany hover:prose-a:underline mb-14">
+    <section class="prose prose-lg max-w-3xl mx-auto prose-headings:font-heading prose-headings:text-gray-900 prose-a:text-tiffany hover:prose-a:underline mb-14">
       <Content />
     </section>
 

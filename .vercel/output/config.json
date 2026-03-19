@@ -20,39 +20,7 @@
 			"dest": "_render"
 		},
 		{
-			"src": "^/about/?$",
-			"dest": "_render"
-		},
-		{
 			"src": "^/api/contact/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/breakfast/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/contact/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/desserts/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/dinner/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/snacks/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/supplements/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/$",
 			"dest": "_render"
 		}
 	]

@@ -59,7 +59,7 @@ const craveSmartPicks = liveRecipes
       !moreRecipes.some((more) => more.id === recipe.id)
   )
   .sort((a, b) => (b.data.homepagePriority || 0) - (a.data.homepagePriority || 0))
-  .slice(0, 10);
+  .slice(0, 5);
 
 const categories = [
   {
@@ -98,7 +98,7 @@ const categories = [
         Easy, proven viral recipes for every meal. Great taste, smart macros.
       </p>
       <a
-        href="#recipes"
+        href="#more-recipes"
         class="button-hover bg-gray-900 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition inline-block shadow-lg hover:shadow-xl"
       >
         See Recipes
@@ -212,7 +212,7 @@ const categories = [
     </div>
   </section>
 
-  <section class="container mx-auto px-4 py-16 max-w-5xl">
+  <section id="more-recipes" class="container mx-auto px-4 py-16 max-w-5xl">
     <h2 class="text-4xl md:text-5xl font-heading font-bold text-center mb-12 text-gray-900">
       More Recipes
     </h2>
