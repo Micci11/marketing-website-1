@@ -19,6 +19,84 @@ function toISOTime(time?: string): string | undefined {
   return totalMinutes > 0 ? `PT${totalMinutes}M` : undefined;
 }
 
+function ozToG(oz: number): string {
+  return `${Math.round(oz * 28.35)}g`;
+}
+
+function lbToKg(lb: number): string {
+  const kg = lb * 0.453592;
+  return kg >= 1 ? `${(Math.round(kg * 100) / 100).toFixed(2)}kg` : `${Math.round(kg * 1000)}g`;
+}
+
+function cupsToMl(cups: number): string {
+  return `${Math.round(cups * 240)}ml`;
+}
+
+function tbspToMl(tbsp: number): string {
+  return `${Math.round(tbsp * 15)}ml`;
+}
+
+function tspToMl(tsp: number): string {
+  return `${Math.round(tsp * 5)}ml`;
+}
+
+function parseFraction(input: string): number {
+  const normalized = input.trim();
+
+  const fractionMap: Record<string, number> = {
+    "¼": 0.25,
+    "½": 0.5,
+    "¾": 0.75,
+    "⅓": 1 / 3,
+    "⅔": 2 / 3,
+  };
+
+  if (fractionMap[normalized] != null) return fractionMap[normalized];
+
+  if (normalized.includes(" ")) {
+    const [whole, frac] = normalized.split(" ");
+    return parseFloat(whole) + (fractionMap[frac] ?? 0);
+  }
+
+  if (normalized.includes("/")) {
+    const [num, den] = normalized.split("/");
+    return parseFloat(num) / parseFloat(den);
+  }
+
+  return parseFloat(normalized);
+}
+
+function convertIngredientToMetric(text: string): string {
+  let result = text;
+
+  result = result.replace(
+    /(\d+\s\d+\/\d+|\d+\/\d+|[¼½¾⅓⅔]|\d*\.?\d+)\s*lb\b/gi,
+    (_, amount) => lbToKg(parseFraction(amount))
+  );
+
+  result = result.replace(
+    /(\d+\s\d+\/\d+|\d+\/\d+|[¼½¾⅓⅔]|\d*\.?\d+)\s*oz\b/gi,
+    (_, amount) => ozToG(parseFraction(amount))
+  );
+
+  result = result.replace(
+    /(\d+\s\d+\/\d+|\d+\/\d+|[¼½¾⅓⅔]|\d*\.?\d+)\s*cups?\b/gi,
+    (_, amount) => cupsToMl(parseFraction(amount))
+  );
+
+  result = result.replace(
+    /(\d+\s\d+\/\d+|\d+\/\d+|[¼½¾⅓⅔]|\d*\.?\d+)\s*tbsp\b/gi,
+    (_, amount) => tbspToMl(parseFraction(amount))
+  );
+
+  result = result.replace(
+    /(\d+\s\d+\/\d+|\d+\/\d+|[¼½¾⅓⅔]|\d*\.?\d+)\s*tsp\b/gi,
+    (_, amount) => tspToMl(parseFraction(amount))
+  );
+
+  return result;
+}
+
 export async function getStaticPaths() {
   const recipes = await getCollection('recipes');
 
@@ -267,13 +345,41 @@ const relatedRecipes = allRecipes
 
       <div class="grid md:grid-cols-2 gap-10">
         <div>
-          <h3 class="text-2xl font-heading font-bold text-gray-900 mb-4">Ingredients</h3>
+          <div class="flex items-center justify-between gap-4 mb-4">
+            <h3 class="text-2xl font-heading font-bold text-gray-900">Ingredients</h3>
+
+            <div class="inline-flex rounded-full border border-gray-300 bg-gray-50 p-1" id="unit-toggle">
+              <button
+                type="button"
+                data-unit-button="us"
+                class="unit-btn rounded-full px-4 py-1.5 text-sm font-semibold bg-gray-900 text-white"
+              >
+                US
+              </button>
+              <button
+                type="button"
+                data-unit-button="metric"
+                class="unit-btn rounded-full px-4 py-1.5 text-sm font-semibold text-gray-700"
+              >
+                Metric
+              </button>
+            </div>
+          </div>
+
+          <p class="text-sm text-gray-500 mb-5">
+            Switch between US and metric measurements. Metric conversions are approximate.
+          </p>
 
           {ingredientsDry && ingredientsDry.length > 0 && (
             <>
               <h4 class="font-semibold text-gray-800 mb-2">Dry Ingredients</h4>
               <ul class="list-disc pl-5 space-y-2 text-gray-700 mb-5">
-                {ingredientsDry.map((item) => <li>{item}</li>)}
+                {ingredientsDry.map((item) => (
+                  <li>
+                    <span data-unit="us">{item}</span>
+                    <span data-unit="metric" class="hidden">{convertIngredientToMetric(item)}</span>
+                  </li>
+                ))}
               </ul>
             </>
           )}
@@ -282,7 +388,12 @@ const relatedRecipes = allRecipes
             <>
               <h4 class="font-semibold text-gray-800 mb-2">Wet Ingredients</h4>
               <ul class="list-disc pl-5 space-y-2 text-gray-700 mb-5">
-                {ingredientsWet.map((item) => <li>{item}</li>)}
+                {ingredientsWet.map((item) => (
+                  <li>
+                    <span data-unit="us">{item}</span>
+                    <span data-unit="metric" class="hidden">{convertIngredientToMetric(item)}</span>
+                  </li>
+                ))}
               </ul>
             </>
           )}
@@ -291,7 +402,12 @@ const relatedRecipes = allRecipes
             <>
               <h4 class="font-semibold text-gray-800 mb-2">Optional</h4>
               <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                {optionalIngredients.map((item) => <li>{item}</li>)}
+                {optionalIngredients.map((item) => (
+                  <li>
+                    <span data-unit="us">{item}</span>
+                    <span data-unit="metric" class="hidden">{convertIngredientToMetric(item)}</span>
+                  </li>
+                ))}
               </ul>
             </>
           )}
@@ -435,4 +551,43 @@ const relatedRecipes = allRecipes
       </a>
     </div>
   </section>
+
+  <script is:inline>
+    function initUnitToggle() {
+      const savedUnit = localStorage.getItem('cravesmart-units') || 'us';
+
+      function applyUnits(unit) {
+        document.querySelectorAll('[data-unit="us"]').forEach((el) => {
+          el.classList.toggle('hidden', unit !== 'us');
+        });
+
+        document.querySelectorAll('[data-unit="metric"]').forEach((el) => {
+          el.classList.toggle('hidden', unit !== 'metric');
+        });
+
+        document.querySelectorAll('[data-unit-button]').forEach((btn) => {
+          const isActive = btn.dataset.unitButton === unit;
+          btn.classList.toggle('bg-gray-900', isActive);
+          btn.classList.toggle('text-white', isActive);
+          btn.classList.toggle('text-gray-700', !isActive);
+        });
+      }
+
+      applyUnits(savedUnit);
+
+      document.querySelectorAll('[data-unit-button]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const unit = btn.dataset.unitButton;
+          localStorage.setItem('cravesmart-units', unit);
+          applyUnits(unit);
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initUnitToggle);
+    } else {
+      initUnitToggle();
+    }
+  </script>
 </BaseLayout>
