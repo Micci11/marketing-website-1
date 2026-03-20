@@ -232,7 +232,7 @@ const relatedRecipes = allRecipes
       </p>
     )}
 
-    <h1 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4">
+    <h1 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4 break-words">
       {title}
     </h1>
 
@@ -271,6 +271,7 @@ const relatedRecipes = allRecipes
           <img
             src={coverImage}
             alt={coverAlt || title}
+            class="w-full h-auto block"
           />
         </div>
       </div>
@@ -280,16 +281,16 @@ const relatedRecipes = allRecipes
       <Content />
     </section>
 
-    <section id="recipe-card" class="bg-white border border-gray-200 rounded-2xl shadow-lg p-6 md:p-8 scroll-mt-24">
-      <div class="flex items-start justify-between gap-4 mb-6">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">
+    <section id="recipe-card" class="bg-white border border-gray-200 rounded-2xl shadow-lg p-6 md:p-8 scroll-mt-24 overflow-hidden">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 break-words">
           {title}
         </h2>
 
         <button
           type="button"
           onclick="window.print()"
-          class="shrink-0 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm font-semibold hover:bg-gray-50 transition"
+          class="shrink-0 rounded-full border border-gray-300 bg-white px-5 py-2 text-sm font-semibold hover:bg-gray-50 transition w-full sm:w-auto"
         >
           Print
         </button>
@@ -344,11 +345,11 @@ const relatedRecipes = allRecipes
       )}
 
       <div class="grid md:grid-cols-2 gap-10">
-        <div>
-          <div class="flex items-center justify-between gap-4 mb-4">
+        <div class="min-w-0">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
             <h3 class="text-2xl font-heading font-bold text-gray-900">Ingredients</h3>
 
-            <div class="inline-flex rounded-full border border-gray-300 bg-gray-50 p-1" id="unit-toggle">
+            <div class="inline-flex w-fit flex-wrap rounded-full border border-gray-300 bg-gray-50 p-1" id="unit-toggle">
               <button
                 type="button"
                 data-unit-button="us"
@@ -373,7 +374,7 @@ const relatedRecipes = allRecipes
           {ingredientsDry && ingredientsDry.length > 0 && (
             <>
               <h4 class="font-semibold text-gray-800 mb-2">Dry Ingredients</h4>
-              <ul class="list-disc pl-5 space-y-2 text-gray-700 mb-5">
+              <ul class="list-disc pl-5 space-y-2 text-gray-700 mb-5 break-words">
                 {ingredientsDry.map((item) => (
                   <li>
                     <span data-unit="us">{item}</span>
@@ -387,7 +388,7 @@ const relatedRecipes = allRecipes
           {ingredientsWet && ingredientsWet.length > 0 && (
             <>
               <h4 class="font-semibold text-gray-800 mb-2">Wet Ingredients</h4>
-              <ul class="list-disc pl-5 space-y-2 text-gray-700 mb-5">
+              <ul class="list-disc pl-5 space-y-2 text-gray-700 mb-5 break-words">
                 {ingredientsWet.map((item) => (
                   <li>
                     <span data-unit="us">{item}</span>
@@ -401,7 +402,7 @@ const relatedRecipes = allRecipes
           {optionalIngredients && optionalIngredients.length > 0 && (
             <>
               <h4 class="font-semibold text-gray-800 mb-2">Optional</h4>
-              <ul class="list-disc pl-5 space-y-2 text-gray-700">
+              <ul class="list-disc pl-5 space-y-2 text-gray-700 break-words">
                 {optionalIngredients.map((item) => (
                   <li>
                     <span data-unit="us">{item}</span>
@@ -413,10 +414,10 @@ const relatedRecipes = allRecipes
           )}
         </div>
 
-        <div>
+        <div class="min-w-0">
           <h3 class="text-2xl font-heading font-bold text-gray-900 mb-4">Instructions</h3>
           {instructions && instructions.length > 0 ? (
-            <ol class="list-decimal pl-5 space-y-4 text-gray-700">
+            <ol class="list-decimal pl-5 space-y-4 text-gray-700 break-words">
               {instructions.map((step) => <li>{step}</li>)}
             </ol>
           ) : (
@@ -434,7 +435,7 @@ const relatedRecipes = allRecipes
                 href={item.url}
                 target="_blank"
                 rel="nofollow sponsored noopener noreferrer"
-                class="inline-flex w-fit items-center rounded-full border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-50 transition"
+                class="inline-flex w-fit max-w-full items-center rounded-full border border-gray-300 bg-white px-5 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-50 transition break-words"
               >
                 {item.label}
               </a>
@@ -449,7 +450,7 @@ const relatedRecipes = allRecipes
       {tips && tips.length > 0 && (
         <div class="mt-10 pt-8 border-t border-gray-200">
           <h3 class="text-2xl font-heading font-bold text-gray-900 mb-4">Tips</h3>
-          <ul class="list-disc pl-5 space-y-2 text-gray-700">
+          <ul class="list-disc pl-5 space-y-2 text-gray-700 break-words">
             {tips.map((tip) => <li>{tip}</li>)}
           </ul>
         </div>
@@ -458,7 +459,7 @@ const relatedRecipes = allRecipes
       {variations && variations.length > 0 && (
         <div class="mt-10 pt-8 border-t border-gray-200">
           <h3 class="text-2xl font-heading font-bold text-gray-900 mb-4">Variations</h3>
-          <ul class="list-disc pl-5 space-y-2 text-gray-700">
+          <ul class="list-disc pl-5 space-y-2 text-gray-700 break-words">
             {variations.map((item) => <li>{item}</li>)}
           </ul>
         </div>
@@ -467,7 +468,7 @@ const relatedRecipes = allRecipes
       {storage && storage.length > 0 && (
         <div class="mt-10 pt-8 border-t border-gray-200">
           <h3 class="text-2xl font-heading font-bold text-gray-900 mb-4">Storage</h3>
-          <ul class="list-disc pl-5 space-y-2 text-gray-700">
+          <ul class="list-disc pl-5 space-y-2 text-gray-700 break-words">
             {storage.map((item) => <li>{item}</li>)}
           </ul>
         </div>
@@ -514,7 +515,7 @@ const relatedRecipes = allRecipes
                   <img
                     src={recipe.data.coverImage}
                     alt={recipe.data.coverAlt || recipe.data.title}
-                    class="card-image w-full h-56 object-cover"
+                    class="card-image w-full h-56 object-cover block"
                   />
                 )}
 
@@ -525,7 +526,7 @@ const relatedRecipes = allRecipes
                     </p>
                   )}
 
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                  <h3 class="text-xl font-bold text-gray-900 mb-2 break-words">
                     {recipe.data.title}
                   </h3>
 

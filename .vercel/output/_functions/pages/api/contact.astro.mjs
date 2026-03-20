@@ -2,7 +2,7 @@ import { Resend } from 'resend';
 export { renderers } from '../../renderers.mjs';
 
 const prerender = false;
-const resend = new Resend("re_aYacEbEZ_6DgfT5sJ9mUEP7At68qH23gS");
+const resend = new Resend(undefined                              );
 const POST = async ({ request }) => {
   try {
     const formData = await request.formData();
@@ -15,8 +15,8 @@ const POST = async ({ request }) => {
     }
     console.log("Form received:", { name, email, message });
     const result = await resend.emails.send({
-      from: "hello@cravesmart.recipes",
-      to: "miccicurto@gmail.com",
+      from: undefined                                  ,
+      to: undefined                                ,
       replyTo: email,
       subject: `New Contact Form Message from ${name}`,
       html: `
