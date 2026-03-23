@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cravesmart.recipes/sitemap-index.xml
+Sitemap: https://www.cravesmart.recipes/sitemap-index.xml
