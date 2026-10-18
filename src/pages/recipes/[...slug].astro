@@ -432,6 +432,9 @@ const relatedRecipes = allRecipes
           <div class="flex flex-col gap-3">
             {affiliateLinks.map((item) => (
               <a
+                data-affiliate-link
+                data-product-label={item.label}
+                data-link-placement="shop_this_recipe"
                 href={item.url}
                 target="_blank"
                 rel="nofollow sponsored noopener noreferrer"
