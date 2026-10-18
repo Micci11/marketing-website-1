@@ -1,0 +1,27 @@
+---
+import { validMeasurementId } from '../lib/analytics.mjs';
+const measurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim() || '';
+if (import.meta.env.PROD && !validMeasurementId(measurementId)) {
+  throw new Error('Set PUBLIC_GA_MEASUREMENT_ID to the intended GA4 web stream Measurement ID before building production.');
+}
+---
+
+{measurementId && (
+  <div data-analytics-measurement-id={measurementId}>
+    <aside data-analytics-consent hidden aria-label="Analytics preferences" class="fixed bottom-4 inset-x-4 z-50 mx-auto max-w-2xl rounded-2xl border border-gray-300 bg-white p-5 text-gray-900 shadow-xl">
+      <p class="font-semibold">Help us improve CraveSmart</p>
+      <p class="mt-2 text-sm">May we use Google Analytics cookies to measure page visits and affiliate-link clicks? Your choice won’t change access to recipes. <a href="/privacy" class="underline">Privacy policy</a></p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <button type="button" data-analytics-accept class="rounded-full bg-gray-900 px-5 py-2 text-sm text-white">Allow analytics</button>
+        <button type="button" data-analytics-reject class="rounded-full border border-gray-400 px-5 py-2 text-sm">Reject analytics</button>
+      </div>
+    </aside>
+  </div>
+)}
+
+<script>
+  import { installAnalytics } from '../lib/analytics.mjs';
+  const config = document.querySelector('[data-analytics-measurement-id]');
+  const id = config?.getAttribute('data-analytics-measurement-id');
+  if (id) installAnalytics(window, document, id);
+</script>

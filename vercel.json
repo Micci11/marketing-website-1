@@ -2,7 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": {
-      "codex/amazon-associate-migration": false
+      "codex/amazon-associate-migration": false,
+      "codex/affiliate-click-analytics": false
     }
   }
 }

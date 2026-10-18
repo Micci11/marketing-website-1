@@ -3,11 +3,12 @@ import { getAmazonProduct, getAmazonUrl } from '../lib/amazon.mjs';
 
 interface Props {
   product: string;
+  placement?: string;
 }
 
-const { product } = Astro.props;
+const { product, placement = "recipe_content" } = Astro.props;
 const details = getAmazonProduct(product);
 const href = getAmazonUrl(product);
 ---
 
-<a href={href} target="_blank" rel="sponsored nofollow noopener noreferrer"><slot>{details.label}</slot></a>
+<a data-affiliate-link data-product-id={product} data-product-label={details.label} data-link-placement={placement} href={href} target="_blank" rel="sponsored nofollow noopener noreferrer"><slot>{details.label}</slot></a>
