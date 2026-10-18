@@ -1,0 +1,1161 @@
+{
+  "checkedAt": "2026-10-18",
+  "scope": "120 occurrences, 37 unique short links, all 17 recipe MDX files",
+  "products": [
+    {
+      "product": "caroteCeramic21Piece",
+      "sourceShortUrl": "https://amzn.to/3NKO2fu",
+      "originalAsin": "B0GHQ45SRL",
+      "originalSelectedAsin": "B0GHQ45SRL",
+      "asin": "B0GHQ45SRL",
+      "title": "CAROTE 21pcs Cookware Set Nonstick Pots and Pans Set, Ceramic Cookware Set Induction Cookware, Non toxic Healthy Non Stick Kitchen Cooking Set, PFAS PTFE Free, Black",
+      "url": "https://www.amazon.com/dp/B0GHQ45SRL?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0GHQ45SRL?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0GHQ45SRL",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/spicy-cottage-cheese-fried-eggs.mdx",
+          "line": 106,
+          "text": "👉 https://amzn.to/3NKO2fu"
+        },
+        {
+          "file": "src/content/recipes/high-protein-crispy-chicken-tacos.mdx",
+          "line": 121,
+          "text": "👉 https://amzn.to/3NKO2fu"
+        },
+        {
+          "file": "src/content/recipes/high-protein-tortilla.mdx",
+          "line": 124,
+          "text": "👉 https://amzn.to/3NKO2fu"
+        },
+        {
+          "file": "src/content/recipes/raspberry-protein-pancakes-lemon-cream-cheese-frosting.mdx",
+          "line": 129,
+          "text": "👉 https://amzn.to/3NKO2fu"
+        },
+        {
+          "file": "src/content/recipes/high-protein-garlic-naan.mdx",
+          "line": 123,
+          "text": "👉 https://amzn.to/3NKO2fu"
+        }
+      ]
+    },
+    {
+      "product": "nakedCaseinUnflavored1lb",
+      "sourceShortUrl": "https://amzn.to/3NLLYUv",
+      "originalAsin": "B0787TJJNQ",
+      "originalSelectedAsin": "B0787TJJNQ",
+      "asin": "B0787TJJNQ",
+      "title": "NAKED Casein - 1Lb Micellar Casein Protein - Bulk, Zero Carb, NSF Certified, GMO-Free, Gluten Free, Soy Free, Preservative Free - Stimulate Muscle Growth - Enhance Recovery - 15 Servings",
+      "url": "https://www.amazon.com/dp/B0787TJJNQ?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0787TJJNQ?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0787TJJNQ",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-chocolate-chip-cookies.mdx",
+          "line": 95,
+          "text": "- Casein (improves texture and chew): https://amzn.to/3NLLYUv"
+        },
+        {
+          "file": "src/content/recipes/high-protein-blondies.mdx",
+          "line": 90,
+          "text": "- Casein (key for soft, dense texture): https://amzn.to/3NLLYUv"
+        },
+        {
+          "file": "src/content/recipes/high-protein-brownies.mdx",
+          "line": 86,
+          "text": "- Casein (helps create a softer, denser texture): https://amzn.to/3NLLYUv"
+        }
+      ]
+    },
+    {
+      "product": "hexclad16Piece",
+      "sourceShortUrl": "https://amzn.to/3NXBq4S",
+      "originalAsin": "B0CVCTPFTR",
+      "originalSelectedAsin": "B0CVCTPFTR",
+      "asin": "B0CVCTPFTR",
+      "title": "HexClad Hybrid Nonstick 16-Piece Cookware Set, 2, 3, and 8Qt Pots with Lids, 2 Silicone Trivets, 8\", 10\", and 12\" Pans with Lids, and 7Qt Chicken Fryer with Lid, Stay-Cool Handles",
+      "url": "https://www.amazon.com/dp/B0CVCTPFTR?language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0CVCTPFTR?language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0CVCTPFTR",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/spicy-cottage-cheese-fried-eggs.mdx",
+          "line": 112,
+          "text": "👉 https://amzn.to/3NXBq4S"
+        },
+        {
+          "file": "src/content/recipes/high-protein-crispy-chicken-tacos.mdx",
+          "line": 131,
+          "text": "👉 https://amzn.to/3NXBq4S"
+        },
+        {
+          "file": "src/content/recipes/high-protein-tortilla.mdx",
+          "line": 129,
+          "text": "👉 https://amzn.to/3NXBq4S"
+        },
+        {
+          "file": "src/content/recipes/raspberry-protein-pancakes-lemon-cream-cheese-frosting.mdx",
+          "line": 134,
+          "text": "👉 https://amzn.to/3NXBq4S"
+        },
+        {
+          "file": "src/content/recipes/high-protein-garlic-naan.mdx",
+          "line": 129,
+          "text": "👉 https://amzn.to/3NXBq4S"
+        }
+      ]
+    },
+    {
+      "product": "usaPan8Inch",
+      "sourceShortUrl": "https://amzn.to/3O18qJt",
+      "originalAsin": "B0029JMMRE",
+      "originalSelectedAsin": "B0029JMMRE",
+      "asin": "B0029JMMRE",
+      "title": "USA Pan Bakeware Nonstick Square Cake Pan, 8 Inch, Aluminized Steel",
+      "url": "https://www.amazon.com/dp/B0029JMMRE?language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0029JMMRE?language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0029JMMRE",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/popcorn-slice.mdx",
+          "line": 126,
+          "text": "👉 https://amzn.to/3O18qJt"
+        },
+        {
+          "file": "src/content/recipes/high-protein-blondies.mdx",
+          "line": 113,
+          "text": "USA Pan: https://amzn.to/3O18qJt"
+        },
+        {
+          "file": "src/content/recipes/high-protein-brownies.mdx",
+          "line": 109,
+          "text": "USA Pan: https://amzn.to/3O18qJt"
+        }
+      ]
+    },
+    {
+      "product": "ninjaProfessionalDuo",
+      "sourceShortUrl": "https://amzn.to/3PIuKIh",
+      "originalAsin": "B0BMGSZMW9",
+      "originalSelectedAsin": "B0BMGSZMW9",
+      "asin": "B0BMGSZMW9",
+      "title": "Ninja BN751 Professional Plus DUO Blender, 1400 Peak Watts, 3 Auto-IQ Programs for Smoothies, Frozen Drinks & Nutrient Extractions, 72-oz. Total Crushing Pitcher & (2) 24 oz. To-Go Cups, Black",
+      "url": "https://www.amazon.com/dp/B0BMGSZMW9?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0BMGSZMW9?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0BMGSZMW9",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-blondies.mdx",
+          "line": 106,
+          "text": "Ninja: https://amzn.to/3PIuKIh"
+        },
+        {
+          "file": "src/content/recipes/high-protein-creamy-tomato-soup.mdx",
+          "line": 112,
+          "text": "Ninja: https://amzn.to/3PIuKIh"
+        },
+        {
+          "file": "src/content/recipes/cottage-cheese-pizza.mdx",
+          "line": 96,
+          "text": "👉 https://amzn.to/3PIuKIh"
+        },
+        {
+          "file": "src/content/recipes/high-protein-brownies.mdx",
+          "line": 102,
+          "text": "Ninja: https://amzn.to/3PIuKIh"
+        },
+        {
+          "file": "src/content/recipes/high-protein-cottage-cheese-cheesecake.mdx",
+          "line": 110,
+          "text": "Ninja: https://amzn.to/3PIuKIh"
+        }
+      ]
+    },
+    {
+      "product": "parchment70SqFt",
+      "sourceShortUrl": "https://amzn.to/3PnXdDl",
+      "originalAsin": "B001T6JTMY",
+      "originalSelectedAsin": "B001T6JTMY",
+      "asin": "B001T6JTMY",
+      "title": "If You Care, Paper Parchment 70 Square Feet",
+      "url": "https://www.amazon.com/dp/B001T6JTMY?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B001T6JTMY?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B001T6JTMY",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-chocolate-chip-cookies.mdx",
+          "line": 107,
+          "text": "https://amzn.to/3PnXdDl"
+        },
+        {
+          "file": "src/content/recipes/high-protein-blondies.mdx",
+          "line": 117,
+          "text": "https://amzn.to/3PnXdDl"
+        },
+        {
+          "file": "src/content/recipes/high-protein-chicken-calzone.mdx",
+          "line": 112,
+          "text": "https://amzn.to/3PnXdDl"
+        },
+        {
+          "file": "src/content/recipes/cottage-cheese-pizza.mdx",
+          "line": 89,
+          "text": "👉 https://amzn.to/3PnXdDl"
+        },
+        {
+          "file": "src/content/recipes/easy-boneless-wings.mdx",
+          "line": 105,
+          "text": "👉 https://amzn.to/3PnXdDl"
+        },
+        {
+          "file": "src/content/recipes/high-protein-brownies.mdx",
+          "line": 113,
+          "text": "https://amzn.to/3PnXdDl"
+        }
+      ]
+    },
+    {
+      "product": "alphaTortillaPress8Inch",
+      "sourceShortUrl": "https://amzn.to/3Ptp8BO",
+      "originalAsin": "B0D7QX6CDN",
+      "originalSelectedAsin": "B0D7QX6CDN",
+      "asin": "B0D7QX6CDN",
+      "title": "Alpha Living Tortilla Press – 8 Inch Cast Iron Quesadilla Maker – Heavy Duty Empanada Maker Press – Cast Iron Tortilla Maker for Kitchen, Home Use",
+      "url": "https://www.amazon.com/dp/B0D7QX6CDN?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0D7QX6CDN?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0D7QX6CDN",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-tortilla.mdx",
+          "line": 106,
+          "text": "👉 https://amzn.to/3Ptp8BO"
+        }
+      ]
+    },
+    {
+      "product": "turelarImmersionBlender",
+      "sourceShortUrl": "https://amzn.to/40YKkC6",
+      "originalAsin": "B0CPLVLFK2",
+      "originalSelectedAsin": "B0CPLVLFK2",
+      "asin": "B0CPLVLFK2",
+      "title": "Turelar Immersion Blender Handheld Corded, 1100W 5 in 1 Hand Blender Set",
+      "url": "https://www.amazon.com/dp/B0CPLVLFK2?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0CPLVLFK2?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0CPLVLFK2",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-creamy-tomato-soup.mdx",
+          "line": 108,
+          "text": "https://amzn.to/40YKkC6"
+        },
+        {
+          "file": "src/content/recipes/high-protein-cottage-cheese-cheesecake.mdx",
+          "line": 106,
+          "text": "https://amzn.to/40YKkC6"
+        }
+      ]
+    },
+    {
+      "product": "luvanGlassBowls",
+      "sourceShortUrl": "https://amzn.to/41x4rHC",
+      "originalAsin": "B072MQH8B8",
+      "originalSelectedAsin": "B072MQH8B8",
+      "asin": "B072MQH8B8",
+      "title": "Luvan Glass Mixing Bowls with Lids Set(4.5QT, 2.7QT, 1.1QT)-Large Glass Mixing Bowls, Clear Salad Bowl for Baking, Cooking, Serving, Food Prep, 3PC Nesting Bowls for Kitchen Storage & Dishwasher Safe",
+      "url": "https://www.amazon.com/dp/B072MQH8B8?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B072MQH8B8?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B072MQH8B8",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-chocolate-chip-cookies.mdx",
+          "line": 115,
+          "text": "- Glass: https://amzn.to/41x4rHC"
+        },
+        {
+          "file": "src/content/recipes/high-protein-blondies.mdx",
+          "line": 110,
+          "text": "Glass: https://amzn.to/41x4rHC"
+        },
+        {
+          "file": "src/content/recipes/high-protein-breakfast-egg-bake-meal-prep.mdx",
+          "line": 125,
+          "text": "Glass: https://amzn.to/41x4rHC"
+        },
+        {
+          "file": "src/content/recipes/high-protein-chicken-calzone.mdx",
+          "line": 117,
+          "text": "Glass: https://amzn.to/41x4rHC"
+        },
+        {
+          "file": "src/content/recipes/easy-boneless-wings.mdx",
+          "line": 110,
+          "text": "- Luvan Glass Mixing Bowls with Lids Set 👉 https://amzn.to/41x4rHC"
+        },
+        {
+          "file": "src/content/recipes/high-protein-crispy-chicken-tacos.mdx",
+          "line": 144,
+          "text": "Glass: https://amzn.to/41x4rHC"
+        },
+        {
+          "file": "src/content/recipes/high-protein-brownies.mdx",
+          "line": 106,
+          "text": "Glass: https://amzn.to/41x4rHC"
+        },
+        {
+          "file": "src/content/recipes/high-protein-egg-salad.mdx",
+          "line": 118,
+          "text": "Glass: https://amzn.to/41x4rHC"
+        }
+      ]
+    },
+    {
+      "product": "fullstar2In1",
+      "sourceShortUrl": "https://amzn.to/41xnly4",
+      "originalAsin": "B0C1T6J3CS",
+      "originalSelectedAsin": "B0C1T6J3CS",
+      "asin": "B0C1T6J3CS",
+      "title": "Fullstar Pro Original Vegetable Chopper, 2-in-1 Onion Dicer & Kitchen Gift",
+      "url": "https://www.amazon.com/dp/B0C1T6J3CS?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0C1T6J3CS?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0C1T6J3CS",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-stuffed-chicken-fries.mdx",
+          "line": 109,
+          "text": "👉 Basic version: https://amzn.to/41xnly4"
+        },
+        {
+          "file": "src/content/recipes/high-protein-breakfast-egg-bake-meal-prep.mdx",
+          "line": 120,
+          "text": "Basic version: https://amzn.to/41xnly4"
+        },
+        {
+          "file": "src/content/recipes/high-protein-egg-salad.mdx",
+          "line": 106,
+          "text": "👉 Basic version: https://amzn.to/41xnly4"
+        }
+      ]
+    },
+    {
+      "product": "naturalForceVanillaWhey1lb",
+      "sourceShortUrl": "https://amzn.to/41yeBaZ",
+      "originalAsin": "B00NGT4M7Y",
+      "originalSelectedAsin": "B00NGT4M7Y",
+      "asin": "B00NGT4M7Y",
+      "title": "Natural Force Grass Fed Organic Whey Protein Powder – Non GMO Verified, Humane Certified & Lab Tested for Toxins – Real Vanilla Flavor – Keto Friendly, Low Carb, and Kosher - 16 Ounce A2 Protein",
+      "url": "https://www.amazon.com/dp/B00NGT4M7Y?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B00NGT4M7Y?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B00NGT4M7Y",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-chocolate-chip-cookies.mdx",
+          "line": 90,
+          "text": "- Grass-fed whey (sweeter, softer cookies): https://amzn.to/41yeBaZ"
+        },
+        {
+          "file": "src/content/recipes/high-protein-blondies.mdx",
+          "line": 85,
+          "text": "- Grass-fed whey (very sweet, often replaces added sweetener): https://amzn.to/41yeBaZ"
+        },
+        {
+          "file": "src/content/recipes/high-protein-brownies.mdx",
+          "line": 81,
+          "text": "- Grass-fed whey (very sweet, can reduce added sweetener): https://amzn.to/41yeBaZ"
+        }
+      ]
+    },
+    {
+      "product": "finedine6PieceBowls",
+      "sourceShortUrl": "https://amzn.to/47m1j4S",
+      "originalAsin": "B01HTYH8YA",
+      "originalSelectedAsin": "B01HTYH8YA",
+      "asin": "B01HTYH8YA",
+      "title": "FineDine Stainless Steel Mixing Bowls Set, 6-Piece Metal Bowls",
+      "url": "https://www.amazon.com/dp/B01HTYH8YA?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B01HTYH8YA?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B01HTYH8YA",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-chocolate-chip-cookies.mdx",
+          "line": 114,
+          "text": "- Stainless: https://amzn.to/47m1j4S"
+        },
+        {
+          "file": "src/content/recipes/high-protein-blondies.mdx",
+          "line": 109,
+          "text": "Stainless: https://amzn.to/47m1j4S"
+        },
+        {
+          "file": "src/content/recipes/high-protein-breakfast-egg-bake-meal-prep.mdx",
+          "line": 124,
+          "text": "Stainless: https://amzn.to/47m1j4S"
+        },
+        {
+          "file": "src/content/recipes/high-protein-chicken-calzone.mdx",
+          "line": 116,
+          "text": "Stainless: https://amzn.to/47m1j4S"
+        },
+        {
+          "file": "src/content/recipes/easy-boneless-wings.mdx",
+          "line": 109,
+          "text": "- FineDine Stainless Steel Mixing Bowls Set 👉 https://amzn.to/47m1j4S"
+        },
+        {
+          "file": "src/content/recipes/high-protein-crispy-chicken-tacos.mdx",
+          "line": 143,
+          "text": "Stainless: https://amzn.to/47m1j4S"
+        },
+        {
+          "file": "src/content/recipes/high-protein-brownies.mdx",
+          "line": 105,
+          "text": "Stainless: https://amzn.to/47m1j4S"
+        },
+        {
+          "file": "src/content/recipes/high-protein-egg-salad.mdx",
+          "line": 117,
+          "text": "Stainless: https://amzn.to/47m1j4S"
+        }
+      ]
+    },
+    {
+      "product": "farberwareRollingPin",
+      "sourceShortUrl": "https://amzn.to/47mRQdA",
+      "originalAsin": "B005D6GFFA",
+      "originalSelectedAsin": "B005D6GFFA",
+      "asin": "B005D6GFFA",
+      "title": "FARBERWARE Classic Wood Rolling Pin, 18-Inch Hardwood Dough Roller for Baking Pizza, Pies, Pastry and Cookies, Ergonomic Handles, Kitchen Essential",
+      "url": "https://www.amazon.com/dp/B005D6GFFA?psc=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B005D6GFFA?psc=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B005D6GFFA",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/popcorn-slice.mdx",
+          "line": 135,
+          "text": "👉 https://amzn.to/47mRQdA"
+        },
+        {
+          "file": "src/content/recipes/high-protein-tortilla.mdx",
+          "line": 114,
+          "text": "👉 https://amzn.to/47mRQdA"
+        },
+        {
+          "file": "src/content/recipes/high-protein-garlic-naan.mdx",
+          "line": 112,
+          "text": "👉 https://amzn.to/47mRQdA"
+        }
+      ]
+    },
+    {
+      "product": "homureCookieScoops",
+      "sourceShortUrl": "https://amzn.to/47mp8JQ",
+      "originalAsin": "B08LVY3F83",
+      "originalSelectedAsin": "B08LVY3F83",
+      "asin": "B08LVY3F83",
+      "title": "HOMURE H Cookie Scoop Set, Include 1 Tbsp/2 Tbsp/3 Tbsp, Cookie Dough Scoop, Cookie Scoops for Baking Set of 3, 18/8 Stainless Steel, Good Grip, Non-Slip, For Cookies Cupcake Muffin Ice Cream waffle",
+      "url": "https://www.amazon.com/dp/B08LVY3F83?language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B08LVY3F83?language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B08LVY3F83",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-chocolate-chip-cookies.mdx",
+          "line": 111,
+          "text": "https://amzn.to/47mp8JQ"
+        }
+      ]
+    },
+    {
+      "product": "oxo9InchTongs",
+      "sourceShortUrl": "https://amzn.to/47nj5os",
+      "originalAsin": "B00004OCK0",
+      "originalSelectedAsin": "B00004OCK0",
+      "asin": "B00004OCK0",
+      "title": "OXO Good Grips 9-Inch Stainless Steel Locking Tongs",
+      "url": "https://www.amazon.com/dp/B00004OCK0?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B00004OCK0?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B00004OCK0",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-stuffed-chicken-fries.mdx",
+          "line": 120,
+          "text": "👉 https://amzn.to/47nj5os"
+        },
+        {
+          "file": "src/content/recipes/high-protein-chicken-calzone.mdx",
+          "line": 121,
+          "text": "https://amzn.to/47nj5os"
+        },
+        {
+          "file": "src/content/recipes/easy-boneless-wings.mdx",
+          "line": 114,
+          "text": "👉 https://amzn.to/47nj5os"
+        },
+        {
+          "file": "src/content/recipes/high-protein-crispy-chicken-tacos.mdx",
+          "line": 137,
+          "text": "👉 https://amzn.to/47nj5os"
+        }
+      ]
+    },
+    {
+      "product": "ninjaKitchenSystemProPlus",
+      "sourceShortUrl": "https://amzn.to/47ntH6P",
+      "originalAsin": "B0CKTY2QT4",
+      "originalSelectedAsin": "B0CKTY2QT4",
+      "asin": "B0CKTY2QT4",
+      "title": "Ninja Kitchen System Pro+, 72oz Pitcher, 8-Cup, 1200W, Grey, BR601AMZ",
+      "url": "https://www.amazon.com/dp/B0CKTY2QT4?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0CKTY2QT4?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0CKTY2QT4",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/popcorn-slice.mdx",
+          "line": 114,
+          "text": "👉 https://amzn.to/47ntH6P"
+        },
+        {
+          "file": "src/content/recipes/raspberry-protein-pancakes-lemon-cream-cheese-frosting.mdx",
+          "line": 117,
+          "text": "👉 https://amzn.to/47ntH6P"
+        }
+      ]
+    },
+    {
+      "product": "kitchenaidPizzaWheel",
+      "sourceShortUrl": "https://amzn.to/4877cTI",
+      "originalAsin": "B07YP2VL68",
+      "originalSelectedAsin": "B07YP2VL68",
+      "asin": "B07YP2VL68",
+      "title": "KitchenAid Classic Pizza Wheel with Sharp Blade For Cutting Through Crusts, Pies and More, Built In Finger Guard for Safety and Comfort Grip to Protect Fingers, Dishwasher Safe, 9-Inch, Black",
+      "url": "https://www.amazon.com/dp/B07YP2VL68?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B07YP2VL68?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B07YP2VL68",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/cottage-cheese-pizza.mdx",
+          "line": 100,
+          "text": "👉 https://amzn.to/4877cTI"
+        }
+      ]
+    },
+    {
+      "product": "caroteStainless21PieceBrown",
+      "sourceShortUrl": "https://amzn.to/4bItRa1",
+      "originalAsin": "B0FQ42KD14",
+      "originalSelectedAsin": "B0H343M1NQ",
+      "asin": "B0H343M1NQ",
+      "title": "CAROTE 21pcs Tri-Ply stainless steel pots and pans set Detachable Handle",
+      "url": "https://www.amazon.com/dp/B0H343M1NQ?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0H343M1NQ?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0H343M1NQ",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/spicy-cottage-cheese-fried-eggs.mdx",
+          "line": 107,
+          "text": "👉 https://amzn.to/4bItRa1"
+        },
+        {
+          "file": "src/content/recipes/high-protein-crispy-chicken-tacos.mdx",
+          "line": 122,
+          "text": "👉 https://amzn.to/4bItRa1"
+        },
+        {
+          "file": "src/content/recipes/high-protein-tortilla.mdx",
+          "line": 125,
+          "text": "👉 https://amzn.to/4bItRa1"
+        },
+        {
+          "file": "src/content/recipes/raspberry-protein-pancakes-lemon-cream-cheese-frosting.mdx",
+          "line": 130,
+          "text": "👉 https://amzn.to/4bItRa1"
+        },
+        {
+          "file": "src/content/recipes/high-protein-garlic-naan.mdx",
+          "line": 124,
+          "text": "👉 https://amzn.to/4bItRa1"
+        }
+      ]
+    },
+    {
+      "product": "cuisinart2QtSaucepan",
+      "sourceShortUrl": "https://amzn.to/4bzemCF",
+      "originalAsin": "B00008CM6C",
+      "originalSelectedAsin": "B00008CM6C",
+      "asin": "B00008CM6C",
+      "title": "Cuisinart 719-18 Chef's Classic Stainless 2-Quart Saucepan with Cover",
+      "url": "https://www.amazon.com/dp/B00008CM6C?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B00008CM6C?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B00008CM6C",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-creamy-tomato-soup.mdx",
+          "line": 116,
+          "text": "https://amzn.to/4bzemCF"
+        }
+      ]
+    },
+    {
+      "product": "pyrex2Cup3Pack",
+      "sourceShortUrl": "https://amzn.to/4c2pCaJ",
+      "originalAsin": "B075WCTKP3",
+      "originalSelectedAsin": "B075WCTKP3",
+      "asin": "B075WCTKP3",
+      "title": "Pyrex 7200 2-Cup Glass Bowl & 7200-PC Dark Blue Lid (3-Pack) - Made in USA",
+      "url": "https://www.amazon.com/dp/B075WCTKP3?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B075WCTKP3?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B075WCTKP3",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-breakfast-egg-bake-meal-prep.mdx",
+          "line": 97,
+          "text": "👉 https://amzn.to/4c2pCaJ"
+        }
+      ]
+    },
+    {
+      "product": "ganizaFoodProcessor",
+      "sourceShortUrl": "https://amzn.to/4c6viAt",
+      "originalAsin": "B0BRMM85HG",
+      "originalSelectedAsin": "B0BRMM85HG",
+      "asin": "B0BRMM85HG",
+      "title": "Ganiza Food Processors with 2 Bowls, 450W Meat Grinder Vegetable Chopper",
+      "url": "https://www.amazon.com/dp/B0BRMM85HG?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0BRMM85HG?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0BRMM85HG",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/popcorn-slice.mdx",
+          "line": 110,
+          "text": "👉 https://amzn.to/4c6viAt"
+        }
+      ]
+    },
+    {
+      "product": "monkDrops",
+      "sourceShortUrl": "https://amzn.to/4rTzAjq",
+      "originalAsin": "B07CQLG4P7",
+      "originalSelectedAsin": "B07CQLG4P7",
+      "asin": "B07CQLG4P7",
+      "title": "Monk Drops - 100% Monkfruit Liquid Sweetener, 350 Servings, 1.5 Fl Oz",
+      "url": "https://www.amazon.com/dp/B07CQLG4P7?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B07CQLG4P7?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B07CQLG4P7",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-cottage-cheese-cheesecake.mdx",
+          "line": 84,
+          "text": "- Monk fruit drops (very concentrated, about 5 drops = 1 tsp sugar, so one bottle lasts a long time): https://amzn.to/4rTzAjq"
+        }
+      ]
+    },
+    {
+      "product": "nordicWare8InchPan",
+      "sourceShortUrl": "https://amzn.to/4rUFMry",
+      "originalAsin": "B06XT59LF6",
+      "originalSelectedAsin": "B06XT59LF6",
+      "asin": "B06XT59LF6",
+      "title": "Nordic Ware - 47500 Nordic Ware Naturals Aluminum Commercial 8\" x 8\" Square Cake Pan, 8 by 8 inches, Silver",
+      "url": "https://www.amazon.com/dp/B06XT59LF6?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B06XT59LF6?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B06XT59LF6",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/popcorn-slice.mdx",
+          "line": 127,
+          "text": "👉 https://amzn.to/4rUFMry"
+        },
+        {
+          "file": "src/content/recipes/high-protein-blondies.mdx",
+          "line": 114,
+          "text": "Nordic Ware: https://amzn.to/4rUFMry"
+        },
+        {
+          "file": "src/content/recipes/high-protein-brownies.mdx",
+          "line": 110,
+          "text": "Nordic Ware: https://amzn.to/4rUFMry"
+        }
+      ]
+    },
+    {
+      "product": "duseu2CupMoldsBlue",
+      "sourceShortUrl": "https://amzn.to/4rYCxPz",
+      "originalAsin": "B0G1YDRHRG",
+      "originalSelectedAsin": "B0G1YDRHRG",
+      "asin": "B0G1YDRHRG",
+      "title": "8 PCS 2 Cup Silicone Freezer Molds With Lid, 16oz, Blue",
+      "url": "https://www.amazon.com/dp/B0G1YDRHRG?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0G1YDRHRG?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0G1YDRHRG",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-breakfast-egg-bake-meal-prep.mdx",
+          "line": 112,
+          "text": "👉 https://amzn.to/4rYCxPz"
+        }
+      ]
+    },
+    {
+      "product": "equipChocolate",
+      "sourceShortUrl": "https://amzn.to/4sA7BGJ",
+      "originalAsin": "B0CP3WZYG8",
+      "originalSelectedAsin": "B013MRPPL6",
+      "asin": "B013MRPPL6",
+      "title": "Equip Prime Chocolate Protein Powder - Gut-Friendly, No Sugar Protein Shake Powder with Grass-Fed Beef & Natural Collagen - Rich & Creamy Mix - 21g Per Serving - Whey & Dairy-Free (30 Scoops)",
+      "url": "https://www.amazon.com/dp/B013MRPPL6?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B013MRPPL6?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B013MRPPL6",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-chocolate-chip-cookies.mdx",
+          "line": 93,
+          "text": "- Chocolate: https://amzn.to/4sA7BGJ"
+        },
+        {
+          "file": "src/content/recipes/high-protein-blondies.mdx",
+          "line": 88,
+          "text": "Chocolate: https://amzn.to/4sA7BGJ"
+        },
+        {
+          "file": "src/content/recipes/high-protein-brownies.mdx",
+          "line": 83,
+          "text": "Chocolate: https://amzn.to/4sA7BGJ"
+        }
+      ]
+    },
+    {
+      "product": "fullstar14In1",
+      "sourceShortUrl": "https://amzn.to/4sBNxno",
+      "originalAsin": "B0DNZRSCMS",
+      "originalSelectedAsin": "B0DNZRSCMS",
+      "asin": "B0DNZRSCMS",
+      "title": "Fullstar Pro Original Vegetable Chopper & Slicer, 14-in-1 Kitchen Tool",
+      "url": "https://www.amazon.com/dp/B0DNZRSCMS?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0DNZRSCMS?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0DNZRSCMS",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-stuffed-chicken-fries.mdx",
+          "line": 110,
+          "text": "👉 Full version: https://amzn.to/4sBNxno"
+        },
+        {
+          "file": "src/content/recipes/high-protein-breakfast-egg-bake-meal-prep.mdx",
+          "line": 121,
+          "text": "Full 14-in-1 version: https://amzn.to/4sBNxno"
+        },
+        {
+          "file": "src/content/recipes/high-protein-egg-salad.mdx",
+          "line": 107,
+          "text": "👉 Full 14-in-1 version: https://amzn.to/4sBNxno"
+        }
+      ]
+    },
+    {
+      "product": "equipVanilla",
+      "sourceShortUrl": "https://amzn.to/4sFwHEg",
+      "originalAsin": "B01M2Y1NN8",
+      "originalSelectedAsin": null,
+      "asin": "B01M2Y1NN8",
+      "title": "Equip Foods Prime Protein Powder | Clean, Grass Fed Beef Protein Powder | Carnivore Protein Isolate, Keto Friendly | Gluten & Dairy Free | Helps Build & Repair Tissue | 30 Servings, Vanilla (No Sugar)",
+      "url": "https://www.amazon.com/dp/B01M2Y1NN8?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B01M2Y1NN8?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B01M2Y1NN8",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-chocolate-chip-cookies.mdx",
+          "line": 92,
+          "text": "- Vanilla: https://amzn.to/4sFwHEg"
+        },
+        {
+          "file": "src/content/recipes/high-protein-blondies.mdx",
+          "line": 87,
+          "text": "Vanilla: https://amzn.to/4sFwHEg"
+        },
+        {
+          "file": "src/content/recipes/high-protein-brownies.mdx",
+          "line": 84,
+          "text": "Vanilla: https://amzn.to/4sFwHEg"
+        }
+      ]
+    },
+    {
+      "product": "brevilleJouleOven",
+      "sourceShortUrl": "https://amzn.to/4sxjVaB",
+      "originalAsin": "B0BYFTZT3H",
+      "originalSelectedAsin": "B0BYFTZT3H",
+      "asin": "B0BYFTZT3H",
+      "title": "Breville BOV950BSS Joule Oven Air Fryer Pro, Brushed Stainless Steel",
+      "url": "https://www.amazon.com/dp/B0BYFTZT3H?smid=ATVPDKIKX0DER&th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0BYFTZT3H?smid=ATVPDKIKX0DER&th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0BYFTZT3H",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-stuffed-chicken-fries.mdx",
+          "line": 128,
+          "text": "Breville: https://amzn.to/4sxjVaB"
+        },
+        {
+          "file": "src/content/recipes/high-protein-chicken-calzone.mdx",
+          "line": 104,
+          "text": "Breville (premium): https://amzn.to/4sxjVaB"
+        },
+        {
+          "file": "src/content/recipes/easy-boneless-wings.mdx",
+          "line": 93,
+          "text": "👉 https://amzn.to/4sxjVaB"
+        },
+        {
+          "file": "src/content/recipes/high-protein-crispy-chicken-tacos.mdx",
+          "line": 150,
+          "text": "Breville: https://amzn.to/4sxjVaB"
+        }
+      ]
+    },
+    {
+      "product": "sweese8OzRamekinsWhite",
+      "sourceShortUrl": "https://amzn.to/4t8Mrzi",
+      "originalAsin": "B0DN5LRJCK",
+      "originalSelectedAsin": "B0DN5LRJCK",
+      "asin": "B0DN5LRJCK",
+      "title": "Sweese 6-Pack 8 oz Porcelain Ramekins with Lids, White Souffle Dishes for Baking, Creme Brulee Cups, Oven-Friendly Pudding Custard Bowls – Versatile Kitchen Essentials for Baking and Storing",
+      "url": "https://www.amazon.com/dp/B0DN5LRJCK?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0DN5LRJCK?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0DN5LRJCK",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-cottage-cheese-cheesecake.mdx",
+          "line": 114,
+          "text": "https://amzn.to/4t8Mrzi"
+        }
+      ]
+    },
+    {
+      "product": "ninjaXlAirFryer",
+      "sourceShortUrl": "https://amzn.to/4t8lZWw",
+      "originalAsin": "B08QKTXT1N",
+      "originalSelectedAsin": "B08QKTXT1N",
+      "asin": "B08QKTXT1N",
+      "title": "Ninja Air Fryer XL, 5.5 Qt, 5-in-1, Grey, AF150AMZ",
+      "url": "https://www.amazon.com/dp/B08QKTXT1N?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B08QKTXT1N?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B08QKTXT1N",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-stuffed-chicken-fries.mdx",
+          "line": 129,
+          "text": "Ninja: https://amzn.to/4t8lZWw"
+        },
+        {
+          "file": "src/content/recipes/high-protein-chicken-calzone.mdx",
+          "line": 107,
+          "text": "Ninja (budget): https://amzn.to/4t8lZWw"
+        },
+        {
+          "file": "src/content/recipes/easy-boneless-wings.mdx",
+          "line": 97,
+          "text": "👉 https://amzn.to/4t8lZWw"
+        },
+        {
+          "file": "src/content/recipes/high-protein-crispy-chicken-tacos.mdx",
+          "line": 151,
+          "text": "Ninja: https://amzn.to/4t8lZWw"
+        }
+      ]
+    },
+    {
+      "product": "hexclad10Piece",
+      "sourceShortUrl": "https://amzn.to/4t94kxU",
+      "originalAsin": "B0CVCV8XDT",
+      "originalSelectedAsin": "B0CVCV8XDT",
+      "asin": "B0CVCV8XDT",
+      "title": "HexClad Hybrid Nonstick 10-Piece Cookware Set, 12\" Wok, 12\" Griddle, 2, 3, and 8Qt Pots with Lids, and 2 Silicone Trivets, Stay-Cool Handles, Dishwasher and Oven-Safe, Induction Ready",
+      "url": "https://www.amazon.com/dp/B0CVCV8XDT?language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0CVCV8XDT?language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0CVCV8XDT",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/spicy-cottage-cheese-fried-eggs.mdx",
+          "line": 111,
+          "text": "👉 https://amzn.to/4t94kxU"
+        },
+        {
+          "file": "src/content/recipes/high-protein-crispy-chicken-tacos.mdx",
+          "line": 130,
+          "text": "👉 https://amzn.to/4t94kxU"
+        },
+        {
+          "file": "src/content/recipes/high-protein-tortilla.mdx",
+          "line": 128,
+          "text": "👉 https://amzn.to/4t94kxU"
+        },
+        {
+          "file": "src/content/recipes/raspberry-protein-pancakes-lemon-cream-cheese-frosting.mdx",
+          "line": 133,
+          "text": "👉 https://amzn.to/4t94kxU"
+        },
+        {
+          "file": "src/content/recipes/high-protein-garlic-naan.mdx",
+          "line": 128,
+          "text": "👉 https://amzn.to/4t94kxU"
+        }
+      ]
+    },
+    {
+      "product": "carote44PieceBlack",
+      "sourceShortUrl": "https://amzn.to/4tcZeAU",
+      "originalAsin": "B0FTRQD63S",
+      "originalSelectedAsin": "B0FTRQD63S",
+      "asin": "B0FTRQD63S",
+      "title": "CAROTE 44pcs Pots and Pans, Nonstick Cookware Set with Bakeware",
+      "url": "https://www.amazon.com/dp/B0FTRQD63S?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0FTRQD63S?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0FTRQD63S",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/spicy-cottage-cheese-fried-eggs.mdx",
+          "line": 105,
+          "text": "👉 https://amzn.to/4tcZeAU"
+        },
+        {
+          "file": "src/content/recipes/high-protein-crispy-chicken-tacos.mdx",
+          "line": 120,
+          "text": "👉 https://amzn.to/4tcZeAU"
+        },
+        {
+          "file": "src/content/recipes/high-protein-tortilla.mdx",
+          "line": 123,
+          "text": "👉 https://amzn.to/4tcZeAU"
+        },
+        {
+          "file": "src/content/recipes/raspberry-protein-pancakes-lemon-cream-cheese-frosting.mdx",
+          "line": 128,
+          "text": "👉 https://amzn.to/4tcZeAU"
+        },
+        {
+          "file": "src/content/recipes/high-protein-garlic-naan.mdx",
+          "line": 122,
+          "text": "👉 https://amzn.to/4tcZeAU"
+        }
+      ]
+    },
+    {
+      "product": "equipSaltedCaramel",
+      "sourceShortUrl": "https://amzn.to/4uHTCzY",
+      "originalAsin": "B0CG36P4YC",
+      "originalSelectedAsin": "B0CG36P4YC",
+      "asin": "B0CG36P4YC",
+      "title": "Equip Foods Prime Protein Powder | Clean, Grass Fed Beef Protein Powder, Carnivore Protein Isolate | Paleo, Keto Friendly, Gluten & Dairy Free, Helps Build & Repair Tissue| 30 Servings, Salted Caramel",
+      "url": "https://www.amazon.com/dp/B0CG36P4YC?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0CG36P4YC?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0CG36P4YC",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-chocolate-chip-cookies.mdx",
+          "line": 94,
+          "text": "- Salted Caramel: https://amzn.to/4uHTCzY"
+        },
+        {
+          "file": "src/content/recipes/high-protein-blondies.mdx",
+          "line": 89,
+          "text": "Salted Caramel: https://amzn.to/4uHTCzY"
+        },
+        {
+          "file": "src/content/recipes/high-protein-brownies.mdx",
+          "line": 85,
+          "text": "Salted Caramel: https://amzn.to/4uHTCzY"
+        }
+      ]
+    },
+    {
+      "product": "lakantoClassicAllulose1lb",
+      "sourceShortUrl": "https://amzn.to/4uI6vdk",
+      "originalAsin": "B0CFSL5L2M",
+      "originalSelectedAsin": "B0CFSL5L2M",
+      "asin": "B0CFSL5L2M",
+      "title": "Lakanto Classic Monk Fruit Sweetener with Allulose, 1 lb, White Sugar",
+      "url": "https://www.amazon.com/dp/B0CFSL5L2M?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0CFSL5L2M?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0CFSL5L2M",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-cottage-cheese-cheesecake.mdx",
+          "line": 88,
+          "text": "- Monk fruit + allulose blend: https://amzn.to/4uI6vdk"
+        }
+      ]
+    },
+    {
+      "product": "vitamixE310Black",
+      "sourceShortUrl": "https://amzn.to/4uNl7Iy",
+      "originalAsin": "B0758JHZM3",
+      "originalSelectedAsin": "B0758JHZM3",
+      "asin": "B0758JHZM3",
+      "title": "Vitamix E310 Explorian Blender, Professional-Grade, Self-Cleaning 48 oz. Container, Black",
+      "url": "https://www.amazon.com/dp/B0758JHZM3?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0758JHZM3?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0758JHZM3",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-blondies.mdx",
+          "line": 105,
+          "text": "Vitamix: https://amzn.to/4uNl7Iy"
+        },
+        {
+          "file": "src/content/recipes/high-protein-creamy-tomato-soup.mdx",
+          "line": 111,
+          "text": "Vitamix: https://amzn.to/4uNl7Iy"
+        },
+        {
+          "file": "src/content/recipes/cottage-cheese-pizza.mdx",
+          "line": 94,
+          "text": "👉 https://amzn.to/4uNl7Iy"
+        },
+        {
+          "file": "src/content/recipes/high-protein-brownies.mdx",
+          "line": 101,
+          "text": "Vitamix: https://amzn.to/4uNl7Iy"
+        },
+        {
+          "file": "src/content/recipes/high-protein-cottage-cheese-cheesecake.mdx",
+          "line": 109,
+          "text": "Vitamix: https://amzn.to/4uNl7Iy"
+        },
+        {
+          "file": "src/content/recipes/raspberry-protein-pancakes-lemon-cream-cheese-frosting.mdx",
+          "line": 114,
+          "text": "👉 https://amzn.to/4uNl7Iy"
+        }
+      ]
+    },
+    {
+      "product": "souperCubes2Cup2PackBlueberry",
+      "sourceShortUrl": "https://amzn.to/4uQtfYN",
+      "originalAsin": "B0D1669N8C",
+      "originalSelectedAsin": "B0D1669N8C",
+      "asin": "B0D1669N8C",
+      "title": "Souper Cubes 2 Cup Silicone Molds for Food, Blueberry, 2-Pack",
+      "url": "https://www.amazon.com/dp/B0D1669N8C?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0D1669N8C?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0D1669N8C",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-breakfast-egg-bake-meal-prep.mdx",
+          "line": 108,
+          "text": "👉 https://amzn.to/4uQtfYN"
+        },
+        {
+          "file": "src/content/recipes/high-protein-creamy-tomato-soup.mdx",
+          "line": 120,
+          "text": "https://amzn.to/4uQtfYN"
+        }
+      ]
+    },
+    {
+      "product": "nordicWareHalfSheet2Pack",
+      "sourceShortUrl": "https://amzn.to/4uShTDo",
+      "originalAsin": "B0049C2S32",
+      "originalSelectedAsin": "B0049C2S32",
+      "asin": "B0049C2S32",
+      "title": "Nordic Ware Naturals Half Sheet - USA Made Aluminum Commercial Quality Sheet Pan for Baking or Roasting, Encapsulated Galvanized Steel Rim Prevents Warping, 2-Pack",
+      "url": "https://www.amazon.com/dp/B0049C2S32?th=1&language=en_US&tag=cravesmart09-20",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/dp/B0049C2S32?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0049C2S32",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/high-protein-chocolate-chip-cookies.mdx",
+          "line": 103,
+          "text": "https://amzn.to/4uShTDo"
+        },
+        {
+          "file": "src/content/recipes/high-protein-breakfast-egg-bake-meal-prep.mdx",
+          "line": 128,
+          "text": "https://amzn.to/4uShTDo"
+        },
+        {
+          "file": "src/content/recipes/cottage-cheese-pizza.mdx",
+          "line": 85,
+          "text": "👉 https://amzn.to/4uShTDo"
+        },
+        {
+          "file": "src/content/recipes/easy-boneless-wings.mdx",
+          "line": 101,
+          "text": "👉 https://amzn.to/4uShTDo"
+        }
+      ]
+    }
+  ]
+}
