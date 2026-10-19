@@ -21,6 +21,24 @@ export function affiliateClickParameters(link, location, measurementId) {
   };
 }
 
+// Forward only public, slug-form campaign labels; never copy arbitrary URL fields.
+export function campaignParameters(search) {
+  const query = new URLSearchParams(search);
+  const fields = {
+    utm_source: 'campaign_source',
+    utm_medium: 'campaign_medium',
+    utm_campaign: 'campaign_name',
+    utm_content: 'campaign_content',
+    utm_id: 'campaign_id',
+  };
+  const result = {};
+  for (const [utm, field] of Object.entries(fields)) {
+    const values = query.getAll(utm);
+    if (values.length === 1 && /^[a-zA-Z0-9][a-zA-Z0-9._~-]{0,99}$/.test(values[0])) result[field] = values[0];
+  }
+  return result;
+}
+
 export function installAnalytics(win, doc, measurementId) {
   if (!validMeasurementId(measurementId)) throw new Error('A real GA4 Measurement ID is required');
   if (win.__cravesmartAnalytics) return win.__cravesmartAnalytics;
@@ -35,7 +53,7 @@ export function installAnalytics(win, doc, measurementId) {
   win.gtag('consent', 'default', { analytics_storage: 'denied' });
   const panel = doc.querySelector('[data-analytics-consent]');
   const showPanel = (show) => { if (panel) panel.hidden = !show; };
-  const pageOptions = { page_location: win.location.origin + win.location.pathname };
+  const pageOptions = { page_location: win.location.origin + win.location.pathname, ...campaignParameters(win.location.search) };
   try {
     const referrer = new URL(doc.referrer);
     pageOptions.page_referrer = referrer.origin + referrer.pathname;
