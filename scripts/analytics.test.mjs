@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { installAnalytics, affiliateClickParameters, validMeasurementId, ANALYTICS_CONSENT_KEY } from '../src/lib/analytics.mjs';
+import { installAnalytics, affiliateClickParameters, validMeasurementId, ANALYTICS_CONSENT_KEY, campaignParameters } from '../src/lib/analytics.mjs';
 
 const ID = 'G-LOCALTEST01'; // Test fixture only; never production configuration.
 function fixture({ consent = null, host = 'www.cravesmart.recipes', storageFails = false } = {}) {
@@ -94,4 +94,30 @@ test('withdrawal in another tab stops local tracking without reload', () => {
   f.click(); assert.equal(f.events().length, 1); assert.equal(f.win['ga-disable-' + ID], true);
   f.windowHandlers.get('storage')({ key: ANALYTICS_CONSENT_KEY, newValue: null });
   assert.equal(f.panel.hidden, false);
+});
+
+test('public Pinterest campaign labels survive sanitized URLs on page views and affiliate clicks', () => {
+  const f = fixture({ consent: 'granted' });
+  f.win.location.search = '?utm_source=pinterest&utm_medium=social&utm_campaign=cravesmart_launch_20261018&utm_content=high-protein-blondies__design_a&utm_id=cs-pinterest-launch-20261018&email=private%40example.com';
+  installAnalytics(f.win, f.doc, ID); f.click();
+  const config = f.calls.find((c) => c[0] === 'config')[2];
+  for (const params of [config, f.events()[0][2]]) {
+    assert.equal(params.campaign_source, 'pinterest');
+    assert.equal(params.campaign_medium, 'social');
+    assert.equal(params.campaign_name, 'cravesmart_launch_20261018');
+    assert.equal(params.campaign_content, 'high-protein-blondies__design_a');
+    assert.equal(params.campaign_id, 'cs-pinterest-launch-20261018');
+    assert.equal(params.page_location, 'https://www.cravesmart.recipes/recipes/high-protein-blondies');
+    assert.ok(!JSON.stringify(params).includes('private'));
+  }
+});
+test('campaign labels reject duplicates, email-like values, whitespace and oversized values', () => {
+  assert.deepEqual(campaignParameters('?email=private%40example.com&utm_source=person%40example.com&utm_medium=social&utm_medium=email&utm_campaign=hello%20world&utm_content=' + 'x'.repeat(101)), {});
+  assert.deepEqual(campaignParameters(''), {});
+});
+test('campaign labels do not bypass consent', () => {
+  const f = fixture(); f.win.location.search = '?utm_source=pinterest&utm_medium=social';
+  installAnalytics(f.win, f.doc, ID); f.click();
+  assert.equal(f.scripts.length, 0); assert.equal(f.events().length, 0);
+  assert.equal(f.calls.some((c) => c[0] === 'config'), false);
 });
