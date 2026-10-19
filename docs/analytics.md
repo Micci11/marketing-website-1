@@ -16,7 +16,7 @@ Google Analytics loads only after the visitor allows analytics. Footer Analytics
 
 AmazonLink marks all catalog-backed body links. The separate Shop This Recipe links are also marked. One delegated listener records ordinary/keyboard clicks; another records middle clicks only. Neither blocks navigation. Body placement includes the nearest preceding recipe heading; frontmatter links use shop_this_recipe.
 
-The affiliate_click event explicitly routes to the configured property and includes page_path, recipe_path, product_id, product_label, link_placement, and link_url. Query strings/fragments are removed from event URLs and page referrers; no form input is included. Advertising personalization/Google signals are disabled in this analytics configuration. Reporting does not establish Amazon commission credit.
+The affiliate_click event explicitly routes to the configured property and includes page_path, recipe_path, product_id, product_label, link_placement, and link_url. Query strings/fragments are removed from event URLs and page referrers; no form input is included. Public campaign labels from utm_source, utm_medium, utm_campaign, utm_content, and utm_id are forwarded explicitly to GA's built-in campaign fields on page configuration and affiliate events. Only a single value containing 1–100 letters, digits, dots, underscores, tildes or hyphens is accepted; duplicate or invalid values are omitted. Arbitrary query parameters remain excluded. Advertising personalization/Google signals are disabled in this analytics configuration. Reporting does not establish Amazon commission credit or purchases.
 
 ## Mandatory live verification
 
@@ -36,7 +36,13 @@ For a useful durable report: Explore > Free form; add Page path and screen class
 
 ## Current verification status
 
-Pending real measurement ID and account-side event receipt. Local automated tests are not Google property verification. Do not report tracking as activated until the real event is visible in the intended property.
+Production uses measurement ID G-F7T10TTN0Q in CraveSmart property 559430050 (web stream 16153785473). On 2026-10-18 at 12:43:33 PM America/New_York, the intended property's DebugView showed a real affiliate_click from /recipes/high-protein-blondies with product_label "Natural Force vanilla whey — 1 lb", product_id naturalForceVanillaWhey1lb and link_placement recipe_content:simple-ingredients. The Product label, Product ID and Link placement event-scoped custom dimensions are registered. This verifies the original affiliate event; campaign-attribution changes require their own post-deployment check.
+
+Launch-day QA visits include both debug and ordinary test visits around 12:42–12:53 PM America/New_York. Historical test traffic cannot all be reliably separated. Do not describe these clicks as purchases or commissions.
+
+The homepage newsletter form has no provider or successful submission handler, and there is no successful newsletter signup event. Do not count form_submit as a successful signup or show an invented signup metric.
+
+Saved exploration: https://analytics.google.com/analytics/web/#/analysis/a412386024p559430050/edit/DnRdv8kxQ6q3yRabk2CkzA
 
 Official references:
 - https://developers.google.com/analytics/devguides/collection/ga4/events
@@ -44,3 +50,4 @@ Official references:
 - https://support.google.com/analytics/answer/9539598
 - https://support.google.com/analytics/answer/7201382
 - https://support.google.com/analytics/answer/14239696
+- https://developers.google.com/analytics/devguides/collection/ga4/reference/config
