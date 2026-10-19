@@ -3,7 +3,8 @@
   "git": {
     "deploymentEnabled": {
       "codex/amazon-associate-migration": false,
-      "codex/affiliate-click-analytics": false
+      "codex/affiliate-click-analytics": false,
+      "codex/pinterest-campaign-attribution": false
     }
   }
 }
