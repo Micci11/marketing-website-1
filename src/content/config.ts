@@ -42,16 +42,21 @@ const recipes = defineCollection({
     ).optional(),
 
     prepTime: z.string().optional(),
+    activeTime: z.string().optional(),
     cookTime: z.string().optional(),
     totalTime: z.string().optional(),
     servings: z.number().optional(),
 
     sourceNote: z.string().optional(),
+    nutritionNote: z.string().optional(),
 
+    ingredients: z.array(z.string()).optional(),
+    ingredientsUS: z.array(z.string()).optional(),
     ingredientsDry: z.array(z.string()).optional(),
     ingredientsWet: z.array(z.string()).optional(),
     optionalIngredients: z.array(z.string()).optional(),
     instructions: z.array(z.string()).optional(),
+    instructionsUS: z.array(z.string()).optional(),
     tips: z.array(z.string()).optional(),
     variations: z.array(z.string()).optional(),
     storage: z.array(z.string()).optional(),
@@ -69,7 +74,19 @@ const recipes = defineCollection({
       fat: z.number().optional(),
       calories: z.number().optional(),
     }).optional(),
-  }),
+  }).refine(
+    (recipe) => !recipe.ingredientsUS || (
+      recipe.ingredientsUS.length > 0 &&
+      recipe.ingredientsUS.length === recipe.ingredients?.length
+    ),
+    { message: 'US ingredients must match the canonical ingredient list.', path: ['ingredientsUS'] }
+  ).refine(
+    (recipe) => !recipe.instructionsUS || (
+      Boolean(recipe.ingredientsUS?.length) &&
+      recipe.instructionsUS.length === recipe.instructions?.length
+    ),
+    { message: 'US instructions require US ingredients and must match the canonical step count.', path: ['instructionsUS'] }
+  ),
 });
 
 export const collections = {

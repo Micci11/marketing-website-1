@@ -1,0 +1,86 @@
+{
+  "verifiedOn": "2026-10-20",
+  "policy": {
+    "canonical": "The tested metric ingredients and instructions remain unchanged. Recipe JSON-LD uses those canonical fields; nutrition estimates remain unchanged.",
+    "display": "The site's existing US/Metric control selects paired ingredients and steps. Its US default and saved preference are reused.",
+    "rounding": "Volume equivalents are approximate, ingredient-specific and explicitly labeled. Original metric quantities are also retained in US text. Bulk meat, vegetables, ginger, cilantro and lime juice use weight ounces to avoid unreliable volume estimates.",
+    "dividedIngredients": "Honey, yogurt, oil, paprika, scallions and liquids retain their original splits. Where spoon rounding would distort a split, the measured total is divided by the original fraction.",
+    "limitations": "Brand, grind and packing affect volume. For the tested amounts, weigh the metric quantities. Weight ounces and fluid ounces are distinguished."
+  },
+  "sources": [
+    {
+      "ingredient": "Mass and length",
+      "url": "https://www.nist.gov/pml/owm/metric-si/unit-conversion/approximate-conversions-us-customary-measures-metric",
+      "basis": "1 oz approximately 28.35 g; 1 inch = 2.54 cm.",
+      "use": "Ounces rounded to one decimal for bulk ingredients and two decimals for small amounts; wrapper and pan dimensions use culinary rounding."
+    },
+    {
+      "ingredient": "Liquids already specified in mL",
+      "url": "https://www.nist.gov/pml/owm/metric-household",
+      "basis": "NIST lists approximately 4.9 mL per teaspoon, 15 mL per tablespoon and 237 mL per US cup. For consistency with this site's existing culinary convention, display equivalents round these to 5 mL, 15 mL and 240 mL respectively; all US equivalents are labeled approximate.",
+      "use": "Hot sauce, soy sauce, rice vinegar, water, coffee, maple syrup and vanilla. Original recipe already equates 30 mL maple syrup with 2 tablespoons and 5 mL vanilla with 1 teaspoon. No generic grams-to-cups conversion."
+    },
+    {
+      "ingredient": "Cottage cheese, minced garlic, honey, cocoa and fine table salt",
+      "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+      "basis": {
+        "cottageCheese": "113 g per 1/2 cup",
+        "mincedGarlic": "28 g per 2 tablespoons",
+        "honey": "21 g per tablespoon",
+        "unsweetenedCocoa": "42 g per 1/2 cup",
+        "tableSalt": "18 g per tablespoon"
+      },
+      "use": {
+        "cottageCheese": "226 g about 1 cup; 220 g a scant cup",
+        "mincedGarlic": "6 g about 1 1/4 teaspoons; 12 g about 2 1/2 teaspoons",
+        "honey": "28 g about 4 teaspoons; 14 g about 2 teaspoons; 7 g about 1 teaspoon",
+        "cocoa": "4 g about 2 1/4 teaspoons, divided into 1 1/8 teaspoons per jar",
+        "salt": "1.5 g about 1/4 teaspoon"
+      }
+    },
+    {
+      "ingredient": "Old-fashioned rolled oats",
+      "url": "https://www.quakeroats.com/sites/quakeroats.com/themes/quakeroats/docs/quaker_oats-101-updates_final.pdf",
+      "basis": "Quaker's old-fashioned oats reference uses 40 g per 1/2 cup.",
+      "use": "80 g about 1 cup; not a conversion for steel-cut or extra-thick oats."
+    },
+    {
+      "ingredient": "Plain nonfat Greek yogurt",
+      "url": "https://usa.fage/products/yogurt/fage-total-0",
+      "corroboratingLabelUrl": "https://www.kroger.com/p/fage-total-0-milkfat-plain-greek-yogurt/0068954408301",
+      "basis": "170 g per 3/4 cup on the FAGE Total 0% tub label.",
+      "use": "240 g about 1 cup plus 1 tablespoon; each 120 g portion about 1/2 cup plus 1 1/2 teaspoons."
+    },
+    {
+      "ingredient": "Olive oil",
+      "url": "https://bertolli.com/oils-and-vinegars/bertolli-extra-virgin-ditalia/",
+      "basis": "Pure olive oil label lists 14 g fat per 15 mL tablespoon; approximate oil mass inferred from this label.",
+      "use": "10 g about 2 1/8 teaspoons; beef recipe splits into 1 1/2 teaspoons (7 g) and 5/8 teaspoon (3 g). Dumpling recipe retains one-fifth (2 g) and four-fifths (8 g) of the measured total."
+    },
+    {
+      "ingredient": "Smoked paprika",
+      "url": "https://www.spiceplace.com/mccormick-smoked-paprika.php/",
+      "corroboratingManufacturerSheet": "https://www.webstaurantstore.com/documents/nutrition/spice_paprika_smoked_17_oz_mccormick.pdf",
+      "basis": "McCormick label transcribed by the retailer gives 0.6 g per 1/4 teaspoon; the manufacturer sheet confirms the 0.6 g serving mass.",
+      "use": "3 g about 1 1/4 teaspoons, then divide one-third (1 g) and two-thirds (2 g)."
+    },
+    {
+      "ingredient": "Ground cumin",
+      "url": "https://www.webstaurantstore.com/documents/nutrition/932629mccormickcuminground.pdf",
+      "basis": "McCormick manufacturer specification: 0.5 g per 1/4 teaspoon.",
+      "use": "1 g about 1/2 teaspoon."
+    },
+    {
+      "ingredient": "Crushed red pepper",
+      "url": "https://www.clubhouseforchefs.ca/en-ca/products/club-house/red-pepper-crushed350-gr",
+      "basis": "Club House manufacturer specification: 0.5 g per 1/4 teaspoon.",
+      "use": "1 g about 1/2 teaspoon."
+    },
+    {
+      "ingredient": "Toasted sesame oil",
+      "url": "https://san-j.com/product/sesamo/",
+      "basis": "San-J SESAMO label: 14 g per tablespoon.",
+      "use": "5 g about 1 1/8 teaspoons (rounded from 1.071 teaspoons)."
+    }
+  ]
+}
