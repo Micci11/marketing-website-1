@@ -224,6 +224,13 @@
           "file": "src/content/recipes/high-protein-brownies.mdx",
           "line": 113,
           "text": "https://amzn.to/3PnXdDl"
+        },
+        {
+          "file": "src/content/recipes/hot-honey-beef-sweet-potato-bowls.mdx",
+          "line": 109,
+          "text": "👉 <AmazonLink product=\"parchment70SqFt\" /> <br />",
+          "addedAt": "2026-10-20",
+          "status": "approved for publication"
         }
       ]
     },
@@ -439,6 +446,20 @@
           "file": "src/content/recipes/high-protein-egg-salad.mdx",
           "line": 117,
           "text": "Stainless: https://amzn.to/47m1j4S"
+        },
+        {
+          "file": "src/content/recipes/ginger-scallion-turkey-dumpling-lasagna.mdx",
+          "line": 115,
+          "text": "👉 <AmazonLink product=\"finedine6PieceBowls\" /> <br />",
+          "addedAt": "2026-10-20",
+          "status": "approved for publication"
+        },
+        {
+          "file": "src/content/recipes/tiramisu-protein-overnight-oats.mdx",
+          "line": 87,
+          "text": "👉 <AmazonLink product=\"finedine6PieceBowls\" /> <br />",
+          "addedAt": "2026-10-20",
+          "status": "approved for publication"
         }
       ]
     },
@@ -649,6 +670,13 @@
           "file": "src/content/recipes/high-protein-breakfast-egg-bake-meal-prep.mdx",
           "line": 97,
           "text": "👉 https://amzn.to/4c2pCaJ"
+        },
+        {
+          "file": "src/content/recipes/tiramisu-protein-overnight-oats.mdx",
+          "line": 95,
+          "text": "👉 <AmazonLink product=\"pyrex2Cup3Pack\" /> <br />",
+          "addedAt": "2026-10-20",
+          "status": "approved for publication"
         }
       ]
     },
@@ -1154,8 +1182,45 @@
           "file": "src/content/recipes/easy-boneless-wings.mdx",
           "line": 101,
           "text": "👉 https://amzn.to/4uShTDo"
+        },
+        {
+          "file": "src/content/recipes/hot-honey-beef-sweet-potato-bowls.mdx",
+          "line": 101,
+          "text": "👉 <AmazonLink product=\"nordicWareHalfSheet2Pack\" /> <br />",
+          "addedAt": "2026-10-20",
+          "status": "approved for publication"
+        }
+      ]
+    },
+    {
+      "product": "usaPan9Inch",
+      "asin": "B002UNMZO4",
+      "title": "USA Pan Bakeware Nonstick Square Cake Pan, 9 Inch, Aluminized Steel",
+      "url": "https://www.amazon.com/dp/B002UNMZO4?th=1&language=en_US&tag=cravesmart09-20",
+      "finalUrl": "https://www.amazon.com/dp/B002UNMZO4?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B002UNMZO4",
+      "verified": true,
+      "verifiedAt": "2026-10-20",
+      "verificationMethod": "Browser product page: selected Size 9-Inch, single pan; primary offer; reviews section. Public HTTP fetch returned an interstitial, so HTTP 200 alone was not treated as verification.",
+      "origin": "New direct product link; no short URL created",
+      "manufacturerSource": "https://www.usapan.com/9-inch-square-cake-pan-1130bw",
+      "occurrences": [
+        {
+          "file": "src/content/recipes/ginger-scallion-turkey-dumpling-lasagna.mdx",
+          "line": 107,
+          "text": "👉 <AmazonLink product=\"usaPan9Inch\" /> <br />",
+          "addedAt": "2026-10-20",
+          "status": "approved for publication"
         }
       ]
     }
-  ]
+  ],
+  "additionalRecipeReview": {
+    "checkedAt": "2026-10-20",
+    "scope": "6 new occurrences across 3 local recipe previews, 2 per recipe; 1 new product and 4 reused products",
+    "totalOccurrences": 126,
+    "totalProducts": 38,
+    "report": "output/cravesmart-recipe-images/affiliate-review.html",
+    "status": "Approved for publication on 2026-10-20; two affiliate links per new recipe"
+  }
 }
