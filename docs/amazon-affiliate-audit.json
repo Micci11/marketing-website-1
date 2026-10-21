@@ -439,11 +439,6 @@
           "file": "src/content/recipes/high-protein-egg-salad.mdx",
           "line": 117,
           "text": "Stainless: https://amzn.to/47m1j4S"
-        },
-        {
-          "file": "src/content/recipes/tiramisu-protein-overnight-oats.mdx",
-          "line": 102,
-          "text": "Stir the coffee-oat mixture in a bowl before dividing it, so one breakfast does not end up with most of the oats and the other with the liquid. The <AmazonLink product=\"finedine6PieceBowls\">FineDine six-piece stainless mixing bowl set</AmazonLink> offers nesting sizes if you are filling a gap in your kitchen basics. For this small batch, a bowl from your cupboard does the same job."
         }
       ],
       "browserRecheck": {
@@ -1339,8 +1334,8 @@
   },
   "sevenRecipeLocalReview": {
     "checkedAt": "2026-10-21",
-    "scope": "14 occurrences across seven revised recipes, two per recipe; eight distinct products; four new catalog entries.",
-    "status": "Local review only; no push, merge or deployment authorized",
+    "scope": "13 occurrences across seven revised recipes: the approved Pyrex container option for oats, two links per remaining recipe; seven distinct products; four new catalog entries.",
+    "status": "Publication approved on 2026-10-21; original corrections merged in PR #7, with a narrow release cleanup for oats recommendations and singular recipe yield.",
     "addedProducts": [
       "rubbermaidBrilliance47Cup4Pack",
       "trendPlain470mlSprayer",
@@ -1350,10 +1345,9 @@
     "recheckedProducts": [
       "nordicWareHalfSheet2Pack",
       "usaPan9Inch",
-      "pyrex2Cup3Pack",
-      "finedine6PieceBowls"
+      "pyrex2Cup3Pack"
     ],
     "unverifiedLinks": [],
-    "note": "Thermometer added for hot-honey beef and advance chicken preparation for the salad; retained a mixing-bowl option for oats to honor the owner’s two-to-three affiliate-link requirement."
+    "note": "Thermometer added for hot-honey beef and advance chicken preparation for the salad. The oats recommendation is limited to the approved Pyrex containers, following the more specific container-only shortlist; no replacement product was introduced."
   }
 }
