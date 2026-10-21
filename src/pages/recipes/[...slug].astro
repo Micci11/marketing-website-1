@@ -173,7 +173,7 @@ const recipeSchema = {
   description,
   image: coverImage ? [coverImage] : undefined,
   datePublished: pubDate?.toISOString(),
-  recipeYield: yieldLabel || (servings ? `${servings} servings` : undefined),
+  recipeYield: yieldLabel || (servings ? `${servings} ${servings === 1 ? 'serving' : 'servings'}` : undefined),
   prepTime: toISOTime(prepTime),
   cookTime: toISOTime(cookTime),
   // A planning range is useful on the page but is not a single measured duration.

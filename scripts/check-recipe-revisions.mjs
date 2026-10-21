@@ -32,7 +32,8 @@ for(const [slug,ingredients,steps,servings,kcal,protein,carbs,fat] of targets){
  assert.ok(!/Inspiration|Source Note|sourceNote:|editorial safety|source recipe|original caption|spray duration|No dip recipe|promising clean restaurant|even for breakfast|instagram\.com/i.test(source));
  assert.ok(!/<h[1-6][^>]*>\s*<\/h[1-6]>/.test(html));
  const anchors=[...html.matchAll(/<a\b[^>]*data-affiliate-link[^>]*>/g)];
- assert.equal(anchors.length,2);
+ const affiliateLinks=slug==='tiramisu-protein-overnight-oats'?1:2;
+ assert.equal(anchors.length,affiliateLinks);
  for(const [anchor] of anchors){assert.ok(anchor.includes('tag=cravesmart09-20'));for(const attr of ['data-product-label','data-link-placement','sponsored','nofollow'])assert.ok(anchor.includes(attr));}
  assert.ok(html.indexOf('As an Amazon Associate')<html.indexOf('data-affiliate-link'));
  assert.ok(html.includes('data-print-recipe="true"'));
@@ -55,9 +56,11 @@ for(const [slug,ingredients,steps,servings,kcal,protein,carbs,fat] of targets){
  else if(slug==='tzatziki-cucumber-chicken-salad')assert.equal(schema.totalTime,'PT10M');
  else assert.ok(!('totalTime' in schema),'Do not serialize planning ranges as exact times.');
  if(slug==='chicken-broccoli-fritters'){assert.equal(schema.recipeYield,'8 large fritters');assert.equal(schema.nutrition.servingSize,'1 fritter');assert.ok(us.some(x=>x.includes('0.6 US teaspoon (3 mL)')));}
- if(slug==='tzatziki-cucumber-chicken-salad'){assert.ok(metric.includes('100 g (3.5 oz) plain natural Greek yogurt'));assert.ok(us.includes('3.5 oz (100 g) plain natural Greek yogurt'));}
+ if(slug==='tzatziki-cucumber-chicken-salad'){assert.equal(schema.recipeYield,'1 serving');assert.ok(metric.includes('100 g (3.5 oz) plain natural Greek yogurt'));assert.ok(us.includes('3.5 oz (100 g) plain natural Greek yogurt'));}
+ if(slug==='hot-honey-beef-sweet-potato-bowls')assert.equal(schema.recipeYield,'2 servings');
+ if(slug==='tiramisu-protein-overnight-oats'){assert.ok(source.includes('product="pyrex2Cup3Pack"'));assert.ok(!source.includes('finedine6PieceBowls'));}
  if(slug==='korean-bbq-chicken-and-sticky-rice')assert.ok(html.includes('Contains sesame when made with the listed Mingle Korean BBQ seasoning'));
- results.push({slug,liveUrl:'https://www.cravesmart.recipes/recipes/'+slug+'/',localUrl:'http://127.0.0.1:4326/recipes/'+slug+'/',buildChecks:'passed',ingredientCount:ingredients,instructionCount:steps,affiliateLinks:2});
+ results.push({slug,liveUrl:'https://www.cravesmart.recipes/recipes/'+slug+'/',localUrl:'http://127.0.0.1:4326/recipes/'+slug+'/',buildChecks:'passed',ingredientCount:ingredients,instructionCount:steps,affiliateLinks});
 }
 const home=readFileSync(root+'/index.html','utf8');assert.ok(home.includes('https://app.kit.com/forms/9162136/subscriptions'));
 for(const file of readdirSync('src/content/recipes').filter(f=>f.endsWith('.mdx')&&!targets.some(([slug])=>f===slug+'.mdx'))){
