@@ -40,7 +40,7 @@ Production uses measurement ID G-F7T10TTN0Q in CraveSmart property 559430050 (we
 
 Launch-day QA visits include both debug and ordinary test visits around 12:42–12:53 PM America/New_York. Historical test traffic cannot all be reliably separated. Do not describe these clicks as purchases or commissions.
 
-The homepage newsletter form has no provider or successful submission handler, and there is no successful newsletter signup event. Do not count form_submit as a successful signup or show an invented signup metric.
+The homepage newsletter integrates the existing CraveSmart Kit form when PUBLIC_NEWSLETTER_ENABLED=true. Kit's form response requests email confirmation; it does not prove that a subscription was confirmed. No successful newsletter signup event is emitted. Do not count form_submit, the pending-confirmation message, or a thank-you page visit as a successful signup. Confirmed counts belong in Kit until a separately verified confirmation integration exists.
 
 Saved exploration: https://analytics.google.com/analytics/web/#/analysis/a412386024p559430050/edit/DnRdv8kxQ6q3yRabk2CkzA
 
