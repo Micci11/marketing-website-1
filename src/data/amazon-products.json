@@ -299,5 +299,37 @@
       "th": "1",
       "language": "en_US"
     }
+  },
+  "rubbermaidBrilliance47Cup4Pack": {
+    "asin": "B079MMSZ4Z",
+    "label": "Rubbermaid Brilliance containers — 4.7 US cups (1.1 L), four with lids",
+    "parameters": {
+      "th": "1",
+      "language": "en_US"
+    }
+  },
+  "trendPlain470mlSprayer": {
+    "asin": "B0CJF94M8J",
+    "label": "TrendPlain spray-and-pour bottle — black, 470 mL (15.9 US fl oz)",
+    "parameters": {
+      "th": "1",
+      "language": "en_US"
+    }
+  },
+  "oxoLargeSiliconeTurner": {
+    "asin": "B000JPVCYE",
+    "label": "OXO large silicone flexible turner",
+    "parameters": {
+      "th": "1",
+      "language": "en_US"
+    }
+  },
+  "tempProTP19H": {
+    "asin": "B07XXSYLL8",
+    "label": "TempPro TP19H instant-read thermometer — bright orange",
+    "parameters": {
+      "th": "1",
+      "language": "en_US"
+    }
   }
 }

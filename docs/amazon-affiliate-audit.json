@@ -224,13 +224,6 @@
           "file": "src/content/recipes/high-protein-brownies.mdx",
           "line": 113,
           "text": "https://amzn.to/3PnXdDl"
-        },
-        {
-          "file": "src/content/recipes/hot-honey-beef-sweet-potato-bowls.mdx",
-          "line": 109,
-          "text": "👉 <AmazonLink product=\"parchment70SqFt\" /> <br />",
-          "addedAt": "2026-10-20",
-          "status": "approved for publication"
         }
       ]
     },
@@ -331,13 +324,6 @@
           "file": "src/content/recipes/high-protein-egg-salad.mdx",
           "line": 118,
           "text": "Glass: https://amzn.to/41x4rHC"
-        },
-        {
-          "file": "src/content/recipes/tzatziki-cucumber-chicken-salad.mdx",
-          "line": 104,
-          "text": "👉 <AmazonLink product=\"luvanGlassBowls\" />",
-          "addedOn": "2026-10-21",
-          "basis": "Existing verified product and exact variant URL reused; approved for publication"
         }
       ]
     },
@@ -455,41 +441,17 @@
           "text": "Stainless: https://amzn.to/47m1j4S"
         },
         {
-          "file": "src/content/recipes/ginger-scallion-turkey-dumpling-lasagna.mdx",
-          "line": 115,
-          "text": "👉 <AmazonLink product=\"finedine6PieceBowls\" /> <br />",
-          "addedAt": "2026-10-20",
-          "status": "approved for publication"
-        },
-        {
           "file": "src/content/recipes/tiramisu-protein-overnight-oats.mdx",
-          "line": 87,
-          "text": "👉 <AmazonLink product=\"finedine6PieceBowls\" /> <br />",
-          "addedAt": "2026-10-20",
-          "status": "approved for publication"
-        },
-        {
-          "file": "src/content/recipes/sweet-chilli-popcorn-chicken-meal-prep.mdx",
-          "line": 117,
-          "text": "👉 <AmazonLink product=\"finedine6PieceBowls\" />",
-          "addedOn": "2026-10-21",
-          "basis": "Existing verified product and exact variant URL reused; approved for publication"
-        },
-        {
-          "file": "src/content/recipes/chicken-broccoli-fritters.mdx",
-          "line": 98,
-          "text": "👉 <AmazonLink product=\"finedine6PieceBowls\" />",
-          "addedOn": "2026-10-21",
-          "basis": "Existing verified product and exact variant URL reused; approved for publication"
-        },
-        {
-          "file": "src/content/recipes/tzatziki-cucumber-chicken-salad.mdx",
-          "line": 98,
-          "text": "👉 <AmazonLink product=\"finedine6PieceBowls\" />",
-          "addedOn": "2026-10-21",
-          "basis": "Existing verified product and exact variant URL reused; approved for publication"
+          "line": 102,
+          "text": "Stir the coffee-oat mixture in a bowl before dividing it, so one breakfast does not end up with most of the oats and the other with the liquid. The <AmazonLink product=\"finedine6PieceBowls\">FineDine six-piece stainless mixing bowl set</AmazonLink> offers nesting sizes if you are filling a gap in your kitchen basics. For this small batch, a bowl from your cupboard does the same job."
         }
-      ]
+      ],
+      "browserRecheck": {
+        "checkedAt": "2026-10-21",
+        "finalUrl": "https://www.amazon.com/dp/B01HTYH8YA?th=1&language=en_US&tag=cravesmart09-20",
+        "verified": true,
+        "evidence": "Exact destination title and product variant verified in Chrome with the current tag."
+      }
     },
     {
       "product": "farberwareRollingPin",
@@ -573,13 +535,6 @@
           "file": "src/content/recipes/high-protein-crispy-chicken-tacos.mdx",
           "line": 137,
           "text": "👉 https://amzn.to/47nj5os"
-        },
-        {
-          "file": "src/content/recipes/korean-bbq-chicken-and-sticky-rice.mdx",
-          "line": 105,
-          "text": "👉 <AmazonLink product=\"oxo9InchTongs\" />",
-          "addedOn": "2026-10-21",
-          "basis": "Existing verified product and exact variant URL reused; approved for publication"
         }
       ]
     },
@@ -708,12 +663,16 @@
         },
         {
           "file": "src/content/recipes/tiramisu-protein-overnight-oats.mdx",
-          "line": 95,
-          "text": "👉 <AmazonLink product=\"pyrex2Cup3Pack\" /> <br />",
-          "addedAt": "2026-10-20",
-          "status": "approved for publication"
+          "line": 96,
+          "text": "The <AmazonLink product=\"pyrex2Cup3Pack\">Pyrex 2-US-cup (473 mL) glass bowls with lids</AmazonLink> have a wide opening for adding the cream and getting your spoon through both layers. Each holds 2 US cups (473 mL), within the recipe’s container-size range. The three-pack gives you the two bowls needed here and a spare, and breakfast stays covered in the fridge until you’re ready for it."
         }
-      ]
+      ],
+      "browserRecheck": {
+        "checkedAt": "2026-10-21",
+        "finalUrl": "https://www.amazon.com/dp/B075WCTKP3?th=1&language=en_US&tag=cravesmart09-20",
+        "verified": true,
+        "evidence": "Exact destination title and product variant verified in Chrome with the current tag."
+      }
     },
     {
       "product": "ganizaFoodProcessor",
@@ -732,13 +691,6 @@
           "file": "src/content/recipes/popcorn-slice.mdx",
           "line": 110,
           "text": "👉 https://amzn.to/4c6viAt"
-        },
-        {
-          "file": "src/content/recipes/chicken-broccoli-fritters.mdx",
-          "line": 104,
-          "text": "👉 <AmazonLink product=\"ganizaFoodProcessor\" />",
-          "addedOn": "2026-10-21",
-          "basis": "Existing verified product and exact variant URL reused; approved for publication"
         }
       ]
     },
@@ -1226,27 +1178,27 @@
           "text": "👉 https://amzn.to/4uShTDo"
         },
         {
-          "file": "src/content/recipes/hot-honey-beef-sweet-potato-bowls.mdx",
-          "line": 101,
-          "text": "👉 <AmazonLink product=\"nordicWareHalfSheet2Pack\" /> <br />",
-          "addedAt": "2026-10-20",
-          "status": "approved for publication"
-        },
-        {
           "file": "src/content/recipes/sweet-chilli-popcorn-chicken-meal-prep.mdx",
-          "line": 123,
-          "text": "👉 <AmazonLink product=\"nordicWareHalfSheet2Pack\" />",
-          "addedOn": "2026-10-21",
-          "basis": "Existing verified product and exact variant URL reused; approved for publication"
+          "line": 117,
+          "text": "The <AmazonLink product=\"nordicWareHalfSheet2Pack\">Nordic Ware half-sheet pans</AmazonLink> give the chicken space to spread out, with a rim that makes turning the pieces easier. The two-pack is useful for regular batch cooking. If you’re keeping things budget-friendly, a similar rimmed tray from your cupboard works for the oven method too."
         },
         {
           "file": "src/content/recipes/korean-bbq-chicken-and-sticky-rice.mdx",
-          "line": 99,
-          "text": "👉 <AmazonLink product=\"nordicWareHalfSheet2Pack\" />",
-          "addedOn": "2026-10-21",
-          "basis": "Existing verified product and exact variant URL reused; approved for publication"
+          "line": 95,
+          "text": "The <AmazonLink product=\"nordicWareHalfSheet2Pack\">Nordic Ware half-sheet pans</AmazonLink> give the thighs room to cook, and the rim keeps those sticky juices on the tray. They come as a two-pack, so there’s another pan ready for roasting vegetables or your next batch. Hand-wash the uncoated aluminum to look after the finish."
+        },
+        {
+          "file": "src/content/recipes/hot-honey-beef-sweet-potato-bowls.mdx",
+          "line": 109,
+          "text": "The <AmazonLink product=\"nordicWareHalfSheet2Pack\">Nordic Ware half-sheet pans</AmazonLink> make it easy to spread the sweet potato into one layer, giving the cubes room to roast rather than steam. You only need one pan for this recipe; the two-pack is useful if you roast vegetables or bake regularly. Add the parchment called for below, and there’s less scrubbing after dinner too."
         }
-      ]
+      ],
+      "browserRecheck": {
+        "checkedAt": "2026-10-21",
+        "finalUrl": "https://www.amazon.com/dp/B0049C2S32?th=1&language=en_US&tag=cravesmart09-20",
+        "verified": true,
+        "evidence": "Exact destination title and product variant verified in Chrome with the current tag."
+      }
     },
     {
       "product": "usaPan9Inch",
@@ -1263,10 +1215,110 @@
       "occurrences": [
         {
           "file": "src/content/recipes/ginger-scallion-turkey-dumpling-lasagna.mdx",
-          "line": 107,
-          "text": "👉 <AmazonLink product=\"usaPan9Inch\" /> <br />",
-          "addedAt": "2026-10-20",
-          "status": "approved for publication"
+          "line": 113,
+          "text": "The <AmazonLink product=\"usaPan9Inch\">USA Pan 9-inch (23 cm) square pan</AmazonLink> matches the wrapper layout, with enough depth for the filling. That makes the layering easier without spreading everything over an oversized dish. Cover it with foil as directed, then use a nonmetal utensil to serve. A suitable 9-inch (23 cm) square dish you already own is an equally good choice."
+        }
+      ],
+      "browserRecheck": {
+        "checkedAt": "2026-10-21",
+        "finalUrl": "https://www.amazon.com/dp/B002UNMZO4?th=1&language=en_US&tag=cravesmart09-20",
+        "verified": true,
+        "evidence": "Exact destination title and product variant verified in Chrome with the current tag."
+      }
+    },
+    {
+      "product": "rubbermaidBrilliance47Cup4Pack",
+      "asin": "B079MMSZ4Z",
+      "title": "Rubbermaid Brilliance BPA Free Airtight Food Storage Containers with Lids, Set of 4 (4.7 Cup) Ideal for Lunch, Meal Prep, and Leftovers",
+      "url": "https://www.amazon.com/dp/B079MMSZ4Z?th=1&language=en_US&tag=cravesmart09-20",
+      "finalUrl": "https://www.amazon.com/dp/B079MMSZ4Z?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B079MMSZ4Z",
+      "verified": true,
+      "checkedAt": "2026-10-21",
+      "verificationMethod": "Signed-in Chrome product page: title, selected option and URL retaining tag. Plain HTTP returned a gateway page and was not used as product proof.",
+      "variant": "4.7 cup (8-Piece): four plastic containers plus four lids; selected option and included-items text verified",
+      "occurrences": [
+        {
+          "file": "src/content/recipes/sweet-chilli-popcorn-chicken-meal-prep.mdx",
+          "line": 113,
+          "text": "The <AmazonLink product=\"rubbermaidBrilliance47Cup4Pack\">Rubbermaid Brilliance four-pack</AmazonLink> is a useful match for this four-portion batch. You can divide the chicken and rice between equal-sized containers, stack them in the fridge, and take lunch with you under a secure, leak-resistant lid. This is the roomy 4.7-US-cup (about 1.1 L) size, handy if you like adding cucumber or other sides."
+        },
+        {
+          "file": "src/content/recipes/tzatziki-cucumber-chicken-salad.mdx",
+          "line": 90,
+          "text": "If you’re taking this salad with you, the <AmazonLink product=\"rubbermaidBrilliance47Cup4Pack\">Rubbermaid Brilliance 4.7-US-cup (about 1.1 L) containers</AmazonLink> are worth a look. Mix in a roomy bowl, then pack the finished salad under a secure, leak-resistant lid. Each holds 4.7 US cups (about 1.1 L), and the four-pack stacks neatly in the fridge, useful if packed lunches are part of your week."
+        }
+      ]
+    },
+    {
+      "product": "trendPlain470mlSprayer",
+      "asin": "B0CJF94M8J",
+      "title": "TrendPlain 16oz/470ml Glass Olive Oil Sprayer for Cooking – 2 in 1 Olive Oil Dispenser Bottle for Kitchen Gadgets and Air Fryer Accessories, Salad, BBQ - Black",
+      "url": "https://www.amazon.com/dp/B0CJF94M8J?th=1&language=en_US&tag=cravesmart09-20",
+      "finalUrl": "https://www.amazon.com/dp/B0CJF94M8J?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B0CJF94M8J",
+      "verified": true,
+      "checkedAt": "2026-10-21",
+      "verificationMethod": "Signed-in Chrome product page: title, selected option and URL retaining tag. Plain HTTP returned a gateway page and was not used as product proof.",
+      "variant": "Black; 470 mL; spray and pour modes verified",
+      "occurrences": [
+        {
+          "file": "src/content/recipes/korean-bbq-chicken-and-sticky-rice.mdx",
+          "line": 99,
+          "text": "The <AmazonLink product=\"trendPlain470mlSprayer\">TrendPlain spray-and-pour bottle</AmazonLink> makes the tray-greasing step easy. Fill it with a suitable cooking oil, spray the tray, and refill the same bottle when it runs low. It pours as well as sprays, so it’s a handy little addition for everyday cooking, with fewer disposable cans to replace."
+        },
+        {
+          "file": "src/content/recipes/chicken-broccoli-fritters.mdx",
+          "line": 93,
+          "text": "If cooking spray is always on your shopping list, the <AmazonLink product=\"trendPlain470mlSprayer\">TrendPlain refillable oil sprayer</AmazonLink> is worth a look. Fill it from a regular bottle of cooking oil and use it to lightly coat the pan. Being able to refill it, rather than replace a whole disposable can, is the useful part. It also pours when you need a drizzle instead. Measure the recipe’s 3 mL (about 0.6 US teaspoon) of oil separately; the sprayer is not a measured-dose tool."
+        }
+      ]
+    },
+    {
+      "product": "oxoLargeSiliconeTurner",
+      "asin": "B000JPVCYE",
+      "title": "OXO Good Grips Large Silicone Flexible Turner",
+      "url": "https://www.amazon.com/dp/B000JPVCYE?th=1&language=en_US&tag=cravesmart09-20",
+      "finalUrl": "https://www.amazon.com/dp/B000JPVCYE?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B000JPVCYE",
+      "verified": true,
+      "checkedAt": "2026-10-21",
+      "verificationMethod": "Signed-in Chrome product page: title, selected option and URL retaining tag. Plain HTTP returned a gateway page and was not used as product proof.",
+      "variant": "Large selected; flexible head and nonstick suitability verified. OXO official listing supports silicone exterior.",
+      "occurrences": [
+        {
+          "file": "src/content/recipes/chicken-broccoli-fritters.mdx",
+          "line": 97,
+          "text": "The <AmazonLink product=\"oxoLargeSiliconeTurner\">OXO large silicone flexible turner</AmazonLink> gives these large fritters a little extra support. Its thin edge slides underneath, while the broad head helps you lift and turn without balancing everything on a narrow spatula. It’s suitable for nonstick pans too, which makes it a useful everyday tool beyond this recipe."
+        }
+      ]
+    },
+    {
+      "product": "tempProTP19H",
+      "asin": "B07XXSYLL8",
+      "title": "TempPro TempSwift TP19H 1 Sec Instant Read Meat Thermometer Digital",
+      "url": "https://www.amazon.com/dp/B07XXSYLL8?th=1&language=en_US&tag=cravesmart09-20",
+      "finalUrl": "https://www.amazon.com/dp/B07XXSYLL8?th=1&language=en_US&tag=cravesmart09-20",
+      "selectedAsin": "B07XXSYLL8",
+      "verified": true,
+      "checkedAt": "2026-10-21",
+      "verificationMethod": "Signed-in Chrome product page: title, selected option and URL retaining tag. Plain HTTP returned a gateway page and was not used as product proof.",
+      "variant": "Bright-orange selected; folding probe and rotating backlit display verified",
+      "occurrences": [
+        {
+          "file": "src/content/recipes/tzatziki-cucumber-chicken-salad.mdx",
+          "line": 94,
+          "text": "If you cook chicken for lunches ahead of time, the <AmazonLink product=\"tempProTP19H\">TempPro TP19H instant-read thermometer</AmazonLink> helps check that the center reaches 165°F / 74°C before cooling. Its folding probe stores neatly, and the rotating display is easy to read from either side. This salad starts with cooked, cooled chicken; a working thermometer you already own is all you need for that earlier prep."
+        },
+        {
+          "file": "src/content/recipes/hot-honey-beef-sweet-potato-bowls.mdx",
+          "line": 113,
+          "text": "The <AmazonLink product=\"tempProTP19H\">TempPro TP19H instant-read thermometer</AmazonLink> makes it easier to check the beef’s 160°F / 71°C endpoint. The backlit, rotating display helps when checking a pan on the stove. Use it for a spot check, then remove it; a food thermometer you already own works here too."
+        },
+        {
+          "file": "src/content/recipes/ginger-scallion-turkey-dumpling-lasagna.mdx",
+          "line": 117,
+          "text": "The <AmazonLink product=\"tempProTP19H\">TempPro TP19H instant-read thermometer</AmazonLink> has a backlit, rotating display that makes checking the center of the bake easier. The probe folds away afterwards, so it stores neatly too. Use it for a spot check, not left in the oven, and still check that the wrappers are soft before serving."
         }
       ]
     }
@@ -1284,5 +1336,24 @@
     "scope": "8 new occurrences across four recipes; 2 per recipe",
     "publication": "Approved for publication on 2026-10-21",
     "newProducts": 0
+  },
+  "sevenRecipeLocalReview": {
+    "checkedAt": "2026-10-21",
+    "scope": "14 occurrences across seven revised recipes, two per recipe; eight distinct products; four new catalog entries.",
+    "status": "Local review only; no push, merge or deployment authorized",
+    "addedProducts": [
+      "rubbermaidBrilliance47Cup4Pack",
+      "trendPlain470mlSprayer",
+      "oxoLargeSiliconeTurner",
+      "tempProTP19H"
+    ],
+    "recheckedProducts": [
+      "nordicWareHalfSheet2Pack",
+      "usaPan9Inch",
+      "pyrex2Cup3Pack",
+      "finedine6PieceBowls"
+    ],
+    "unverifiedLinks": [],
+    "note": "Thermometer added for hot-honey beef and advance chicken preparation for the salad; retained a mixing-bowl option for oats to honor the owner’s two-to-three affiliate-link requirement."
   }
 }
