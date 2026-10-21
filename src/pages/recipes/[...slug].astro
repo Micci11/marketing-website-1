@@ -130,6 +130,8 @@ const {
   cookTime,
   totalTime,
   servings,
+  yieldLabel,
+  nutritionServingSize,
   ingredients,
   ingredientsUS,
   ingredientsDry,
@@ -167,7 +169,7 @@ const recipeSchema = {
   description,
   image: coverImage ? [coverImage] : undefined,
   datePublished: pubDate?.toISOString(),
-  recipeYield: servings ? `${servings} servings` : undefined,
+  recipeYield: yieldLabel || (servings ? `${servings} servings` : undefined),
   prepTime: toISOTime(prepTime),
   cookTime: toISOTime(cookTime),
   totalTime: toISOTime(totalTime),
@@ -181,6 +183,7 @@ const recipeSchema = {
   nutrition: macros
     ? {
         "@type": "NutritionInformation",
+        servingSize: nutritionServingSize,
         calories: macros.calories != null ? `${macros.calories} calories` : undefined,
         proteinContent: macros.protein != null ? `${macros.protein} g` : undefined,
         carbohydrateContent: macros.carbs != null ? `${macros.carbs} g` : undefined,
@@ -331,10 +334,10 @@ const relatedRecipes = allRecipes
             <p class="text-xl font-bold text-gray-900">{totalTime}</p>
           </div>
         )}
-        {servings && (
+        {(servings || yieldLabel) && (
           <div class="bg-hero-bg/20 rounded-xl p-4 text-center">
-            <p class="text-sm text-gray-500">Servings</p>
-            <p class="text-xl font-bold text-gray-900">{servings}</p>
+            <p class="text-sm text-gray-500">{yieldLabel ? 'Yield' : 'Servings'}</p>
+            <p class="text-xl font-bold text-gray-900">{yieldLabel || servings}</p>
           </div>
         )}
       </div>

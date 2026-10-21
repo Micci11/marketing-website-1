@@ -46,6 +46,8 @@ const recipes = defineCollection({
     cookTime: z.string().optional(),
     totalTime: z.string().optional(),
     servings: z.number().optional(),
+    yieldLabel: z.string().optional(),
+    nutritionServingSize: z.string().optional(),
 
     sourceNote: z.string().optional(),
     nutritionNote: z.string().optional(),
