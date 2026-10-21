@@ -129,6 +129,10 @@ const {
   activeTime,
   cookTime,
   totalTime,
+  timeNote,
+  dualUnits,
+  allergenNote,
+  recipeNote,
   servings,
   yieldLabel,
   nutritionServingSize,
@@ -172,7 +176,8 @@ const recipeSchema = {
   recipeYield: yieldLabel || (servings ? `${servings} servings` : undefined),
   prepTime: toISOTime(prepTime),
   cookTime: toISOTime(cookTime),
-  totalTime: toISOTime(totalTime),
+  // A planning range is useful on the page but is not a single measured duration.
+  totalTime: timeNote && /[–-]/.test(totalTime || '') ? undefined : toISOTime(totalTime),
   recipeIngredient: allIngredients.length > 0 ? allIngredients : undefined,
   recipeInstructions: instructions?.length
     ? instructions.map((step) => ({
@@ -238,7 +243,7 @@ const relatedRecipes = allRecipes
 >
   <script type="application/ld+json" set:html={JSON.stringify(recipeSchema)} />
 
-  <section class="max-w-5xl mx-auto py-10 px-4 md:px-6">
+  <section data-print-recipe={dualUnits || undefined} class="max-w-5xl mx-auto py-10 px-4 md:px-6">
     {mealType && mealType.length > 0 && (
       <p class="text-sm uppercase tracking-wider text-tiffany font-semibold mb-3">
         {mealType.join(' • ')}
@@ -334,6 +339,13 @@ const relatedRecipes = allRecipes
             <p class="text-xl font-bold text-gray-900">{totalTime}</p>
           </div>
         )}
+        {dualUnits && yieldLabel && servings && (
+          <div class="bg-hero-bg/20 rounded-xl p-4 text-center">
+            <p class="text-sm text-gray-500">Servings</p>
+            <p class="text-xl font-bold text-gray-900">{servings}</p>
+            <p class="text-sm text-gray-600">{nutritionServingSize} each</p>
+          </div>
+        )}
         {(servings || yieldLabel) && (
           <div class="bg-hero-bg/20 rounded-xl p-4 text-center">
             <p class="text-sm text-gray-500">{yieldLabel ? 'Yield' : 'Servings'}</p>
@@ -341,6 +353,12 @@ const relatedRecipes = allRecipes
           </div>
         )}
       </div>
+
+      {timeNote && (
+        <p class="text-sm text-gray-600 mb-4" data-recipe-time-note>
+          <strong>Approximate times.</strong> {timeNote}
+        </p>
+      )}
 
       {macros && nutritionNote && (
         <p class="text-sm text-gray-600 mb-4">{nutritionNote}</p>
@@ -365,6 +383,14 @@ const relatedRecipes = allRecipes
             <p class="text-2xl font-bold text-gray-900">{macros.fat ?? '-'}g</p>
           </div>
         </div>
+      )}
+
+      {allergenNote && (
+        <p class="text-sm text-gray-700 mb-6"><strong>Allergens:</strong> {allergenNote}</p>
+      )}
+
+      {recipeNote && (
+        <p class="text-sm text-gray-700 mb-6"><strong>Before you begin:</strong> {recipeNote}</p>
       )}
 
       <div class="grid md:grid-cols-2 gap-10">
@@ -394,7 +420,9 @@ const relatedRecipes = allRecipes
 
           {hasConvertibleIngredients && (
             <p class="text-sm text-gray-500 mb-5">
-              {ingredientsUS?.length
+              {dualUnits
+                ? 'Both systems are shown; the toggle changes their order. US equivalents are approximate. Metric amounts are the recipe reference. Ounces (oz) measure weight; fl oz measures volume. Use level US measuring spoons.'
+                : ingredientsUS?.length
                 ? 'Switch between US and metric measurements. US equivalents are approximate; metric quantities are the tested amounts. Use level cups and spoons. Ounces (oz) are weight; fl oz measures volume.'
                 : 'Switch between US and metric measurements. Metric conversions are approximate.'}
             </p>
@@ -608,6 +636,29 @@ const relatedRecipes = allRecipes
       </a>
     </div>
   </section>
+
+  <style is:global>
+    @media print {
+      body:has([data-print-recipe]) { background: white; display: block; }
+      body:has([data-print-recipe]) > :not(main),
+      body:has([data-print-recipe]) main > :not([data-print-recipe]),
+      [data-print-recipe] > :not(#recipe-card),
+      [data-print-recipe] button,
+      [data-print-recipe] #unit-toggle { display: none !important; }
+      body:has([data-print-recipe]) main,
+      [data-print-recipe], [data-print-recipe] #recipe-card {
+        overflow: visible !important; max-width: none; margin: 0; padding: 0;
+        border: 0; border-radius: 0; box-shadow: none;
+      }
+      [data-print-recipe] #recipe-card { font-size: 10pt; }
+      [data-print-recipe] #recipe-card h2 { font-size: 20pt; }
+      [data-print-recipe] #recipe-card h3 { font-size: 14pt; break-after: avoid; }
+      [data-print-recipe] #recipe-card li { break-inside: avoid; }
+      [data-print-recipe] #recipe-card .grid { display: block; }
+      [data-print-recipe] #recipe-card .text-center { display: inline-block; width: 23%; padding: 0.35rem; vertical-align: top; }
+      [data-print-recipe] #recipe-card .mt-10 { margin-top: 1rem; padding-top: 0.5rem; }
+    }
+  </style>
 
   <script is:inline>
     function initUnitToggle() {
