@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { newsletterEnabled } from '../config/newsletter';
 ---
 
 <BaseLayout title="Privacy Policy – CraveSmart" description="How CraveSmart handles information, advertising cookies, and privacy choices.">
@@ -9,7 +10,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p>CraveSmart provides recipes at www.cravesmart.recipes. This policy describes information used by the website and your privacy choices.</p>
 
       <h2>Information you provide</h2>
-      <p>If you use our contact form, we receive your name, email address, and message to respond to your inquiry. Messages are processed through Resend, our email delivery provider. Please avoid including sensitive information in messages. The site currently displays a newsletter signup form, but it is not connected to a mailing service.</p>
+      <p>If you use our contact form, we receive your name, email address, and message to respond to your inquiry. Messages are processed through Resend, our email delivery provider. Please avoid including sensitive information in messages.</p>
+      {newsletterEnabled ? (
+        <p>If you subscribe to recipe emails, your email address is sent to Kit, our newsletter provider. Kit sends a confirmation email; confirm your subscription to receive recipe emails. You can unsubscribe using the link in those emails. The embedded form connects to Kit and may process technical information, such as your IP address and browser details, to operate the signup form and measure its use. See <a href="https://kit.com/privacy">Kit’s Privacy Policy</a>.</p>
+      ) : (
+        <p>Newsletter signup is currently unavailable, and this website does not collect newsletter email addresses.</p>
+      )}
 
       <h2>Website services and storage</h2>
       <p>The website is hosted on Vercel. Hosting providers may process technical information such as IP addresses, browser details, and request logs to deliver and secure the site. Recipe pages store your preferred measurement units in your browser's local storage. You can remove this preference by clearing site data in your browser.</p>

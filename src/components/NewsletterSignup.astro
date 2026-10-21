@@ -1,0 +1,71 @@
+---
+import { kitNewsletter, newsletterEnabled } from '../config/newsletter';
+---
+
+{newsletterEnabled ? (
+  <>
+    <form
+      id="newsletter-signup"
+      action={kitNewsletter.action}
+      method="post"
+      class="seva-form formkit-form"
+      data-sv-form={kitNewsletter.formId}
+      data-uid={kitNewsletter.uid}
+      data-format="inline"
+      data-version="5"
+      data-options={JSON.stringify(kitNewsletter.options)}
+      aria-label="Subscribe to CraveSmart recipes"
+      aria-describedby="newsletter-privacy"
+      aria-live="polite"
+      aria-relevant="additions text"
+    >
+      <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert" role="alert" aria-live="polite"></ul>
+      <div data-element="fields" class="seva-fields formkit-fields flex flex-col md:flex-row gap-4 justify-center">
+        <label for="newsletter-email" class="sr-only">Your email address</label>
+        <input
+          id="newsletter-email"
+          name="email_address"
+          type="email"
+          autocomplete="email"
+          required
+          placeholder="Your email address"
+          class="formkit-input min-w-0 flex-1 px-4 py-4 rounded-full border border-gray-300 focus:border-tiffany focus:ring-2 focus:ring-tiffany shadow-sm text-gray-900 placeholder-gray-500"
+        />
+        <button type="submit" data-element="submit" class="formkit-submit button-hover bg-gray-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 transition shadow-md hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">
+          <span>Subscribe</span>
+        </button>
+      </div>
+      <p id="newsletter-privacy" class="mt-4 text-sm text-gray-700">
+        By subscribing, you agree to receive CraveSmart recipe emails through Kit. Check your inbox to confirm. Unsubscribe at any time. <a href="/privacy" class="underline">Privacy policy</a>.
+      </p>
+      <a href={kitNewsletter.poweredBy} data-element="powered-by" class="formkit-powered-by-convertkit mt-2 inline-block text-xs text-gray-600 underline" target="_blank" rel="nofollow noopener">Built with Kit</a>
+    </form>
+    <noscript><p class="mt-3 text-sm text-gray-700">Submitting opens Kit to continue your signup.</p></noscript>
+    <script is:inline data-newsletter-feedback>
+      (() => {
+        const errors = document.querySelector('#newsletter-signup [data-element="errors"]');
+        if (!errors) return;
+        new MutationObserver(() => {
+          for (const item of errors.children) {
+            if (/^(TypeError|NetworkError):/.test(item.textContent || '')) {
+              item.textContent = 'We couldn’t reach the signup service. Please try again.';
+            }
+          }
+        }).observe(errors, { childList: true, subtree: true, characterData: true });
+      })();
+    </script>
+    <script is:inline src={kitNewsletter.script} defer></script>
+  </>
+) : (
+  <p role="status" class="text-gray-700">Newsletter signup is temporarily unavailable. Please check back soon.</p>
+)}
+
+<style is:global>
+  #newsletter-signup .formkit-alert:empty { display: none; }
+  #newsletter-signup .formkit-alert { margin: 1rem 0; padding: 1rem; border-radius: 1rem; list-style: none; }
+  #newsletter-signup .formkit-alert-error { background: #fff1f2; color: #9f1239; }
+  #newsletter-signup .formkit-alert-success { background: #dcfce7; color: #14532d; }
+  #newsletter-signup .formkit-submit[data-active] { opacity: .7; cursor: wait; }
+  #newsletter-signup .formkit-submit[data-active] span { display: none; }
+  #newsletter-signup .formkit-submit[data-active]::after { content: 'Submitting…'; }
+</style>

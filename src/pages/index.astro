@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
 
 const allRecipes = await getCollection('recipes');
 
@@ -144,19 +145,7 @@ const categories = [
         Get new viral recipes delivered straight to your inbox.
       </p>
 
-      <form class="flex flex-col md:flex-row gap-4 justify-center">
-        <input
-          type="email"
-          placeholder="Your email address"
-          class="flex-1 px-4 py-4 rounded-full border border-gray-300 focus:border-tiffany focus:outline-none shadow-sm hover:shadow-md transition text-gray-900 placeholder-gray-500"
-        />
-        <button
-          type="submit"
-          class="button-hover bg-gray-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 transition shadow-md hover:shadow-xl"
-        >
-          Subscribe
-        </button>
-      </form>
+      <NewsletterSignup />
     </div>
   </section>
 
