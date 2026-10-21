@@ -331,6 +331,13 @@
           "file": "src/content/recipes/high-protein-egg-salad.mdx",
           "line": 118,
           "text": "Glass: https://amzn.to/41x4rHC"
+        },
+        {
+          "file": "src/content/recipes/tzatziki-cucumber-chicken-salad.mdx",
+          "line": 104,
+          "text": "👉 <AmazonLink product=\"luvanGlassBowls\" />",
+          "addedOn": "2026-10-21",
+          "basis": "Existing verified product and exact variant URL reused; approved for publication"
         }
       ]
     },
@@ -460,6 +467,27 @@
           "text": "👉 <AmazonLink product=\"finedine6PieceBowls\" /> <br />",
           "addedAt": "2026-10-20",
           "status": "approved for publication"
+        },
+        {
+          "file": "src/content/recipes/sweet-chilli-popcorn-chicken-meal-prep.mdx",
+          "line": 117,
+          "text": "👉 <AmazonLink product=\"finedine6PieceBowls\" />",
+          "addedOn": "2026-10-21",
+          "basis": "Existing verified product and exact variant URL reused; approved for publication"
+        },
+        {
+          "file": "src/content/recipes/chicken-broccoli-fritters.mdx",
+          "line": 98,
+          "text": "👉 <AmazonLink product=\"finedine6PieceBowls\" />",
+          "addedOn": "2026-10-21",
+          "basis": "Existing verified product and exact variant URL reused; approved for publication"
+        },
+        {
+          "file": "src/content/recipes/tzatziki-cucumber-chicken-salad.mdx",
+          "line": 98,
+          "text": "👉 <AmazonLink product=\"finedine6PieceBowls\" />",
+          "addedOn": "2026-10-21",
+          "basis": "Existing verified product and exact variant URL reused; approved for publication"
         }
       ]
     },
@@ -545,6 +573,13 @@
           "file": "src/content/recipes/high-protein-crispy-chicken-tacos.mdx",
           "line": 137,
           "text": "👉 https://amzn.to/47nj5os"
+        },
+        {
+          "file": "src/content/recipes/korean-bbq-chicken-and-sticky-rice.mdx",
+          "line": 105,
+          "text": "👉 <AmazonLink product=\"oxo9InchTongs\" />",
+          "addedOn": "2026-10-21",
+          "basis": "Existing verified product and exact variant URL reused; approved for publication"
         }
       ]
     },
@@ -697,6 +732,13 @@
           "file": "src/content/recipes/popcorn-slice.mdx",
           "line": 110,
           "text": "👉 https://amzn.to/4c6viAt"
+        },
+        {
+          "file": "src/content/recipes/chicken-broccoli-fritters.mdx",
+          "line": 104,
+          "text": "👉 <AmazonLink product=\"ganizaFoodProcessor\" />",
+          "addedOn": "2026-10-21",
+          "basis": "Existing verified product and exact variant URL reused; approved for publication"
         }
       ]
     },
@@ -1189,6 +1231,20 @@
           "text": "👉 <AmazonLink product=\"nordicWareHalfSheet2Pack\" /> <br />",
           "addedAt": "2026-10-20",
           "status": "approved for publication"
+        },
+        {
+          "file": "src/content/recipes/sweet-chilli-popcorn-chicken-meal-prep.mdx",
+          "line": 123,
+          "text": "👉 <AmazonLink product=\"nordicWareHalfSheet2Pack\" />",
+          "addedOn": "2026-10-21",
+          "basis": "Existing verified product and exact variant URL reused; approved for publication"
+        },
+        {
+          "file": "src/content/recipes/korean-bbq-chicken-and-sticky-rice.mdx",
+          "line": 99,
+          "text": "👉 <AmazonLink product=\"nordicWareHalfSheet2Pack\" />",
+          "addedOn": "2026-10-21",
+          "basis": "Existing verified product and exact variant URL reused; approved for publication"
         }
       ]
     },
@@ -1222,5 +1278,11 @@
     "totalProducts": 38,
     "report": "output/cravesmart-recipe-images/affiliate-review.html",
     "status": "Approved for publication on 2026-10-20; two affiliate links per new recipe"
+  },
+  "fourRecipePublicationReview": {
+    "addedOn": "2026-10-21",
+    "scope": "8 new occurrences across four recipes; 2 per recipe",
+    "publication": "Approved for publication on 2026-10-21",
+    "newProducts": 0
   }
 }

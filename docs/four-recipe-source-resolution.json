@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-21",
+  "publicationAuthorization": "Owner approved the four recipe previews, requested resolution of remaining details and deployment of all four.",
+  "nutrition": "Creator estimates retained with explicit serving bases and variation notes; not independently calculated.",
+  "images": "Four original generated placeholders approved by the owner; not represented as photographs of the owner's cooking.",
+  "affiliateLinks": "Two per recipe, using existing verified catalog products and exact variant URLs with centralized tag cravesmart09-20. No new Amazon destinations or short links.",
+  "recipes": [
+    {
+      "slug": "sweet-chilli-popcorn-chicken-meal-prep",
+      "source": "https://www.instagram.com/reel/DROmCZokxvk/",
+      "credits": ["mattwest_roadtoaesthetics", "panaceapalm"],
+      "evidence": "Original caption inspected directly. Source quantities, four portions, chicken cooking settings, optional extra cornflour and creator nutrition retained. Video showed seasoned wet chicken entering the cornflour container; exact glaze reduction was not independently verified.",
+      "ownerClarification": "Seasoning to taste.",
+      "editorialClarifications": [
+        "15 mL tablespoons and 5 mL teaspoons are explicitly defined as CraveSmart measuring standards, not a claim about the original caption's unstated spoon size.",
+        "Coating order expanded into a standalone instruction.",
+        "Gentle glaze simmer until it coats a spoon is explicitly identified as an editorial expansion; no creator-tested reduction time claimed.",
+        "Rice cooked using its package water ratio; poultry checked to 165 F / 74 C."
+      ]
+    },
+    {
+      "slug": "korean-bbq-chicken-and-sticky-rice",
+      "source": "https://www.instagram.com/reel/DUE0zZ_k6ge/",
+      "credits": ["panaceapalm"],
+      "evidence": "Source review retained in recipe preparation: four portions, 1000 g chicken thighs, 250 g dry rice, source marinade quantities, 200 C cooking setting, 20-25 minutes and 10-minute rice rest.",
+      "editorialClarifications": ["Cook chicken to 165 F / 74 C; refrigerated leftovers limited to 3-4 days rather than the source's five days."]
+    },
+    {
+      "slug": "chicken-broccoli-fritters",
+      "source": "https://www.instagram.com/reel/DL_2vKxTgVe/",
+      "credits": ["hungry.happens"],
+      "evidence": "Source review retained in recipe preparation: eight large fritters, source ingredient weights and three to four turns. No exact fritter thickness or total frying time supplied.",
+      "editorialClarifications": ["Yield is eight large fritters; creator nutrition is per one fritter, excluding dip.", "Cook to 165 F / 74 C in the center; no frying duration invented."]
+    },
+    {
+      "slug": "tzatziki-cucumber-chicken-salad",
+      "source": "https://www.instagram.com/reel/DTcNyR5ky0K/",
+      "credits": ["logansfewd"],
+      "evidence": "Original caption inspected directly. One serving, 200 g cucumber, 100 g natural Greek yogurt, 150 g pulled chicken and listed seasonings retained. Caption identifies lemon juice as 1 tablespoon / 15 mL. MSG is added at the finishing step.",
+      "editorialClarifications": ["150 g chicken is interpreted as cooked weight for a ready-to-eat salad and labeled accordingly.", "Listed wholegrain mustard is mixed into the dressing; caption omits its method placement.", "Yogurt fat percentage remains unspecified rather than invented."]
+    }
+  ],
+  "foodSafetySources": [
+    "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart",
+    "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety"
+  ]
+}
