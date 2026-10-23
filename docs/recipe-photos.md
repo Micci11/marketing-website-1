@@ -35,3 +35,23 @@ want to adjust framing later.
 
 Replacing a file or running the local build does not publish it. Publication
 requires an approved Git/Vercel action.
+
+## October 23 recipe images
+
+The seven approved originals were converted to WebP at the same 1536 × 1024
+dimensions, without cropping or changing the composition. The WebP files are
+ordinary replaceable assets in `public/recipes`; their MDX `coverImage` and
+`coverAlt` fields work exactly like the earlier images.
+
+| Recipe file | Image basename (`.webp`) |
+| --- | --- |
+| `carrot-cake-cream-cheese-frosting.mdx` | `carrot-cake-cream-cheese-frosting` |
+| `salted-date-caramel-protein-shake.mdx` | `salted-date-caramel-protein-shake` |
+| `roasted-broccoli-feta-protein-soup.mdx` | `broccoli-protein-soup` |
+| `cheesy-chicken-broccoli-pesto-bake.mdx` | `cheesy-chicken-broccoli-pesto-bake` |
+| `chocolate-chip-protein-cookies.mdx` | `chocolate-chip-protein-cookies` |
+| `crispy-buffalo-chicken-rice-paper-hot-pockets.mdx` | `rice-paper-buffalo-chicken-hot-pockets` |
+| `pumpkin-spice-protein-pancakes.mdx` | `pumpkin-spice-protein-pancakes` |
+
+Keep the approved PNG originals outside the repository. When replacing one,
+export a real WebP file or update `coverImage` to the replacement's actual format.

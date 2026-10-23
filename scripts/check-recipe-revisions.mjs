@@ -63,7 +63,8 @@ for(const [slug,ingredients,steps,servings,kcal,protein,carbs,fat] of targets){
  results.push({slug,liveUrl:'https://www.cravesmart.recipes/recipes/'+slug+'/',localUrl:'http://127.0.0.1:4326/recipes/'+slug+'/',buildChecks:'passed',ingredientCount:ingredients,instructionCount:steps,affiliateLinks});
 }
 const home=readFileSync(root+'/index.html','utf8');assert.ok(home.includes('https://app.kit.com/forms/9162136/subscriptions'));
-for(const file of readdirSync('src/content/recipes').filter(f=>f.endsWith('.mdx')&&!targets.some(([slug])=>f===slug+'.mdx'))){
+const originalRecipeFiles=execFileSync(git,['ls-tree','--name-only','e22997c:src/content/recipes'],{encoding:'utf8'}).trim().split('\n');
+for(const file of originalRecipeFiles.filter(f=>f.endsWith('.mdx')&&!targets.some(([slug])=>f===slug+'.mdx'))){
  const original=execFileSync(git,['show','e22997c:src/content/recipes/'+file],{encoding:'utf8'});
  assert.equal(readFileSync('src/content/recipes/'+file,'utf8'),original,file+' unchanged');
 }

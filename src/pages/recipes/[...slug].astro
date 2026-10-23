@@ -188,6 +188,7 @@ const recipeSchema = {
   nutrition: macros
     ? {
         "@type": "NutritionInformation",
+        description: nutritionNote,
         servingSize: nutritionServingSize,
         calories: macros.calories != null ? `${macros.calories} calories` : undefined,
         proteinContent: macros.protein != null ? `${macros.protein} g` : undefined,
@@ -360,7 +361,7 @@ const relatedRecipes = allRecipes
         </p>
       )}
 
-      {macros && nutritionNote && (
+      {nutritionNote && (
         <p class="text-sm text-gray-600 mb-4">{nutritionNote}</p>
       )}
 
