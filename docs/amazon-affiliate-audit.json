@@ -1212,6 +1212,11 @@
           "file": "src/content/recipes/ginger-scallion-turkey-dumpling-lasagna.mdx",
           "line": 113,
           "text": "The <AmazonLink product=\"usaPan9Inch\">USA Pan 9-inch (23 cm) square pan</AmazonLink> matches the wrapper layout, with enough depth for the filling. That makes the layering easier without spreading everything over an oversized dish. Cover it with foil as directed, then use a nonmetal utensil to serve. A suitable 9-inch (23 cm) square dish you already own is an equally good choice."
+        },
+        {
+          "file": "src/content/recipes/carrot-cake-cream-cheese-frosting.mdx",
+          "line": 118,
+          "text": "Already own a blender and a 9-inch / 23 cm square baking dish? You’re set. There’s no need for a stand mixer just to make the frosting. If you need a pan, the <AmazonLink product=\"usaPan9Inch\">USA Pan 9-inch square pan</AmazonLink> is one option; the [Farberware 9-inch square pan](https://farberwarecookware.com/products/nonstick-bakeware-square-cake-pan) is a simpler alternative. Follow the pan’s greasing instructions. USA Pan advises against cooking spray."
         }
       ],
       "browserRecheck": {
@@ -1219,7 +1224,9 @@
         "finalUrl": "https://www.amazon.com/dp/B002UNMZO4?th=1&language=en_US&tag=cravesmart09-20",
         "verified": true,
         "evidence": "Exact destination title and product variant verified in Chrome with the current tag."
-      }
+      },
+      "lastVerifiedAt": "2026-10-23",
+      "verificationNote": "Approved product link resolved to the matching Amazon product title; no stock, price or earnings claim."
     },
     {
       "product": "rubbermaidBrilliance47Cup4Pack",
@@ -1316,6 +1323,40 @@
           "text": "The <AmazonLink product=\"tempProTP19H\">TempPro TP19H instant-read thermometer</AmazonLink> has a backlit, rotating display that makes checking the center of the bake easier. The probe folds away afterwards, so it stores neatly too. Use it for a spot check, not left in the oven, and still check that the wrappers are soft before serving."
         }
       ]
+    },
+    {
+      "product": "ninjaProfessionalBL610",
+      "asin": "B00NGV4506",
+      "selectedAsin": "B00NGV4506",
+      "title": "Ninja Professional BL610 blender",
+      "url": "https://www.amazon.com/dp/B00NGV4506?tag=cravesmart09-20",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/salted-date-caramel-protein-shake.mdx",
+          "line": 104,
+          "text": "The <AmazonLink product=\"ninjaProfessionalBL610\">Ninja Professional BL610</AmazonLink> is an optional ice-crushing model with a full-size pitcher. Use an ice-capable blender you already own first, and split the mixture if needed. This model is for cold blending, not hot soup."
+        }
+      ],
+      "lastVerifiedAt": "2026-10-23",
+      "verificationNote": "Approved product link resolved to the matching Amazon product title; no stock, price or earnings claim."
+    },
+    {
+      "product": "oxoMediumCookieScoop",
+      "asin": "B0000CDVD2",
+      "selectedAsin": "B0000CDVD2",
+      "title": "OXO medium cookie scoop",
+      "url": "https://www.amazon.com/dp/B0000CDVD2?tag=cravesmart09-20",
+      "verified": true,
+      "occurrences": [
+        {
+          "file": "src/content/recipes/chocolate-chip-protein-cookies.mdx",
+          "line": 109,
+          "text": "The <AmazonLink product=\"oxoMediumCookieScoop\">OXO medium cookie scoop</AmazonLink> is an optional convenience for sticky dough. Two spoons work too. Divide the complete batch into twelve equal portions; one scoopful is not automatically one cookie."
+        }
+      ],
+      "lastVerifiedAt": "2026-10-23",
+      "verificationNote": "Approved product link resolved to the matching Amazon product title; no stock, price or earnings claim."
     }
   ],
   "additionalRecipeReview": {
