@@ -6,7 +6,8 @@
       "codex/amazon-associate-migration": false,
       "codex/affiliate-click-analytics": false,
       "codex/pinterest-campaign-attribution": false,
-      "codex/newsletter-signup-repair": false
+      "codex/newsletter-signup-repair": false,
+      "codex/search-console-recipes-404": false
     }
   }
 }

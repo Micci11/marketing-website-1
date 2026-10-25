@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RecipeCard from '../../components/RecipeCard.astro';
+
+const recipes = (await getCollection('recipes'))
+  .filter((recipe) => recipe.data.verdict === 'Works')
+  .sort((a, b) => (b.data.pubDate?.getTime() || 0) - (a.data.pubDate?.getTime() || 0));
+---
+
+<BaseLayout
+  title="All Recipes – CraveSmart"
+  description="Browse all CraveSmart recipes: proven viral breakfasts, dinners, snacks, and desserts with smart macros."
+  canonical="/recipes/"
+>
+  <section class="container mx-auto max-w-7xl px-4 py-16 md:py-24">
+    <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-center text-gray-900">
+      All Recipes
+    </h1>
+    <p class="text-xl text-center mb-12 text-gray-700 max-w-3xl mx-auto">
+      Find your next craving, from easy breakfasts and satisfying dinners to snacks and desserts.
+    </p>
+    <h2 class="text-3xl font-heading font-bold mb-8 text-gray-900">Latest recipes</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {recipes.map((recipe) => <RecipeCard entry={recipe} />)}
+    </div>
+  </section>
+</BaseLayout>
