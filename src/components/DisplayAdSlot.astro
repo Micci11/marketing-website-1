@@ -1,0 +1,50 @@
+---
+import { displayAdPreview } from '../config/displayAds';
+
+// This is a local layout fixture, not an APS integration or a publisher identifier.
+// Replace the fixture only after the account-issued integration has been reviewed.
+---
+
+{displayAdPreview && (
+  <div class="display-ad-container" data-display-ad-preview>
+    <aside class="display-ad-placement" aria-label="Advertisement layout preview">
+      <p class="display-ad-label">Advertisement · layout preview</p>
+      <div id="cravesmart-ad-recipe-end" class="display-ad-slot">
+        <span>300 × 250<br />Local preview — no ad requested</span>
+      </div>
+    </aside>
+    <style is:inline>
+      .display-ad-container { container-type: inline-size; }
+      .display-ad-placement { display: none; }
+      @container (min-width: 300px) {
+        .display-ad-placement {
+          display: block;
+          width: 300px;
+          margin: 3rem auto;
+        }
+      }
+      .display-ad-label {
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        text-align: center;
+      }
+      .display-ad-slot {
+        box-sizing: border-box;
+        width: 300px;
+        height: 250px;
+        display: grid;
+        place-items: center;
+        border: 1px dashed #9ca3af;
+        background: #f3f4f6;
+        color: #4b5563;
+        font-size: 0.875rem;
+        text-align: center;
+      }
+      @media print {
+        .display-ad-container { display: none !important; }
+      }
+    </style>
+  </div>
+)}

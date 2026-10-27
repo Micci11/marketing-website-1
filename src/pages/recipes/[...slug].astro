@@ -2,6 +2,7 @@
 export const prerender = true;
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import DisplayAdSlot from '../../components/DisplayAdSlot.astro';
 import { getCollection, render } from 'astro:content';
 import "../../styles/global.css";
 
@@ -580,6 +581,8 @@ const relatedRecipes = allRecipes
         </div>
       )}
     </section>
+
+    <DisplayAdSlot />
 
     {relatedRecipes.length > 0 && (
       <section class="mt-16">
