@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Analytics from "../components/Analytics.astro";
+import { displayAdPreview } from "../config/displayAds";
 
 const siteUrl = "https://www.cravesmart.recipes";
 
@@ -30,8 +31,10 @@ const imageUrl = image
     <meta charset="utf-8" />
     <meta name="amazon-publisher-verify" content="amzn-publisher-aE1aGBeME6B7SI8vfcVrDg">
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4657643096944710"
-     crossorigin="anonymous"></script>
+    {!displayAdPreview && (
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4657643096944710"
+       crossorigin="anonymous"></script>
+    )}
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />

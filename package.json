@@ -8,6 +8,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "check:amazon": "node scripts/check-amazon-links.mjs",
+    "check:ads": "node scripts/check-display-ads.mjs",
     "test:analytics": "node --test scripts/analytics.test.mjs"
   },
   "dependencies": {
