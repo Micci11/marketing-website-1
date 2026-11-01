@@ -5,7 +5,7 @@ const root=process.argv[2] || '.vercel/output/static';
 const targets=[
  ['carrot-cake-cream-cheese-frosting',18,6,'desserts',9,160,13,15,5],
  ['salted-date-caramel-protein-shake',13,5,'breakfast',1,490,52,51,11],
- ['roasted-broccoli-feta-protein-soup',14,6,'dinner',null],
+ ['roasted-broccoli-feta-protein-soup',14,6,'dinner',4,330,25,29,14],
  ['cheesy-chicken-broccoli-pesto-bake',10,7,'dinner',4,590,55,58,16],
  ['chocolate-chip-protein-cookies',16,8,'snacks',12,123,10,14,4],
  ['crispy-buffalo-chicken-rice-paper-hot-pockets',9,7,'dinner',3,460,59,31,10],
@@ -30,13 +30,17 @@ for(const [slug,ingredients,steps,category,servings,kcal,protein,carbs,fat] of t
  assert.deepEqual(schema.recipeIngredient,units.metric.slice(0,ingredients));
  assert.deepEqual(schema.recipeInstructions.map(s=>s.text),units.metric.slice(ingredients));
  assert.ok(units.us.some((v,i)=>v!==units.metric[i]),slug+' unit toggle changes order');
- if(servings){
-  assert.deepEqual([schema.nutrition.calories,schema.nutrition.proteinContent,schema.nutrition.carbohydrateContent,schema.nutrition.fatContent],[kcal+' calories',protein+' g',carbs+' g',fat+' g']);
-  assert.ok(schema.nutrition.description && schema.nutrition.servingSize);
- }else{
-  assert.ok(!schema.nutrition,'Soup has no verified per-serving macros');
-  assert.equal(schema.recipeYield,'about 4 generous servings, estimated');
-  assert.ok(html.includes('Nutrition per serving has not been confirmed.'));
+ assert.deepEqual([schema.nutrition.calories,schema.nutrition.proteinContent,schema.nutrition.carbohydrateContent,schema.nutrition.fatContent],[kcal+' calories',protein+' g',carbs+' g',fat+' g']);
+ assert.ok(schema.nutrition.description && schema.nutrition.servingSize);
+ if(slug==='roasted-broccoli-feta-protein-soup'){
+  assert.equal(schema.nutrition['@type'],'NutritionInformation');
+  assert.equal(schema.recipeYield,`${servings} servings`);
+  assert.equal(schema.nutrition.servingSize,'¼ of the finished batch');
+  const note=schema.nutrition.description;
+  for(const qualifier of ['Estimated nutrition per serving (¼ of the finished batch)', '330 calories, 25 g protein, 29 g carbohydrate, 14 g fat and 8 g fiber', '1 tbsp / 15 ml olive oil', 'regular feta', '2% cottage cheese', 'chicken bone broth', '240 g drained white beans', 'without garnish', 'second tablespoon of oil adds about 30 calories and 3.4 g fat per serving', 'Actual values vary']) assert.ok(note.includes(qualifier),slug+' nutrition qualification: '+qualifier);
+  assert.ok(html.replace(/<script\b[^>]*>[^]*?<\/script>/g,'').includes(note),'Nutrition caveat is visible, not only in JSON-LD');
+  assert.doesNotMatch(html,/Nutrition per serving has not been confirmed|about 4 generous servings, estimated/);
+  assert.match(schema.recipeInstructions.at(-1).text,/four equal servings/);
  }
  assert.ok(!/review notes|see the review note|Inspiration|317 calories|Nando|third-party certification|generated placeholder/i.test(source));
  assert.ok(sitemap.includes(`/recipes/${slug}/`));
