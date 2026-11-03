@@ -10,7 +10,6 @@ const walk = (dir) => readdirSync(dir).flatMap((name) => {
   const path = join(dir, name);
   return statSync(path).isDirectory() ? walk(path) : [path];
 });
-const expectedByRecipe = new Map();
 for (const record of audit.products) {
   assert.ok(record.verified, `Unverified product: ${record.product}`);
   const url = new URL(getAmazonUrl(record.product));
@@ -19,22 +18,28 @@ for (const record of audit.products) {
   assert.equal(url.pathname, `/dp/${record.selectedAsin}`);
   assert.deepEqual(url.searchParams.getAll('tag'), [AMAZON_ASSOCIATE_ID]);
   assert.ok(!url.searchParams.has('linkId'), 'Obsolete link attribution must not survive');
-  for (const reference of record.occurrences) {
-    const expected = expectedByRecipe.get(reference.file) ?? [];
-    expected.push(record.product);
-    expectedByRecipe.set(reference.file, expected);
-  }
 }
 assert.equal(Object.keys(amazonProducts).length, audit.products.length);
 assert.throws(() => getAmazonUrl('nonexistent-product'), /Unknown Amazon product/);
 assert.throws(() => getAmazonUrl('toString'), /Unknown Amazon product/);
 let sourceCount = 0;
+let recipeCount = 0;
+const usedProducts = new Set();
 for (const path of walk(sourceRoot).filter((p) => p.endsWith('.mdx'))) {
   const text = readFileSync(path, 'utf8');
   assert.ok(!/https?:\/\/(?:amzn\.to|(?:[^/]+\.)?amazon\.[^/]+)/i.test(text), `Uncentralized Amazon URL: ${path}`);
-  const ids = [...text.matchAll(/<AmazonLink product="([^"]+)"/g)].map((m) => m[1]);
+  // Historical occurrences document the migration; current recipe selections can change.
+  // Keep checking every current selection against the verified catalog and rendered output.
+  const toolBlock = text.match(/^recipeTools:\n((?:[ \t]+.*\n|\n)*)/m)?.[1] ?? '';
+  const ids = [
+    ...[...text.matchAll(/<AmazonLink product="([^"]+)"/g)].map((m) => m[1]),
+    ...[...toolBlock.matchAll(/product: "([^"]+)"/g)].map((m) => m[1]),
+  ];
   const relative = path.slice(resolve('.').length + 1);
-  assert.deepEqual(ids.toSorted(), (expectedByRecipe.get(relative) ?? []).toSorted(), `Product/count changed: ${relative}`);
+  for (const id of ids) {
+    assert.ok(audit.products.some((record) => record.product === id && record.verified), `Unverified selection: ${id}`);
+    usedProducts.add(id);
+  }
   const slug = text.match(/^slug:\s*"([^"]+)"/m)?.[1];
   assert.ok(slug, `Missing slug: ${relative}`);
   const html = readFileSync(join(outputRoot, 'recipes', slug, 'index.html'), 'utf8');
@@ -46,10 +51,10 @@ for (const path of walk(sourceRoot).filter((p) => p.endsWith('.mdx'))) {
     assert.ok(anchor.includes('sponsored') && anchor.includes('nofollow') && anchor.includes('noopener'), `Missing affiliate rel: ${href}`);
   }
   sourceCount += ids.length;
+  recipeCount++;
 }
 for (const path of walk(outputRoot).filter((p) => p.endsWith('.html'))) {
   const html = readFileSync(path, 'utf8');
   assert.ok(!/amzn\.to|cravesmart0b-20|mobile0e3fb8b-20/.test(html), `Old attribution in output: ${path}`);
 }
-assert.equal(sourceCount, audit.products.reduce((n, p) => n + p.occurrences.length, 0));
-console.log(`PASS: ${sourceCount} rendered affiliate links, ${audit.products.length} verified products, ${expectedByRecipe.size} recipes; exact ASINs, variant parameters and centralized tag.`);
+console.log(`PASS: ${sourceCount} rendered affiliate links, ${usedProducts.size} used products from ${audit.products.length} verified products, ${recipeCount} recipes; exact ASINs, variant parameters and centralized tag.`);

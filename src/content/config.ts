@@ -41,6 +41,11 @@ const recipes = defineCollection({
       })
     ).optional(),
 
+    recipeTools: z.array(z.object({
+      product: z.string(),
+      purpose: z.string(),
+    })).max(2).optional(),
+
     prepTime: z.string().optional(),
     activeTime: z.string().optional(),
     cookTime: z.string().optional(),

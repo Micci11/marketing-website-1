@@ -2,6 +2,9 @@
 export const prerender = true;
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AmazonLink from '../../components/AmazonLink.astro';
+import NewsletterSignup from '../../components/NewsletterSignup.astro';
+import { newsletterEnabled } from '../../config/newsletter';
 import { getCollection, render } from 'astro:content';
 import "../../styles/global.css";
 
@@ -149,7 +152,8 @@ const {
   faq,
   sourceNote,
   nutritionNote,
-  affiliateLinks
+  affiliateLinks,
+  recipeTools
 } = entry.data;
 
 const primaryMealType = mealType?.[0];
@@ -581,6 +585,29 @@ const relatedRecipes = allRecipes
       )}
     </section>
 
+    {recipeTools && recipeTools.length > 0 && (
+      <section aria-labelledby="recipe-tools-heading" class="recipe-tools mt-10 max-w-3xl mx-auto border-t border-gray-200 pt-8">
+        <h2 id="recipe-tools-heading" class="text-2xl font-heading font-bold text-gray-900 mb-3">Helpful kitchen tools</h2>
+        <p class="text-sm text-gray-700 mb-4">Use the tools you already have. These are optional shopping links. As an Amazon Associate I earn from qualifying purchases, at no extra cost to you.</p>
+        <ul class="space-y-3 text-gray-700">
+          {recipeTools.map((tool) => (
+            <li>
+              <span class="underline"><AmazonLink product={tool.product} placement="after_recipe" /></span>
+              {' — '}{tool.purpose}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {newsletterEnabled && (
+      <section aria-labelledby="recipe-newsletter-heading" class="recipe-newsletter mt-10 max-w-3xl mx-auto rounded-2xl bg-hero-bg/30 p-6 md:p-8">
+        <h2 id="recipe-newsletter-heading" class="text-2xl font-heading font-bold text-gray-900 mb-3">Get more CraveSmart recipes</h2>
+        <p class="text-gray-700 mb-5">Enjoyed this recipe? Get new high-protein recipe ideas in your inbox.</p>
+        <NewsletterSignup />
+      </section>
+    )}
+
     {relatedRecipes.length > 0 && (
       <section class="mt-16">
         <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-8">
@@ -640,6 +667,7 @@ const relatedRecipes = allRecipes
 
   <style is:global>
     @media print {
+      .recipe-tools, .recipe-newsletter { display: none !important; }
       body:has([data-print-recipe]) { background: white; display: block; }
       body:has([data-print-recipe]) > :not(main),
       body:has([data-print-recipe]) main > :not([data-print-recipe]),
