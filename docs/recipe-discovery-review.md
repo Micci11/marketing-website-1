@@ -1,7 +1,7 @@
 # Recipe clarity and discovery review
 
 Prepared November 3, 2026 against `c3f1bc08ef02877abb0edda165db19043fd7cebc`.
-This is a draft PR for review. The branch is disabled in Vercel's Git deployment configuration; merging and deploying are separate actions.
+These changes are prepared for review and intended for a draft PR. The branch is disabled in Vercel's Git deployment configuration; merging and deploying are separate actions.
 
 ## Changes and evidence
 
