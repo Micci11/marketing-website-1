@@ -11,6 +11,8 @@ const {
   description = "Macro-aware indulgences that still satisfy. Eat what you want. Plan what it costs.",
   image,
   canonical,
+  noindex = false,
+  showAds = true,
 } = Astro.props;
 
 const canonicalUrl = canonical
@@ -30,8 +32,11 @@ const imageUrl = image
     <meta charset="utf-8" />
     <meta name="amazon-publisher-verify" content="amzn-publisher-aE1aGBeME6B7SI8vfcVrDg">
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4657643096944710"
-     crossorigin="anonymous"></script>
+    {showAds && (
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4657643096944710"
+       crossorigin="anonymous"></script>
+    )}
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />

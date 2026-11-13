@@ -2,12 +2,14 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": {
+      "codex/recipe-clarity-and-discovery": false,
       "codex/seven-recipe-corrections": false,
       "codex/amazon-associate-migration": false,
       "codex/affiliate-click-analytics": false,
       "codex/pinterest-campaign-attribution": false,
       "codex/newsletter-signup-repair": false,
-      "codex/search-console-recipes-404": false
+      "codex/search-console-recipes-404": false,
+      "codex/astro7-security-migration": false
     }
   }
 }

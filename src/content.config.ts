@@ -1,4 +1,5 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 const recipes = defineCollection({
@@ -40,6 +41,11 @@ const recipes = defineCollection({
         url: z.string().url(),
       })
     ).optional(),
+
+    recipeTools: z.array(z.object({
+      product: z.string(),
+      purpose: z.string(),
+    })).max(2).optional(),
 
     prepTime: z.string().optional(),
     activeTime: z.string().optional(),

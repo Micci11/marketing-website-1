@@ -8,14 +8,18 @@
     "preview": "astro preview",
     "astro": "astro",
     "check:amazon": "node scripts/check-amazon-links.mjs",
-    "test:analytics": "node --test scripts/analytics.test.mjs"
+    "test:analytics": "node --test scripts/analytics.test.mjs",
+    "test:contact": "node --test scripts/contact.test.mjs",
+    "check:content": "node scripts/check-content-readiness.mjs",
+    "test:measurements": "node --test scripts/recipe-measurements.test.mjs",
+    "check:security-baseline": "node scripts/check-security-baseline.mjs",
+    "check:built-runtime": "node scripts/check-built-runtime.mjs"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/sitemap": "^3.7.1",
-    "@astrojs/tailwind": "^6.0.2",
-    "@astrojs/vercel": "^8.0.4",
-    "astro": "^5.16.9",
+    "@astrojs/mdx": "^8.1.5",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/vercel": "^11.0.21",
+    "astro": "^7.4.11",
     "autoprefixer": "^10.4.23",
     "postcss": "^8.5.6",
     "resend": "^6.9.4",
@@ -23,5 +27,16 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19"
+  },
+  "overrides": {
+    "@tailwindcss/typography": {
+      "postcss-selector-parser": "6.1.6"
+    },
+    "@vercel/routing-utils": {
+      "path-to-regexp": "6.3.0"
+    }
+  },
+  "engines": {
+    "node": ">=22.23.4 <23"
   }
 }
