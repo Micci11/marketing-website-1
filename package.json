@@ -11,7 +11,8 @@
     "test:analytics": "node --test scripts/analytics.test.mjs",
     "test:contact": "node --test scripts/contact.test.mjs",
     "check:content": "node scripts/check-content-readiness.mjs",
-    "test:measurements": "node --test scripts/recipe-measurements.test.mjs"
+    "test:measurements": "node --test scripts/recipe-measurements.test.mjs",
+    "check:security-baseline": "node scripts/check-security-baseline.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
@@ -26,5 +27,13 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19"
+  },
+  "overrides": {
+    "@vercel/routing-utils": {
+      "path-to-regexp": "6.3.0"
+    },
+    "@tailwindcss/typography": {
+      "postcss-selector-parser": "6.1.6"
+    }
   }
 }

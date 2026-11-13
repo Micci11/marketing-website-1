@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import { existsSync, readFileSync } from 'node:fs';
+import config from '../astro.config.mjs';
+const lock = JSON.parse(readFileSync(new URL('../package-lock.json', import.meta.url)));
+assert.equal(config.image.service.entrypoint, 'astro/assets/services/noop');
+assert.equal(lock.packages['node_modules/path-to-regexp'].version, '6.3.0');
+const selectors = Object.entries(lock.packages).filter(([path]) => path.endsWith('/postcss-selector-parser'));
+assert(selectors.length > 0);
+assert(selectors.every(([, pkg]) => !/^6\.(?:0\.|1\.[0-4]$)/.test(pkg.version)));
+const output = '.vercel/output/functions/_render.func';
+assert(existsSync(`${output}/.vc-config.json`), 'Run the production build first');
+assert(!existsSync(`${output}/node_modules/sharp`), 'Do not bundle unused Sharp processing');
+assert.equal(JSON.parse(readFileSync(`${output}/.vc-config.json`)).runtime, 'nodejs22.x');
+console.log('PASS: no-op image service, patched routing/selector dependencies, no Sharp in server function, Node 22 runtime. Remaining advisories are documented, not waived.');
