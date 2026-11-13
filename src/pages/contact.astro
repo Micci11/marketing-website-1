@@ -18,6 +18,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="grid md:grid-cols-2 gap-12">
         <!-- Form -->
         <div>
+          <p id="contact-success" role="status" hidden class="mb-6 rounded-xl bg-green-50 p-4 text-green-900">Thank you. Your message was submitted.</p>
           <form action="/api/contact" method="POST" class="space-y-6">
             <div>
               <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
@@ -61,32 +62,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </form>
         </div>
 
-        <!-- Contact Info -->
-        <div class="space-y-6">
+        <aside class="space-y-6">
           <div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Email</h3>
-            <p class="text-gray-700">
-              <a href="mailto:hello@cravesmart.com" class="text-inherit hover:text-tiffany transition-colors">
-                hello@cravesmart.com
-              </a>
-            </p>
+            <h2 class="text-xl font-bold text-gray-900 mb-2">Recipe questions and corrections</h2>
+            <p class="text-gray-700">Use the form to tell us which recipe you made, the step you have a question about, and any ingredient substitutions. Your appliance and portion size can also help explain a cooking result.</p>
           </div>
-
           <div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Collaborations</h3>
-            <p class="text-gray-700">
-              For partnerships, brand deals, or media inquiries, please reach out via email and include details about your request.
-            </p>
+            <h2 class="text-xl font-bold text-gray-900 mb-2">Other inquiries</h2>
+            <p class="text-gray-700">For collaborations or other requests, include the relevant details in your message.</p>
           </div>
-
-          <div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Response Time</h3>
-            <p class="text-gray-700">
-              We typically respond within 24–48 hours.
-            </p>
-          </div>
-        </div>
+          <p class="text-sm text-gray-600">Please avoid including sensitive information. Read our <a href="/privacy" class="underline">privacy policy</a> for how contact messages are handled.</p>
+        </aside>
       </div>
     </div>
   </section>
+<script is:inline>
+  const contactSuccess = document.getElementById('contact-success');
+  if (contactSuccess && new URLSearchParams(window.location.search).get('success') === 'true') {
+    contactSuccess.hidden = false;
+  }
+</script>
 </BaseLayout>

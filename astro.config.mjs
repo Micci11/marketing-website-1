@@ -7,5 +7,5 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://www.cravesmart.recipes',
   adapter: vercel(),
-  integrations: [tailwind(), mdx(), sitemap()],
+  integrations: [tailwind(), mdx(), sitemap({ filter: (page) => !/\/supplements\/?$/.test(page) })],
 });

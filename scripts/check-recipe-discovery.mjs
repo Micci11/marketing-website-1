@@ -7,13 +7,6 @@ const enabled = process.argv.includes('--newsletter-enabled');
 const read = (path) => readFileSync(`${root}/${path}`, 'utf8');
 const decode = (s) => s.replaceAll('&amp;', '&').replaceAll('&quot;', '"').replaceAll('&#39;', "'");
 const schemaFor = (html) => JSON.parse(html.match(/<script type="application\/ld\+json">([^]*?)<\/script>/)[1]);
-const revised = new Map([
-  ['spicy-cottage-cheese-fried-eggs', 1],
-  ['high-protein-stuffed-chicken-fries', 2],
-  ['high-protein-crispy-chicken-tacos', 2],
-  ['high-protein-breakfast-egg-bake-meal-prep', 2],
-  ['high-protein-creamy-tomato-soup', 2],
-]);
 const schemas = new Map();
 for (const file of readdirSync('src/content/recipes').filter((f) => f.endsWith('.mdx'))) {
   const source = readFileSync(`src/content/recipes/${file}`, 'utf8');
@@ -35,7 +28,9 @@ for (const file of readdirSync('src/content/recipes').filter((f) => f.endsWith('
   } else {
     assert.doesNotMatch(html, /id="recipe-newsletter-heading"/);
   }
-  if (!revised.has(slug)) continue;
+  const toolCount = (source.split('\n---')[0].match(/^  - product:/gm) || []).length;
+  if (!toolCount) continue;
+  assert.ok(toolCount <= 2, `${slug}: at most two optional shopping links`);
   assert.equal(decode(html.match(/<h1\b[^>]*>\s*([^]*?)\s*<\/h1>/)[1]).trim(), schema.name);
   assert.equal(decode(html.match(/<meta name="description" content="([^"]+)"/)[1]), schema.description);
   assert.ok(html.includes(`rel="canonical" href="https://www.cravesmart.recipes/recipes/${slug}"`));
@@ -43,7 +38,7 @@ for (const file of readdirSync('src/content/recipes').filter((f) => f.endsWith('
   assert.deepEqual(visibleUS, schema.recipeIngredient, `${slug}: displayed/schema ingredients`);
   for (const step of schema.recipeInstructions) assert.ok(decode(html).includes(step.text));
   const links = [...html.matchAll(/<a\b[^>]*data-affiliate-link[^>]*>/g)];
-  assert.equal(links.length, revised.get(slug));
+  assert.equal(links.length, toolCount);
   assert.ok(html.indexOf('id="recipe-tools-heading"') > html.indexOf('id="recipe-card"'));
   assert.ok(html.indexOf('As an Amazon Associate') < html.indexOf('data-affiliate-link'));
   assert.match(html, /\.recipe-tools,\s*\.recipe-newsletter\s*\{\s*display:\s*none\s*!important/);
@@ -66,6 +61,16 @@ const bake = read('recipes/high-protein-breakfast-egg-bake-meal-prep/index.html'
 assert.doesNotMatch(bake, /especially when slightly underbaked|Slightly softer centers|4–5 days/);
 assert.match(bake, /Fully cook the egg bake before freezing/);
 assert.match(bake, /reheat to 165°F \/ 74°C/);
+assert.equal(schemas.get('high-protein-breakfast-egg-bake-meal-prep').recipeYield, '6 individual egg bakes');
+assert.equal(schemas.get('high-protein-breakfast-egg-bake-meal-prep').totalTime, 'PT55M');
+assert.ok(!('totalTime' in schemas.get('high-protein-cottage-cheese-cheesecake')), 'Cooling and chilling are not a fixed measured duration');
+assert.match(schemas.get('high-protein-breakfast-egg-bake-meal-prep').nutrition.description, /Whether the vegetables, sausage and shredded cheese were included has not been confirmed/);
+const wings = schemas.get('easy-boneless-wings');
+assert.equal(wings.recipeYield, '2 servings');
+assert.ok(!('cookTime' in wings) && !('totalTime' in wings), 'Wings timing depends on the tender package');
+assert.match(wings.recipeInstructions[0].text, /fully cooked/);
+assert.match(wings.recipeInstructions[3].text, /measured 1\/3 cup/);
+assert.match(wings.nutrition.description, /not verified for a specific tender brand or sauce/);
 const soup = read('recipes/high-protein-creamy-tomato-soup/index.html');
 assert.doesNotMatch(soup, /perfect for pasta|serve over pasta|pizza base|Most high-protein sauces|restaurant-style/);
 assert.match(soup, /1 cup broth/);

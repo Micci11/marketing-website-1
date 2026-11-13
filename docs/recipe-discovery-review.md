@@ -1,7 +1,7 @@
 # Recipe clarity and discovery review
 
 Prepared November 3, 2026 against `c3f1bc08ef02877abb0edda165db19043fd7cebc`.
-These changes are prepared for review and intended for a draft PR. The branch is disabled in Vercel's Git deployment configuration; merging and deploying are separate actions.
+These changes are prepared on the review branch; draft-PR creation remains pending. The branch is disabled in Vercel's Git deployment configuration; merging and deploying are separate actions.
 
 ## Changes and evidence
 
@@ -41,6 +41,8 @@ These safety endpoints clarify doneness; they do not establish that a particular
 
 On November 3, Micci answered “Soup” when asked whether the tomato recipe was intended as soup or pasta sauce. That resolves the intended dish; it does not provide new nutrition-calculation assumptions. The recipe remains soup with its existing quantities and numeric nutrition values.
 
+The following table records the November 3 ingredient-list distinctions. **The chicken-fries coating remains unresolved:** on November 4 the owner sent an incomplete correction, and the follow-up asking whether it meant the egg/breadcrumb/parmesan coating and its nutrition inclusion was not answered. Neither interpretation is verified; the branch retains the earlier optional-coating method and unchanged numeric macros pending clarification.
+
 The optional additions in the prepared recipes are:
 
 | Recipe | Optional additions |
@@ -55,12 +57,14 @@ These are ingredient-list and variation distinctions, not claims that the origin
 
 ## Remaining decisions and verification
 
-1. **Existing nutrition estimates:** For tomato soup, which cottage cheese, marinara and broth were used, and were chilli or the parmesan variation counted? Do the taco figures include the entire yogurt/mayo sauce, and which tortilla/cheese brands and toppings? Do the chicken-fries figures include the optional egg, breadcrumb/parmesan coating and cooking spray? Were the egg-bake vegetables, sausage and cheese included, and were the fried-eggs optional toppings included? The existing yield and portion counts support one taco/stick per serving, but the calculation assumptions are not recorded. The draft preserves the numbers, qualifies the taco/fries estimates as approximate and makes no inclusion/exclusion claims. No nutrition values have been recalculated.
+1. **Existing nutrition estimates:** For tomato soup, which cottage cheese, marinara and broth were used, and were chilli or the parmesan variation counted? Do the taco figures include the entire yogurt/mayo sauce, and which tortilla/cheese brands and toppings? Do the chicken-fries figures include the optional egg, breadcrumb/parmesan coating and cooking spray? Were the egg-bake vegetables, sausage and cheese included, and were the fried-eggs optional toppings included? The existing yield and portion counts support one taco/stick per serving, but the calculation assumptions are not recorded. The branch preserves the numbers and now visibly identifies the unresolved calculation assumptions for these five recipes and the shortcut wings. It makes no new inclusion/exclusion claims. No nutrition values have been recalculated.
 2. **Newsletter delivery:** A Kit notice dated October 22 reports that a Verified Sending Domain was set up. The prior conversation still lacked a verified inbox-placement result. Current DNS/header verification could not be completed: the environment refused DNS resolution and public DNS-over-HTTPS requests, and the subsequent mailbox search hit a provider rate limit. This does not establish missing DNS records or a current authentication failure. Obtain an existing post-verification CraveSmart email's Authentication-Results header and inbox/spam location, or perform a separately authorized delivery test. Do not change DNS or account settings based on these environmental errors.
 
 Kit's [sending-domain documentation](https://help.kit.com/en/articles/2502558-verify-your-domain-to-optimize-your-deliverability) explains SPF, DKIM and DMARC authentication; its [spam guidance](https://help.kit.com/en/articles/3372365-why-are-my-emails-going-to-spam) explains that authentication alone does not establish inbox placement. No live subscription or test email was created in this work. The recipe signup is prepared in this draft; inbox placement remains unverified.
 
-## Validation
+## Historical validation — November 3
+
+The results below apply to the November 3 commits only. They do not validate the subsequent November 13 changes. See [the current content-readiness review](content-readiness-review.md) for the current source checks, pending build/browser checks and unresolved facts.
 
 Use the existing public GA4 measurement ID for local production builds. Never add an API credential to this test configuration.
 

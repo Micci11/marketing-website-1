@@ -1,57 +1,29 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
+import { processContactForm } from '../../lib/contact.mjs';
 
 export const prerender = false;
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
-
 export const POST: APIRoute = async ({ request }) => {
+  const apiKey = import.meta.env.RESEND_API_KEY;
+  const from = import.meta.env.CONTACT_FROM_EMAIL;
+  const to = import.meta.env.CONTACT_TO_EMAIL;
+
+  if (!apiKey || !from || !to) {
+    return new Response('The contact form is temporarily unavailable. Please try again later.', { status: 503 });
+  }
+
   try {
-    const formData = await request.formData();
-
-    const name = formData.get('name')?.toString().trim();
-    const email = formData.get('email')?.toString().trim();
-    const message = formData.get('message')?.toString().trim();
-
-    if (!name || !email || !message) {
-      console.error('Missing fields', { name, email, message });
-      return new Response('Missing fields', { status: 400 });
-    }
-
-    console.log('Form received:', { name, email, message });
-
-    const result = await resend.emails.send({
-      from: import.meta.env.CONTACT_FROM_EMAIL,
-      to: import.meta.env.CONTACT_TO_EMAIL,
-      replyTo: email,
-      subject: `New Contact Form Message from ${name}`,
-      html: `
-        <h2>New Message</h2>
-        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-        <p><strong>Message:</strong><br/>${escapeHtml(message).replace(/\n/g, '<br/>')}</p>
-      `,
+    const result = await processContactForm(await request.formData(), {
+      from,
+      to,
+      send: (payload: Parameters<Resend['emails']['send']>[0]) => new Resend(apiKey).emails.send(payload),
     });
-
-    console.log('Resend result:', result);
-
-    return new Response(null, {
-      status: 302,
-      headers: {
-        Location: '/contact?success=true',
-      },
+    return new Response(result.body, {
+      status: result.status,
+      headers: result.location ? { Location: result.location } : undefined,
     });
-  } catch (error) {
-    console.error('CONTACT API ERROR:', error);
-    return new Response('Error sending email', { status: 500 });
+  } catch {
+    return new Response('Your message could not be submitted. Please try again later.', { status: 500 });
   }
 };
-
-function escapeHtml(str: string) {
-  return str
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#039;');
-}

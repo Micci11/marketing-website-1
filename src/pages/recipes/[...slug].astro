@@ -5,6 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import AmazonLink from '../../components/AmazonLink.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import { newsletterEnabled } from '../../config/newsletter';
+import { parseFraction } from '../../lib/recipe-measurements.mjs';
 import { getCollection, render } from 'astro:content';
 import "../../styles/global.css";
 
@@ -43,34 +44,13 @@ function tspToMl(tsp: number): string {
   return `${Math.round(tsp * 5)}ml`;
 }
 
-function parseFraction(input: string): number {
-  const normalized = input.trim();
-
-  const fractionMap: Record<string, number> = {
-    "¼": 0.25,
-    "½": 0.5,
-    "¾": 0.75,
-    "⅓": 1 / 3,
-    "⅔": 2 / 3,
-  };
-
-  if (fractionMap[normalized] != null) return fractionMap[normalized];
-
-  if (normalized.includes(" ")) {
-    const [whole, frac] = normalized.split(" ");
-    return parseFloat(whole) + (fractionMap[frac] ?? 0);
-  }
-
-  if (normalized.includes("/")) {
-    const [num, den] = normalized.split("/");
-    return parseFloat(num) / parseFloat(den);
-  }
-
-  return parseFloat(normalized);
-}
-
 function convertIngredientToMetric(text: string): string {
-  let result = text;
+  // Convert both endpoints before the single-amount replacements below.
+  let result = text.replace(
+    /(\d+\s\d+\/\d+|\d+\/\d+|[¼½¾⅓⅔]|\d*\.?\d+)\s*(?:to|–|-)\s*(\d+\s\d+\/\d+|\d+\/\d+|[¼½¾⅓⅔]|\d*\.?\d+)\s*(lb|oz|cups?|tbsp|tsp)\b/gi,
+    (_, lower, upper, unit) =>
+      `${convertIngredientToMetric(lower + ' ' + unit)} to ${convertIngredientToMetric(upper + ' ' + unit)}`
+  );
 
   result = result.replace(
     /(\d+\s\d+\/\d+|\d+\/\d+|[¼½¾⅓⅔]|\d*\.?\d+)\s*lb\b/gi,

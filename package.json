@@ -8,7 +8,10 @@
     "preview": "astro preview",
     "astro": "astro",
     "check:amazon": "node scripts/check-amazon-links.mjs",
-    "test:analytics": "node --test scripts/analytics.test.mjs"
+    "test:analytics": "node --test scripts/analytics.test.mjs",
+    "test:contact": "node --test scripts/contact.test.mjs",
+    "check:content": "node scripts/check-content-readiness.mjs",
+    "test:measurements": "node --test scripts/recipe-measurements.test.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
