@@ -1,5 +1,6 @@
 import { defineConfig, passthroughImageService } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwind from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 import mdx from '@astrojs/mdx';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
@@ -9,5 +10,6 @@ export default defineConfig({
   adapter: vercel(),
   // Images are served directly from public/; do not expose unused Sharp processing.
   image: { service: passthroughImageService() },
-  integrations: [tailwind(), mdx(), sitemap({ filter: (page) => !/\/supplements\/?$/.test(page) })],
+  vite: { css: { postcss: { plugins: [tailwind(), autoprefixer()] } } },
+  integrations: [ mdx(), sitemap({ filter: (page) => !/\/supplements\/?$/.test(page) })],
 });

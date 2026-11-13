@@ -11,4 +11,4 @@ const output = '.vercel/output/functions/_render.func';
 assert(existsSync(`${output}/.vc-config.json`), 'Run the production build first');
 assert(!existsSync(`${output}/node_modules/sharp`), 'Do not bundle unused Sharp processing');
 assert.equal(JSON.parse(readFileSync(`${output}/.vc-config.json`)).runtime, 'nodejs22.x');
-console.log('PASS: no-op image service, patched routing/selector dependencies, no Sharp in server function, Node 22 runtime. Remaining advisories are documented, not waived.');
+console.log('PASS: no-op image service, patched routing/selector dependencies, no Sharp in server function, Node 22 runtime. Run npm audit separately for current advisory status.');

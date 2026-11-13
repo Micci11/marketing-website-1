@@ -8,7 +8,8 @@
       "codex/affiliate-click-analytics": false,
       "codex/pinterest-campaign-attribution": false,
       "codex/newsletter-signup-repair": false,
-      "codex/search-console-recipes-404": false
+      "codex/search-console-recipes-404": false,
+      "codex/astro7-security-migration": false
     }
   }
 }

@@ -5,9 +5,9 @@ import { processContactForm } from '../../lib/contact.mjs';
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
-  const apiKey = import.meta.env.RESEND_API_KEY;
-  const from = import.meta.env.CONTACT_FROM_EMAIL;
-  const to = import.meta.env.CONTACT_TO_EMAIL;
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.CONTACT_FROM_EMAIL;
+  const to = process.env.CONTACT_TO_EMAIL;
 
   if (!apiKey || !from || !to) {
     return new Response('The contact form is temporarily unavailable. Please try again later.', { status: 503 });
